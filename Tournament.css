@@ -1,0 +1,214 @@
+/* Global Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #0A192F; /* Deep dark blue */
+    color: #f1f1f1; /* Soft white text */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-scalable: no; /* Disables zooming */
+    -webkit-user-select: none; /* Prevents text selection */
+    -webkit-touch-callout: none; /* No touch popup */
+}
+
+/* Back Button */
+.back-button a {
+    text-decoration: none;
+    color: #00FFFF; /* Neon Cyan */
+    font-size: 1.5em;
+    margin-left: 20px;
+    display: inline-block;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.back-button a:hover {
+    color: #9400FF; /* Electric Purple */
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Navigation Icons */
+.nav-icons {
+    text-align: center;
+    margin-top: 0px;
+}
+
+.nav-icons i {
+    font-size: 2.2em;
+    color: #00FFFF;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-icons i:hover {
+    color: #9400FF;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(145deg, #9400FF, #00FFFF); /* Neon Cyan gradient */
+
+    color: #ffffff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+    margin: 20px 50px;
+    box-shadow:0 6px 15px rgba(0, 255, 255, 0.4);
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Button Hover Effect */
+button:hover {
+    background: linear-gradient(145deg, #9400FF, #4B0082); /* Electric Purple gradient */
+
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.6);
+}
+
+/* Tournament List Container */
+#tournament-info-container {
+    margin-top: 40px;
+    padding: 0 20px;
+}
+
+/* Card-like Tournament Items */
+.tournament-card {
+    background: rgba(10, 25, 47, 0.8); /* Semi-transparent dark background */
+    backdrop-filter: blur(10px); /* Glass effect */
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+/* Hover Effect */
+.tournament-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+}
+
+/* Tournament Buttons */
+.tournament-card button {
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Button Hover */
+.tournament-card button:hover {
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #00FFFF, #00CCFF);
+
+    color: #0A192F;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 2em;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Floating Button Hover */
+.fab:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Tournament Title */
+.tournament-card .title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #00FFFF;
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+}
+
+/* Tournament Description */
+.tournament-card .description {
+    font-size: 1.1em;
+    color: #e2e2e2;
+}
+
+/* Disable Zooming */
+* {
+    touch-action: manipulation; /* Prevent pinch zoom */
+    -ms-touch-action: manipulation;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    button {
+        width: 80%;
+        margin-bottom: 15px;
+    }
+
+    .next-button {
+        width: 100%;
+    }
+
+    #next-btn {
+        width: 100%;
+        padding: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .header .title {
+        font-size: 22px;
+    }
+
+    .button {
+        width: 100%;
+        margin-bottom: 12px;
+    }
+
+    #next-btn {
+        width: 100%;
+        padding: 16px;
+    }
+}

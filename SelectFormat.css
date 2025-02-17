@@ -1,0 +1,234 @@
+/* General body setup */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #0A192F; /* Deep blue cyberpunk background */
+    color: #f1f1f1; /* Light text color */
+}
+
+/* Header styles */
+.header {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: linear-gradient(90deg, #9400FF, #00FFFF); /* Electric purple to cyan gradient */
+    flex-wrap: wrap;
+    border-bottom: 3px solid #00FFFF; /* Cyan divider */
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.4); /* Cyan glow */
+}
+
+.header i {
+    font-size: 26px;
+    color: #000; /* Black icons for contrast */
+    margin-right: 10px;
+    transition: color 0.3s ease;
+}
+
+.header i:hover {
+    color: #fff; /* White hover effect */
+}
+
+.header .title {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header .title h1 {
+    margin: 0;
+    font-size: 24px;
+    color: #000; /* Black text */
+    text-shadow: 2px 2px 5px rgba(0, 255, 255, 0.6); /* Cyan glow */
+    text-transform: uppercase;
+}
+
+.header .title p {
+    margin: 0;
+    font-size: 14px;
+    color: #ddd; /* Light gray text */
+}
+
+.header .icons {
+    display: flex;
+    align-items: center;
+}
+
+.header .icons i {
+    font-size: 22px;
+    margin-left: 15px;
+    color: #000;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.header .icons i:hover {
+    color: #fff;
+    transform: scale(1.2);
+}
+
+/* Content styles */
+.content {
+    text-align: center;
+    padding: 25px;
+}
+
+.content h2 {
+    margin: 20px 0;
+    font-size: 22px;
+    color: #00FFFF; /* Cyan headings */
+    text-shadow: 1px 1px 6px rgba(0, 255, 255, 0.7); /* Neon glow */
+    text-transform: uppercase;
+}
+
+/* Button styles */
+.button {
+    background: linear-gradient(145deg, #9400FF, #00FFFF); /* Glossy purple-to-cyan gradient */
+    border: none;
+    color: #000000; /* Black text */
+    padding: 16px;
+    text-align: center;
+    font-size: 18px;
+    margin: 20px auto;
+    width: 85%;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.6); /* Neon glow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.8); /* Brighter glow */
+    cursor: pointer;
+}
+
+/* Button container */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Next button */
+.next-button {
+    background: linear-gradient(145deg, #9400FF, #00FFFF); /* Glossy neon gradient */
+    font-size: 20px;
+    width: 90%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    color: #000;
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6); /* Neon glow */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.next-button:hover {
+    background-color: #0088FF; /* Brighter neon blue */
+    transform: scale(1.05);
+    cursor: pointer;
+}
+
+.next-button:focus {
+    outline: none;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.9); /* Glow on focus */    
+}
+
+/* Input Fields */
+input {
+    width: 90%;
+    padding: 14px;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    font-size: 16px;
+    background: #222; /* Dark input background */
+    color: #f1f1f1;
+    text-align: center;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:focus,
+input:hover {
+    border-color: #9400FF; /* Purple border on hover/focus */
+    box-shadow: 0 0 10px rgba(148, 0, 255, 0.7);
+}
+
+/* Footer styles */
+.footer {
+    display: flex;
+    overflow-x: auto;
+    background: linear-gradient(90deg, #00FFFF, #9400FF); /* Reverse gradient */
+    padding: 12px 0;
+    border-top: 3px solid #00FFFF; /* Cyan divider */
+}
+
+.footer img {
+    height: 55px;
+    margin: 0 8px;
+    transition: transform 0.3s ease;
+}
+
+.footer img:hover {
+    transform: scale(1.1);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header i {
+        margin-bottom: 12px;
+    }
+
+    .header .title h1 {
+        font-size: 20px;
+    }
+
+    .button {
+        width: 90%;
+        padding: 14px;
+    }
+
+    .next-button {
+        width: 95%;
+        padding: 16px;
+    }
+
+    .footer {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .footer img {
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .content h2 {
+        font-size: 18px;
+    }
+
+    .button {
+        font-size: 16px;
+        padding: 14px;
+    }
+
+    .next-button {
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .header .title h1 {
+        font-size: 18px;
+    }
+
+    .footer img {
+        height: 40px;
+    }
+}

@@ -1,0 +1,190 @@
+/* General Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: 'Arial', sans-serif;
+  background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+  color: #00FFFF; 
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+/* Overlay to Enhance Neon Effect */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 30%, rgba(10, 25, 47, 0.9) 100%);
+  z-index: -1;
+}
+
+/* Cricket Pitch Texture */
+body::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 20%;
+  background: rgba(0, 0, 0, 0.3);
+  border-top: 2px solid rgba(0, 255, 255, 0.5);
+  border-radius: 50%;
+  box-shadow: 0px -10px 40px rgba(0, 255, 255, 0.3);
+  z-index: -1;
+}
+
+/* Container */
+.container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Header */
+header {
+  margin-bottom: 20px;
+}
+
+/* Heading Animation */
+h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #00FFFF; /* Cyan */
+  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00CCFF;
+  text-align: center;
+  animation: glow 1.5s infinite alternate, bounce 1.5s ease-in-out infinite;
+}
+
+/* Glowing Effect */
+@keyframes glow {
+  0% { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF; }
+  100% { text-shadow: 0 0 20px #00CCFF, 0 0 40px #00CCFF; }
+}
+
+/* Bounce Effect */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Main Options */
+main {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+
+/* Option Box */
+.option {
+  background: linear-gradient(145deg, #00FFFF, #00CCFF); /* Electric Purple gradient */
+  border: 2px solid #1A0033;
+  border-radius: 15px;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 5px 15px rgba(128, 0, 255, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.8);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.option i {
+  font-size: 50px;
+  color: #0A192F;
+}
+
+.option h2 {
+  margin-top: 10px;
+  color: #0A192F;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.option a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.option:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 25px rgba(128, 0, 255, 0.7), 0px 0px 15px rgba(0, 0, 0, 1);
+  background: linear-gradient(145deg, #9400D3, #4B0082);
+}
+
+/* Glossy Effect */
+.option:before {
+  content: '';
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  transform: translateY(-20px) rotate(-45deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.option:hover:before {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Stadium Floodlight Glow */
+.floodlight {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(0, 255, 255, 0) 70%);
+  opacity: 0.7;
+  z-index: -1;
+}
+
+.floodlight.left {
+  top: 10%;
+  left: 5%;
+}
+
+.floodlight.right {
+  top: 10%;
+  right: 5%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  main {
+      padding: 20px;
+      margin-top: 0; /* Remove excess space */
+  }
+
+  .option {
+      width: 140px;
+      height: 140px;
+  }
+
+  .option i {
+      font-size: 35px;
+  }
+
+  .option h2 {
+      font-size: 16px;
+  }
+
+  .floodlight {
+      width: 150px;
+      height: 150px;
+  }
+}
