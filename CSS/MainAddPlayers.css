@@ -1,0 +1,396 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background: #0A192F; /* Deep Blue Background */
+    color: #00FFFF; /* Cyan Text */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+/* Header */
+.header {
+    font-size: 2.5em;
+    text-align: center;
+    margin-top: 30px;
+    color: #00FFFF; /* Neon Cyan */
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00CCFF, 0 0 40px #00CCFF;
+    letter-spacing: 2px;
+    animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+    0% { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF; }
+    100% { text-shadow: 0 0 20px #9400FF, 0 0 40px #9400FF; }
+}
+
+
+/* Add Player Section */
+.add-player-section {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    justify-content: center;
+}
+
+.add-player-section input {
+    flex: 1;
+    padding: 12px;
+    border-radius: 8px;
+    border: 2px solid #00FFFF;
+    background: #0A192F;
+    color: #00FFFF;
+    font-size: 1.1em;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.7);
+    transition: all 0.3s ease-in-out;
+}
+
+.add-player-section input:focus {
+    border-color: #9400FF; /* Electric Purple */
+    box-shadow: 0 0 16px rgba(148, 0, 255, 0.8);
+    outline: none;
+}
+.add-player-section button {
+    padding: 12px 25px;
+    background: linear-gradient(145deg, #9400FF, #00FFFF);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 12px rgba(0, 255, 255, 0.6);
+}
+
+.add-player-section button:hover {
+    background: linear-gradient(145deg,  #00FFFF, #9400FF);
+    transform: scale(1.05);
+    box-shadow:0 6px 15px rgba(148, 0, 255, 0.8);
+}
+
+
+/* Player List */
+/* Player List */
+ul {
+    list-style: none;
+    padding: 0;
+    
+ 
+}
+
+li {
+    background: linear-gradient(145deg, #1c1c3d, #333366);
+    padding: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #00FFFF;
+    font-size: 1.2em;
+    font-weight: 500;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease
+}
+
+/* Styling for the numbering */
+.player-number {
+    font-weight: bold;
+    color: #ffffff;
+    margin-right: 10px;
+    font-size: 1.2em;
+}
+.player-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffffff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.player-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Ensures space between player info & buttons */
+    padding: 10px;
+    border-radius: 5px;
+    background: linear-gradient(135deg, #9400FF, #00FFFF );
+    margin-bottom: 5px;
+    color: white;
+}
+.player-info {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+li div {
+    display: flex;
+    gap: 10px;
+}
+
+li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5);
+}
+
+/* Buttons inside List Items */
+li button {
+    margin-left: 15px;
+    padding: 8px 18px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+.button-container {
+    display: flex;
+    gap: 10px; /* Adds space between buttons */
+}
+
+.edit-button,
+.delete-button {
+    padding: 8px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    transition: all 0.3s ease-in-out;
+}
+.edit-button {
+    background: linear-gradient(145deg, #00FFFF, #00CCFF);
+    color: #0A192F;
+}
+
+.edit-button:hover {
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    transform: scale(1.1);
+}
+
+
+/* Popup Styles */
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(145deg, #0A192F, #222244);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 255, 255, 0.9);
+    display: none;
+    z-index: 1000;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+}
+
+.popup input {
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #00FFFF;
+    border-radius: 8px;
+    background: #0A192F;
+    color: #00FFFF;
+    font-size: 1.1em;
+}
+
+.popup input:focus {
+    border-color: #9400FF;
+    box-shadow: 0 0 12px rgba(148, 0, 255, 0.8);
+}
+
+.popup button {
+    padding: 12px 15px;
+    margin: 10px 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1em;
+    width: 45%;
+}
+
+.confirm-button {
+    background: linear-gradient(145deg, #28a745, #218838);
+    color: white;
+}
+
+.confirm-button:hover {
+    background-color: #218838;
+    transform: scale(1.05);
+}
+
+.cancel-button {
+    background: #FF4500;
+    color: white;
+}
+
+.cancel-button:hover {
+    background-color: #C53000;
+    transform: scale(1.05);
+}
+
+/* Home Button */
+.home-button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+}
+
+#homeButton {
+    background: linear-gradient(145deg, #9400FF, #00FFFF);
+    color: #0A192F;
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease-in-out;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#homeButton:hover {
+    background: linear-gradient(145deg, #00FFFF, #9400FF);
+    transform: scale(1.1);
+    box-shadow:  0 8px 20px rgba(148, 0, 255, 0.8);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .add-player-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .add-player-section input {
+        width: 90%;
+    }
+
+    li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .home-button-container {
+        width: 90%;
+        bottom: 10px;
+    }
+
+    #homeButton {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+
+    ul {
+        padding-bottom: 10px; /* More space for smaller screens */
+    }
+
+    li button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+
+.edit-button {
+    background: linear-gradient(145deg, #FFD700, #FFAA00); /* Glossy Yellow Gradient */
+    color: black;
+    padding: 5px 5px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1.1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Space between icon and text */
+    border: none;
+}
+
+.edit-button:hover {
+    background: linear-gradient(145deg, #FFAA00, #FFD700); /* Slightly lighter yellow on hover */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom Edit Icon */
+.edit-icon {
+    background: black; /* Black background */
+    color: #FFD700; /* Yellow icon */
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 1em;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+
+@media (max-width: 480px) {
+    .popup {
+        width: 95%; /* Use more screen width */
+        max-width: none;
+        padding: 20px;
+    }
+
+    .popup button {
+        width: 100%; /* Make buttons full width on small screens */
+        margin: 5px 0;
+        padding: 12px;
+    }
+}
+
+/* Fixed Go to Tournament Button */
+.home-button-container {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    width: auto; /* Prevents unwanted stretching */
+}
+
+#homeButton {
+    background: linear-gradient(145deg, #40E0D0);
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.6);
+    transition: all 0.3s ease-in-out;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+}
+
+#homeButton:hover {
+    background-color: #FFAA00;
+    transform: scale(1.1);
+    box-shadow: 0 8px 20px rgba(255, 215, 0, 0.8);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .home-button-container {
+        width: 90%;
+        bottom: 10px;
+    }
+    #homeButton {
+        width: 100%;
+        padding: 12px;
+        font-size: 1em;
+    }
+}
