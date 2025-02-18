@@ -41,7 +41,7 @@ app.post('/tournaments/:id/players', async (req, res) => {
     await db.read();
     const tournament = db.data.tournaments.find(t => t.id === tournamentId);
     const player = db.data.players.find(p => p.name === playerName);
-
+    console.log("Player:",playerName);
     if (tournament && player) {
         tournament.players.push(player);
         await db.write();
