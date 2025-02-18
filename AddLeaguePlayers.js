@@ -61,7 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Load the tournament name if it's set in localStorage
     window.onload = function () {
-        const tournamentName = localStorage.getItem("tournamentName");
+        const tournamentName = sessionStorage.getItem("tournamentName");
         if (tournamentName) {
             document.getElementById("tournamentInput").value = tournamentName;
         }

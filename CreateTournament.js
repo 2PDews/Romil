@@ -14,6 +14,22 @@ function updateCharCount() {
         }
 
         // Save tournament name to localStorage and redirect
+ // Load players from local storage
+    function loadTournament() {
+        const storedPlayers = JSON.parse(localStorage.getItem("players")) || [];
+        storedPlayers.forEach(player => {
+            addPlayerToList(player);
+        });
+        updatePlayerNumbers(); // Ensure numbering is correct after loading
+    }
+
+    // Save players to local storage
+    function savePlayers() {
+        const players = Array.from(playerList.children).map(listItem => 
+            listItem.querySelector(".player-name").textContent
+        );
+        localStorage.setItem("players", JSON.stringify(players));
+    }
         // JavaScript for CreateTournament.js
         function saveTournamentName() {
             const tournamentName = document.getElementById("name").value.trim();
