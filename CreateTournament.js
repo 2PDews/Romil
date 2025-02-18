@@ -16,14 +16,19 @@ function updateCharCount() {
         // Save tournament name to localStorage and redirect
 
         // JavaScript for CreateTournament.js
-        function saveTournamentName() {
+       /* function saveTournamentName() {
             const tournamentName = document.getElementById("name").value.trim();
             
             if (tournamentName === "") {
               alert("Tournament name is required!");
               return; // Prevent navigation
-            }
-            
+            }*/
+        function saveTournamentName() {
+            const tournamentName = Array.from(tournamentName.children).map(listItem => 
+            listItem.querySelector(".tournament-name").textContent
+        );
+        localStorage.setItem("Tournament", JSON.stringify(tour));
+    }
             // Store the tournament name (if required)
             localStorage.setItem("currentTournamentName", tournamentName);
             sessionStorage.setItem("currentTournamentName", tournamentName);

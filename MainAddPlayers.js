@@ -13,6 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let confirmationCode = "";
 
     // Load players from local storage
+  
     function loadPlayers() {
         const storedPlayers = JSON.parse(localStorage.getItem("players")) || [];
         storedPlayers.forEach(player => {
