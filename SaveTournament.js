@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     //let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
     let savedTournaments = JSON.parse(sessionStorage.getItem('currentTournamentName')) || [];
-
+    console.log("match:",savedTournaments);
     // Display in different formats
     displayTournamentsTable(savedTournaments);
     displayTournamentsList(savedTournaments);
@@ -16,15 +16,15 @@ function displayTournamentsTable(currentTournamentName) {
     // Clear table content
     tournamentsTableBody.innerHTML = "";
 
-    if (tournaments.length === 0) {
+    if (currentTournamentName.length === 0) {
         tournamentsTableBody.innerHTML = "<tr><td colspan='3'>No saved tournaments found.</td></tr>";
     } else {
-        tournaments.forEach((tournament, index) => {
+        currentTournamentName.forEach((currentTournamentName, index) => {
             let row = document.createElement("tr");
 
             row.innerHTML = `
                 <td>${index + 1}</td>
-                <td><a href="StartTournament.html?tournament=${encodeURIComponent(tournament.name)}">${tournament.name}</a></td>
+                <td><a href="StartTournament.html?tournament=${encodeURIComponent(currentTournamentName.name)}">${currentTournamentName.name}</a></td>
                 <td><button onclick="viewTournamentDetails(${index})">View</button></td>
             `;
 
@@ -34,24 +34,24 @@ function displayTournamentsTable(currentTournamentName) {
 }
 
 // 🎯 Function to display tournaments as a simple list
-function displayTournamentsList(tournaments) {
+function displayTournamentsList(currentTournamentName) {
     let tournamentList = document.getElementById("tournament-list");
     if (!tournamentList) return;
     
-    if (tournaments.length === 0) {
+    if (currentTournamentName.length === 0) {
         tournamentList.innerHTML = "<p>No saved tournaments found.</p>";
     } else {
         tournamentList.innerHTML = "";
-        tournaments.forEach(tournament => {
+        currentTournamentName.forEach(currentTournamentName => {
             let tournamentDiv = document.createElement("div");
-            tournamentDiv.innerHTML = `<a href="StartTournament.html?tournament=${encodeURIComponent(tournament.name)}">${tournament.name}</a>`;
+            tournamentDiv.innerHTML = `<a href="StartTournament.html?currentTournamentName=${encodeURIComponent(currentTournamentName.name)}">${currentTournamentName.name}</a>`;
             tournamentList.appendChild(tournamentDiv);
         });
     }
 }
 
 // 🎯 Function to display tournaments in a detailed format
-function displayTournamentsContainer(tournaments) {
+function displayTournamentsContainer(currentTournamentName) {
     let container = document.getElementById("tournamentContainer");
     if (!container) return;
     
@@ -62,13 +62,13 @@ function displayTournamentsContainer(tournaments) {
         return;
     }
 
-    tournaments.forEach((tournament, index) => {
+    tournaments.forEach((currentTournamentName, index) => {
         const tournamentElement = document.createElement("div");
         tournamentElement.classList.add("tournament-item");
         tournamentElement.innerHTML = `
-            <h3>${tournament.name}</h3>
+            <h3>${currentTournamentName.name}</h3>
             <p>Sr. No.: ${index + 1}</p>
-            <p>Scorecard: ${tournament.scorecard}</p>
+            <p>Scorecard: ${currentTournamentName.scorecard}</p>
         `;
         container.appendChild(tournamentElement);
     });
@@ -76,7 +76,8 @@ function displayTournamentsContainer(tournaments) {
 
 // 🎯 Function to view a tournament's details
 function viewTournamentDetails(index) {
-    let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
+    let savedTournaments = JSON.parse(localStorage.getItem("currentTournamentName")) || [];
+
     let tournament = savedTournaments[index];
 
     if (tournament) {
