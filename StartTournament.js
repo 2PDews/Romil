@@ -91,7 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
             inningData.push({ name: playerName, runs: runsInput, wickets: wicketsInput, catches: catchesInput });
         });
-
+        localStorage.setItem(`inning${inningNumber}Data`, JSON.stringify(inningData));
         sessionStorage.setItem(`inning${inningNumber}Data`, JSON.stringify(inningData));
         alert(`Inning ${inningNumber} data saved successfully!`);
     }

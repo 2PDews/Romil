@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
-    let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
+    //let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
+    let savedTournaments = JSON.parse(localStorage.getItem("currentTournamentName", tournamentName)) || [];
 
     // Display in different formats
     displayTournamentsTable(savedTournaments);
