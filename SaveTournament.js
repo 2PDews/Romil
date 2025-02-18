@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
-    //let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
-    let savedTournaments = JSON.parse(sessionStorage.getItem('currentTournamentName')) || [];
-    console.log("match:",savedTournaments);
+    let savedTournaments = JSON.stringify(localStorage.getItem("currentTournamentName")) || [];
+    //let savedTournaments = JSON.parse(sessionStorage.getItem('currentTournamentName')) || [];
+
     // Display in different formats
     displayTournamentsTable(savedTournaments);
     displayTournamentsList(savedTournaments);
@@ -76,8 +76,8 @@ function displayTournamentsContainer(currentTournamentName) {
 
 // 🎯 Function to view a tournament's details
 function viewTournamentDetails(index) {
-    let savedTournaments = JSON.parse(localStorage.getItem("currentTournamentName")) || [];
-
+    let savedTournaments = JSON.parse(sessionStorage.getItem("currentTournamentName")) || [];
+console.log("match:",savedTournaments);
     let tournament = savedTournaments[index];
 
     if (tournament) {
