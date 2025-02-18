@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     //let savedTournaments = JSON.parse(localStorage.getItem("tournaments")) || [];
-    let savedTournaments = JSON.parse(localStorage.getItem("currentTournamentName", tournamentName)) || [];
+    let savedTournaments = JSON.parse(sessionStorage.getItem('currentTournamentName')) || [];
 
     // Display in different formats
     displayTournamentsTable(savedTournaments);
@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // 🎯 Function to display tournaments in a table format
-function displayTournamentsTable(tournaments) {
+function displayTournamentsTable(currentTournamentName) {
     let tournamentsTableBody = document.querySelector("#tournamentsTable tbody");
     if (!tournamentsTableBody) return;
     
