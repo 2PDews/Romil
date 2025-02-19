@@ -258,7 +258,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .catch {
-  background: linear-gradient(45deg, #2196F3, #66CCFF);
+  background: #FFC0CB;
   box-shadow: 0px 0px 10px rgba(102, 204, 255, 0.8);
 }
 
