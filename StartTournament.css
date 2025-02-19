@@ -212,7 +212,7 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 5px;
   min-width: 60px;
   text-align: center;
-  color: white
+  color: black;
 }
 .player-stats {
   display: flex;
@@ -259,7 +259,7 @@ h1, h2, h3, h4, h5, h6 {
 .catch {
   background: #FFC0CB;
   box-shadow: 0px 0px 10px rgba(102, 204, 255, 0.8);
-  color: white; /* ✅ Text color changed to white */
+  color: black; /* ✅ Text color changed to white */
 }
 
 
