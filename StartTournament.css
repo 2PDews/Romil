@@ -214,46 +214,54 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   color: white
 }
-.catch {
-  background: linear-gradient(45deg, #4CAF50, #66FF66);
-  box-shadow: 0px 0px 15px rgba(102, 255, 102, 0.8);
-  padding: 12px;
-  border-radius: 8px;
+.player-stats {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between elements */
+}
+
+.player-stats input {
+  width: 50px; 
+  padding: 8px;
+  text-align: center;
+  font-size: 1em;
+  border: 2px solid #66FF66;
+  border-radius: 6px;
+  background: #0A192F;
+  color: #fff;
+  font-weight: bold;
+}
+
+.catch, .run, .wicket {
+  padding: 10px;
+  border-radius: 6px;
   font-weight: bold;
   text-align: center;
-  font-size: 1.4em;
-  width: 120px;
-  display: inline-block;
-  box-shadow: 0px 0px 15px rgba(0, 255, 13, 0.8);
+  font-size: 1.2em;
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px 0px 12px rgba(0, 255, 13, 0.8);
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
+
+/* Different colors for each */
 .run {
   background: linear-gradient(45deg, #4CAF50, #66FF66);
-  box-shadow: 0px 0px 15px rgba(102, 255, 102, 0.8);
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.4em;
-  width: 120px;
-  display: inline-block;
-  box-shadow: 0px 0px 15px rgba(0, 255, 13, 0.8);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(102, 255, 102, 0.8);
 }
 
 .wicket {
   background: linear-gradient(45deg, #F44336, #FF6666);
-  box-shadow: 0px 0px 15px rgba(255, 102, 102, 0.8);
-  padding: 12px;
-  border-radius: 8px;
-  font-weight: bold;
-  text-align: center;
-  font-size: 1.4em;
-  width: 120px;
-  display: inline-block;
-  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.8);
-  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  box-shadow: 0px 0px 10px rgba(255, 102, 102, 0.8);
 }
+
+.catch {
+  background: linear-gradient(45deg, #2196F3, #66CCFF);
+  box-shadow: 0px 0px 10px rgba(102, 204, 255, 0.8);
+}
+
 
 /* Responsive */
 @media (max-width: 768px) {
