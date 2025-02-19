@@ -3,6 +3,63 @@ document.addEventListener("DOMContentLoaded", function () {
     const tournamentInput = document.getElementById("tournamentInput");
     const goToTournamentButton = document.getElementById("goToTournamentButton");
     const saveButton = document.getElementById("saveTournamentButton");
+    const shareButton = document.getElementById("shareButton"); // ✅ Added Share Button
+
+ // Function to Capture and Share Image
+    async function captureAndShare() {
+        const totalsContainer = document.getElementById("totals-container");
+
+        if (!totalsContainer) {
+            alert("Totals container not found!");
+            return;
+        }
+
+        try {
+            // Load html2canvas dynamically if not loaded
+            if (typeof html2canvas === "undefined") {
+                const script = document.createElement("script");
+                script.src = "https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js";
+                script.onload = () => captureImage();
+                document.body.appendChild(script);
+            } else {
+                captureImage();
+            }
+        } catch (error) {
+            console.error("Error capturing image:", error);
+            alert("Error capturing image. Please try again.");
+        }
+    }
+
+    async function captureImage() {
+        const totalsContainer = document.getElementById("totals-container");
+
+        html2canvas(totalsContainer, { backgroundColor: null }).then(canvas => {
+            canvas.toBlob(blob => {
+                if (navigator.share) {
+                    const file = new File([blob], "tournament-totals.png", { type: "image/png" });
+
+                    const shareData = {
+                        title: "Tournament Stats",
+                        text: "Check out the tournament standings!",
+                        files: [file]
+                    };
+
+                    navigator.share(shareData).then(() => {
+                        console.log("Shared successfully!");
+                    }).catch(error => {
+                        console.error("Error sharing:", error);
+                    });
+                } else {
+                    alert("Your browser does not support the Web Share API.");
+                }
+            }, "image/png");
+        });
+    }
+
+    // Attach event listener to share button
+    if (shareButton) {
+        shareButton.addEventListener("click", captureAndShare);
+    }
 
     let inningsCount = parseInt(sessionStorage.getItem("totalInnings")) || 4;
     const selectedPlayers = JSON.parse(localStorage.getItem("selectedPlayers")) || [];
