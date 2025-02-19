@@ -169,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (goToTournamentButton) {
         goToTournamentButton.addEventListener("click", () => {
-            window.location.href = "tournament.html";
+            window.location.href = "Tournament.html";
         });
     } else {
         console.error("Go to Tournament button not found!");
