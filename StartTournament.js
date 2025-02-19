@@ -41,9 +41,9 @@ document.addEventListener("DOMContentLoaded", function () {
                 const playerStats = document.createElement("div");
                 playerStats.classList.add("player-stats");
                 playerStats.innerHTML = `
-                    <input type="number" placeholder="Runs" class="runs-input" data-player="${player.name || player}">
-                    <input type="number" placeholder="Wickets" class="wickets-input" data-player="${player.name || player}">
-                    <input type="number" placeholder="Catches" class="catches-input" data-player="${player.name || player}">
+                    <input type="number" placeholder="R" class="runs-input" data-player="${player.name || player}">
+                    <input type="number" placeholder="W" class="wickets-input" data-player="${player.name || player}">
+                    <input type="number" placeholder="C" class="catches-input" data-player="${player.name || player}">
                 `;
                 playerDiv.appendChild(playerStats);
                 inningDiv.appendChild(playerDiv);
