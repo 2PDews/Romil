@@ -161,7 +161,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
  #saveTournamentButton{
-  border: none;
+ border: none;
   padding: 15px;
   border-radius: 8px;
   color: rgb(255, 255, 255);
@@ -353,30 +353,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #shareButton {
-    position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    right: 20px;  /* Adjust as needed */
-    background: linear-gradient(45deg, #00FFFF, #00C3FF); /* Neon Cyan Gradient */
-    color: #0A192F; /* Dark background for contrast */
-    font-weight: bold;
-    font-size: 1.2em;
+    position: fixed; /* Keeps it fixed on the screen */
+    top: 20px; /* Adjust this to position it at the top */
+    right: 20px; /* Positions it on the right */
+    z-index: 999; /* Ensures it's above other elements */
     padding: 12px 20px;
     border: none;
     border-radius: 8px;
+    font-size: 1em;
+    color: white;
     cursor: pointer;
-    box-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px; /* Space between icon and text */
-    z-index: 1000; /* Ensures it's above other content */
+    background: linear-gradient(45deg, #FF00FF, #00FFFF);
+    box-shadow: 0px 0px 12px rgba(0, 255, 255, 1);
+    transition: transform 0.3s ease-in-out;
 }
 
 #shareButton:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 18px rgba(0, 255, 255, 1);
+    transform: scale(1.1); /* Slight zoom effect on hover */
 }
+
 
 #shareButton:active {
     transform: scale(0.98);
