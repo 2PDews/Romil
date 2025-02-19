@@ -160,6 +160,25 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 0px 0px 12px rgba(0, 255, 255, 1);
 }
 
+ #saveTournamentButton{
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  width: 50%;
+  font-size: 1.1em;
+  text-align: left;
+  transition: all 0.3s ease;
+  background: linear-gradient(45deg, #9400FF, #00FFFF);
+  box-shadow: 0px 0px 12px rgba(0, 255, 255, 1);
+       position: absolute;
+    left: 20px;  /* Adjust as needed */
+    bottom: 1px; /* Keep it fixed at the bottom */
+
+}
+
+
 .submit-btn:hover, #saveTournamentButton:hover, #goToTournamentButton:hover {
   background: linear-gradient(45deg, #00FFFF, #4B0082);
   transform: scale(1.05);
@@ -333,4 +352,33 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: bold;
 }
 
+#shareButton {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    right: 20px;  /* Adjust as needed */
+    background: linear-gradient(45deg, #00FFFF, #00C3FF); /* Neon Cyan Gradient */
+    color: #0A192F; /* Dark background for contrast */
+    font-weight: bold;
+    font-size: 1.2em;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.8);
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px; /* Space between icon and text */
+    z-index: 1000; /* Ensures it's above other content */
+}
 
+#shareButton:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 18px rgba(0, 255, 255, 1);
+}
+
+#shareButton:active {
+    transform: scale(0.98);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
