@@ -1,12 +1,52 @@
-/* Cyberpunk Neon Theme */
-body {
-    font-family: 'Poppins', sans-serif;
+/* Import Reospec Font */
+@font-face {
+    font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
+    font-weight: 100;
+    font-style: normal;
+     font-size: 28px;
+  }
+
+/* General Styles */
+html, body {
     margin: 0;
     padding: 0;
-    background-color: #0A192F; /* Deep cyberpunk blue */
-    color: #f1f1f1;
-    line-height: 1.6;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+    color: #00FFFF; 
+    overflow-y: auto; /* Enables vertical scrolling */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Reospec', sans-serif; /* Apply Reospec font */
 }
+
+/* Example Usage for Headings & Buttons */
+h1, h2, h3 {
+    font-family: 'Reospec', sans-serif;
+    font-weight: normal;
+}
+
+button {
+    font-family: 'Reospec', sans-serif;
+    font-size: 28px;
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
+}
+
+
 .title{
  text-align: center; 
 }
