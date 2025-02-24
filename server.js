@@ -72,22 +72,25 @@ app.delete('/tournaments/:id', async (req, res) => {
 
 // Start Server
 const PORT = 3000;
-app.listen(PORT, () => console.log(Server running on http://localhost:${PORT}));
+app.listen(PORT, () => console.log(Server running on https://quilted-enchanting-grade.glitch.me/ChooseJersey.html));
                                    
+const express = require("express");
+const cors = require("cors");
 const express = require("express");
 const cors = require("cors");
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 app.use(cors()); // Allow frontend to access API
+app.use(express.static("public")); // Serve static files
 
 // Mock Jersey Data
 const jerseys = [
-    { id: 1, name: "Classic Blue", color: "#0000FF", image: "/jerseys/jersey1.png" },
-    { id: 2, name: "Cyber Neon", color: "#00FFFF", image: "/jerseys/jersey2.png" },
-    { id: 3, name: "Electric Purple", color: "#8A2BE2", image: "/jerseys/jersey3.png" },
-    { id: 4, name: "Flame Red", color: "#FF0000", image: "/jerseys/jersey4.png" }
+    { id: 1, name: "Classic Blue", color: "#0000FF", image: "J1.jpg" },
+    { id: 2, name: "Cyber Neon", color: "#00FFFF", image: "J2.jpg" },
+    { id: 3, name: "Electric Purple", color: "#8A2BE2", image: "J3.jpg" },
+    { id: 4, name: "Flame Red", color: "#FF0000", image: "J4.jpg"  }
 ];
 
 // API Route to Get Jerseys
@@ -97,5 +100,5 @@ app.get("/api/jerseys", (req, res) => {
 
 // Start Server
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on https://quilted-enchanting-grade.glitch.me/api/jerseys`);
 });
