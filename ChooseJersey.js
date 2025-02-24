@@ -1,5 +1,9 @@
 document.addEventListener("DOMContentLoaded", function () {
     const patternContainer = document.querySelector(".patterns");
+    const jerseyPreview = document.getElementById("jerseyPreview");
+    const primaryColorInput = document.getElementById("primaryColor");
+    const secondaryColorInput = document.getElementById("secondaryColor");
+
     const patterns = [
         "Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes",
         "Polka Dots", "Wavy Lines", "Camouflage", "Hexagonal Grid", "Lightning Bolt",
@@ -13,7 +17,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "Honeycomb", "Digital Camouflage"
     ];
 
-    let selectedPattern = "solid";
+    let selectedPattern = "solid"; // Default selection
 
     // Generate buttons dynamically
     patterns.forEach(pattern => {
@@ -33,34 +37,41 @@ document.addEventListener("DOMContentLoaded", function () {
         patternContainer.appendChild(button);
     });
 
-    // Initialize default selection
-    document.querySelector(".pattern-btn").classList.add("active");
+    // Select first button as default
+    const firstButton = document.querySelector(".pattern-btn");
+    if (firstButton) {
+        firstButton.classList.add("active");
+        selectedPattern = firstButton.getAttribute("data-pattern");
+    }
 
     function updateJerseyPreview() {
-        let primaryColor = document.getElementById("primaryColor").value;
-        let secondaryColor = document.getElementById("secondaryColor").value;
-        let jerseyPreview = document.getElementById("jerseyPreview");
+        let primaryColor = primaryColorInput.value;
+        let secondaryColor = secondaryColorInput.value;
 
-        jerseyPreview.className = "jersey"; // Reset class
+        // Reset class and apply selected pattern
+        jerseyPreview.className = "jersey"; 
         jerseyPreview.style.setProperty('--primary', primaryColor);
         jerseyPreview.style.setProperty('--secondary', secondaryColor);
         jerseyPreview.classList.add(selectedPattern);
     }
 
     // Event listeners for color changes
-    document.getElementById("primaryColor").addEventListener("input", updateJerseyPreview);
-    document.getElementById("secondaryColor").addEventListener("input", updateJerseyPreview);
+    primaryColorInput.addEventListener("input", updateJerseyPreview);
+    secondaryColorInput.addEventListener("input", updateJerseyPreview);
 
     // Confirm Selection
     window.confirmJersey = function () {
         const selectedJersey = {
             pattern: selectedPattern,
-            primaryColor: document.getElementById("primaryColor").value,
-            secondaryColor: document.getElementById("secondaryColor").value
+            primaryColor: primaryColorInput.value,
+            secondaryColor: secondaryColorInput.value
         };
 
         localStorage.setItem("selectedJerseyPattern", JSON.stringify(selectedJersey));
         alert(`Jersey Confirmed with ${selectedPattern} pattern!`);
         window.location.href = "index.html";
     };
+
+    // Apply default jersey preview
+    updateJerseyPreview();
 });

@@ -146,4 +146,43 @@ h2 {
     color: white;
 }
 
+.patterns {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    padding: 10px;
+}
+
+.pattern-btn {
+    padding: 12px 18px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 120px;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5);
+}
+
+.pattern-btn:hover {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 0px 10px cyan;
+    transform: scale(1.05);
+}
+
+.pattern-btn.active {
+    background: cyan;
+    color: black;
+    border-color: cyan;
+    box-shadow: 0px 0px 15px cyan;
+}
+
+
 
