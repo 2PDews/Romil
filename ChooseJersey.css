@@ -1,7 +1,7 @@
 /* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #121212;
+    background-color: #000080;
     color: white;
     text-align: center;
 }
@@ -92,16 +92,13 @@ label {
         var(--secondary) 20px
     );
 }
-
-/* Checkered */
+/* Checkered Pattern */
 .checkered {
-    background: repeating-linear-gradient(
-        45deg,
-        var(--primary) 0px,
-        var(--primary) 20px,
-        var(--secondary) 20px,
-        var(--secondary) 40px
-    );
+    background: 
+        repeating-conic-gradient(
+            var(--primary) 0deg 90deg, 
+            var(--secondary) 90deg 180deg
+        ) 0 0 / 40px 40px;
 }
 
 /* Gradient */
@@ -122,22 +119,29 @@ label {
 
 /* --- Textured Patterns --- */
 
-/* Polka Dots */
 .polka-dots {
     background: radial-gradient(circle, var(--secondary) 10%, transparent 10%) 0px 0px / 20px 20px,
                 var(--primary);
 }
-
-/* Chevron */
 .chevron {
-    background: repeating-linear-gradient(
-        45deg,
-        var(--primary) 0px,
-        var(--primary) 20px,
-        var(--secondary) 20px,
-        var(--secondary) 40px
-    );
+    background: 
+        repeating-linear-gradient(
+            45deg,
+            var(--primary),
+            var(--primary) 20px,
+            var(--secondary) 20px,
+            var(--secondary) 40px
+        ),
+        repeating-linear-gradient(
+            -45deg,
+            var(--primary),
+            var(--primary) 20px,
+            var(--secondary) 20px,
+            var(--secondary) 40px
+        );
+    background-size: 56.57px 56.57px;
 }
+
 /* Confirm Button */
 button {
     background: linear-gradient(90deg, cyan, purple);
