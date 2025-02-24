@@ -281,6 +281,65 @@ header {
     background: rgba(0, 255, 255, 0.15);
     transform: scale(1.05);
 }
+/* Sidebar Navigation */
+#sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    width: 260px;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.85); /* Glass effect */
+    backdrop-filter: blur(12px); /* Stronger blur for futuristic look */
+    box-shadow: 6px 0 20px rgba(0, 255, 255, 0.4);
+    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
+    padding-top: 70px;
+    overflow-y: auto;
+    border-right: 2px solid rgba(0, 255, 255, 0.3);
+    z-index: 1000;
+}
+
+/* Activate Sidebar */
+#sidebar.active {
+    left: 0;
+    transform: scale(1.02);
+    box-shadow: 8px 0 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Cyberpunk Scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 1);
+}
+
+/* Sidebar List */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Sidebar Items */
+#sidebar ul li {
+    padding: 16px 24px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Neon Glow on Hover */
+#sidebar ul li:hover {
+    background: rgba(0, 255, 255, 0.15);
+    transform: scale(1.06);
+    box-shadow: 0 0 12px rgba(0, 255, 255, 0.5);
+}
 
 /* Sidebar Links */
 #sidebar ul li a {
@@ -290,14 +349,15 @@ header {
     align-items: center;
     font-size: 18px;
     font-weight: 600;
+    letter-spacing: 0.8px;
     transition: transform 0.3s ease, color 0.3s ease;
 }
 
-/* Cyberpunk Hover Effect */
+/* Futuristic Hover Effect */
 #sidebar ul li a:hover {
     color: #00FFFF;
-    text-shadow: 0 0 12px #00FFFF, 0 0 24px #00FFFF;
-    transform: translateX(8px);
+    text-shadow: 0 0 15px #00FFFF, 0 0 30px #00FFFF;
+    transform: translateX(10px);
 }
 
 /* Sidebar Icons */
@@ -307,15 +367,17 @@ header {
     transition: color 0.3s ease, transform 0.3s ease;
 }
 
-/* Animate Icons on Hover */
+/* Rotate & Glow Effect on Hover */
 #sidebar ul li a:hover i {
     color: #00FFFF;
-    transform: rotate(360deg);
+    transform: rotate(360deg) scale(1.2);
+    text-shadow: 0 0 15px #00FFFF;
 }
 
-/* Push Content When Sidebar Opens */
-#sidebar.active + .container {
-    margin-left: 280px;
+/* Adjust Main Content When Sidebar is Open */
+#sidebar.active ~ .container {
+    margin-left: 260px;
+    transition: margin-left 0.4s ease-in-out;
 }
 
 /* Close Sidebar When Clicking Outside */
@@ -323,47 +385,55 @@ body.active {
     overflow: hidden;
 }
 
-
-/* Sidebar Navigation */
-#sidebar {
-    position: fixed;
-    left: -280px;
-    top: 0;
-    width: 260px; /* Reduce width slightly */
-    height: 100%;
-    background: rgba(10, 25, 47, 0.9); /* Glass effect */
-    backdrop-filter: blur(8px);
-    box-shadow: 6px 0 15px rgba(0, 255, 255, 0.3);
-    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
-    padding-top: 70px;
-    overflow-y: auto;
-    border-right: 2px solid rgba(0, 255, 255, 0.2);
-    z-index: 1000; /* Ensure it's above other content */
-}
-
-
-/* Adjust Main Content to Avoid Overlap */
-#sidebar.active ~ .container {
-    margin-left: 260px; /* Adjust to match sidebar width */
-}
-
-/* Responsive Fix */
+/* 🚀 Mobile Responsive Adjustments */
 @media (max-width: 768px) {
     #sidebar {
-        width: 240px; /* Reduce sidebar width for smaller screens */
+        width: 240px;
     }
 
     #sidebar.active ~ .container {
-        margin-left: 240px; /* Match the new sidebar width */
+        margin-left: 240px;
     }
 }
 
 @media (max-width: 480px) {
     #sidebar {
-        width: 220px; /* Even smaller for mobile */
+        width: 220px;
     }
 
     #sidebar.active ~ .container {
-        margin-left: 0; /* Keep content centered on small screens */
+        margin-left: 0;
     }
+
+    #sidebar ul li {
+        padding: 14px 20px;
+    }
+
+    #sidebar ul li a {
+        font-size: 16px;
+    }
+
+    #sidebar ul li a i {
+        font-size: 20px;
+    }
+}
+
+
+
+/* Close Button Styling */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+/* Cyberpunk Hover Effect */
+.close-btn:hover {
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+    transform: scale(1.2);
 }

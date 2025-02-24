@@ -15,6 +15,13 @@ document.getElementById('follow-option').onclick = () => {
     window.location.href = "FollowTournament.html";
 };
 
+document.getElementById('jersey-option').onclick = () => {
+    window.location.href = "ChooseJersey.html";
+};
+document.getElementById('number-option').onclick = () => {
+    window.location.href = "JerseyNo.html";
+};
+
         function toggleMenu(event) {
             event.stopPropagation(); // Prevents closing menu when clicking the menu icon
             document.getElementById("sidebar").classList.toggle("active");
@@ -28,3 +35,6 @@ document.getElementById('follow-option').onclick = () => {
         }
 
         document.body.addEventListener("click", closeMenu); // Close sidebar on body click
+function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("active");
+}

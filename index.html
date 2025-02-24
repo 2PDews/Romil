@@ -21,40 +21,47 @@
         </div>
     </header>
 
-    <!-- Side Navigation Menu -->
-    <nav id="sidebar">
-        <ul>
-          MenuBar
-<li><a href="HomeScreen.html"><i class="fas fa-home"></i> Home</a></li>
-<li><a href="Notification.html"><i class="fas fa-bell"></i> Notification</a></li>
-<li><a href="Message.html"><i class="fas fa-envelope"></i> Message</a></li>
-<li><a href="Settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+<!-- Side Navigation Menu -->
+<nav id="sidebar">
+    <!-- Close Button -->
+    <div class="close-btn" onclick="closeSidebar()">&times;</div>
 
-        </ul>
-    </nav>
+    <ul>
+        <li><a href="HomeScreen.html"><i class="fas fa-home"></i> Home</a></li>
+        <li><a href="Notification.html"><i class="fas fa-bell"></i> Notification</a></li>
+        <li><a href="Message.html"><i class="fas fa-envelope"></i> Message</a></li>
+        <li><a href="Settings.html"><i class="fas fa-cog"></i> Settings</a></li>
+    </ul>
+</nav>
+
 
     <div class="container" onclick="closeMenu(event)">
         <main>
             <div class="option" id="tournament-option">
                 <i class="fas fa-trophy"></i>
-                <a href="Tournament.html"><h2>Tournament</h2></a>
+                <a href="Tournament.html"><h2>TOURNAMENT</h2></a>
             </div>
             <div class="option" id="players-option">
                 <i class="fas fa-users"></i>
-                <a href="MainAddPlayers.html"><h2>Add Players</h2></a>
+                <a href="MainAddPlayers.html"><h2>ADD PLAYERS</h2></a>
             </div>
             <div class="option" id="teams-option">
                 <i class="fas fa-users-cog"></i>
-                <a href="MainAddTeams.html"><h2>Add Teams</h2></a>
+                <a href="MainAddTeams.html"><h2>ADD TEAMS</h2></a>
             </div>
             <div class="option" id="follow-option">
                 <i class="fas fa-eye"></i> 
-                <a href="FollowTournament.html"><h2>Follow Tournament</h2></a>
+                <a href="FollowTournament.html"><h2>FOLLOW TOURANMENT</h2></a>
             </div>
-            <div class="option" id="follow-option">
-                <i class="fas fa-eye"></i> 
-                <a href="FollowTournament.html"><h2>Follow Tournament</h2></a>
-            </div>
+         <div class="option" id="jersey-option">
+    <i class="fas fa-tshirt"></i> 
+    <a href="ChooseJersey.html"><h2>CHOOSE JERSEY</h2></a>
+</div>
+<div class="option" id="number-option">
+    <i class="fas fa-hashtag"></i> 
+    <a href="JerseyNo.html"><h2>JERSEY-NO.</h2></a>
+</div>
+
         </main>
     </div>
 
