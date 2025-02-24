@@ -52,11 +52,6 @@ body::after {
   padding: 20px;
 }
 
-/* Header */
-header {
-  margin-bottom: 20px;
-}
-
 /* Heading Animation */
 
 h1 {
@@ -67,23 +62,8 @@ h1 {
     justify-content: center;
     align-items: center;
     margin: 0;
-    transform: translateX(-90px); /* Moves it slightly left */
+    transform: translateX(-140px); /* Moves it slightly left */
 }
-* Responsive adjustments */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 28px; /* Reduce size for smaller screens */
-        transform: translateX(-10px); /* Move slightly left but less than desktop */
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px; /* Further reduce size for mobile */
-        transform: translateX(0); /* Keep it fully centered on small screens */
-    }
-}
-
 
 /* Main Options */
 main {
@@ -218,21 +198,6 @@ header {
 }
 
 
-/* Sidebar Navigation */
-#sidebar {
-    position: fixed;
-    left: -280px;
-    top: 0;
-    width: 280px;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.9); /* Glass effect */
-    backdrop-filter: blur(8px);
-    box-shadow: 6px 0 15px rgba(0, 255, 255, 0.3);
-    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
-    padding-top: 70px;
-    overflow-y: auto;
-    border-right: 2px solid rgba(0, 255, 255, 0.2);
-}
 
 /* Smooth Slide-in & Scale Animation */
 #sidebar.active {
@@ -304,12 +269,6 @@ header {
     transform: rotate(360deg);
 }
 
-/* Main Container */
-.container {
-    margin-top: 70px;
-    transition: margin-left 0.4s ease-in-out;
-}
-
 /* Push Content When Sidebar Opens */
 #sidebar.active + .container {
     margin-left: 280px;
@@ -320,3 +279,47 @@ body.active {
     overflow: hidden;
 }
 
+
+/* Sidebar Navigation */
+#sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    width: 260px; /* Reduce width slightly */
+    height: 100%;
+    background: rgba(10, 25, 47, 0.9); /* Glass effect */
+    backdrop-filter: blur(8px);
+    box-shadow: 6px 0 15px rgba(0, 255, 255, 0.3);
+    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
+    padding-top: 70px;
+    overflow-y: auto;
+    border-right: 2px solid rgba(0, 255, 255, 0.2);
+    z-index: 1000; /* Ensure it's above other content */
+}
+
+
+/* Adjust Main Content to Avoid Overlap */
+#sidebar.active ~ .container {
+    margin-left: 260px; /* Adjust to match sidebar width */
+}
+
+/* Responsive Fix */
+@media (max-width: 768px) {
+    #sidebar {
+        width: 240px; /* Reduce sidebar width for smaller screens */
+    }
+
+    #sidebar.active ~ .container {
+        margin-left: 240px; /* Match the new sidebar width */
+    }
+}
+
+@media (max-width: 480px) {
+    #sidebar {
+        width: 220px; /* Even smaller for mobile */
+    }
+
+    #sidebar.active ~ .container {
+        margin-left: 0; /* Keep content centered on small screens */
+    }
+}
