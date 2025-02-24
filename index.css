@@ -57,15 +57,40 @@ header {
 }
 
 /* Heading Animation */
-h1 {
 
-  font-size: 36px;
-  font-weight: bold;
-  color: #00FFFF; /* Cyan */
-  text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF, 0 0 40px #00CCFF;
-  text-align: center;
-  animation: glow 1.5s infinite alternate, bounce 1.5s ease-in-out infinite;
+/* Header Bar */
+header {
+    background: #0A192F;
+    color: white;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center aligns content */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
 }
+
+/* Menu Icon (Hamburger) */
+.menu-icon {
+    position: absolute;
+    left: 15px;
+    font-size: 24px;
+    cursor: pointer;
+    color: white;
+}
+
+/* CricOnBoard Title */
+header h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #90EE90;
+    text-align: right;
+    margin: 0;
+}
+
 
 /* Glowing Effect */
 @keyframes glow {
