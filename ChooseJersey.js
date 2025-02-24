@@ -1,11 +1,14 @@
-// Fetch jerseys from API
+const API_URL = "https://quilted-enchanting-grade.glitch.me/api/jerseys";
+
 async function loadJerseys() {
     try {
-        const response = await fetch("http://localhost:5000/api/jerseys");
+        const response = await fetch(API_URL);
         const jerseys = await response.json();
-        
+
+        console.log(jerseys); // Check if data is coming correctly
+
         const container = document.getElementById("jerseyContainer");
-        container.innerHTML = ""; // Clear existing content
+        container.innerHTML = ""; // Clear any existing content
 
         jerseys.forEach(jersey => {
             const jerseyDiv = document.createElement("div");
@@ -14,8 +17,9 @@ async function loadJerseys() {
             jerseyDiv.innerHTML = `
                 <img src="${jersey.image}" alt="${jersey.name}" class="jersey-img">
                 <h3>${jersey.name}</h3>
-                <input type="color" value="${jersey.color}" class="color-picker" 
-                       onchange="changeColor(this, '${jersey.image}')">
+                <button class="select-btn" onclick="selectJersey('${jersey.name}', '${jersey.image}')">
+                    Select
+                </button>
             `;
 
             container.appendChild(jerseyDiv);
@@ -25,15 +29,21 @@ async function loadJerseys() {
     }
 }
 
-// Change Jersey Color (Future Feature)
-function changeColor(input, jerseyId) {
-    document.getElementById(jerseyId).style.filter = `hue-rotate(${input.value}deg)`;
+function selectJersey(name, image) {
+    localStorage.setItem("selectedJersey", JSON.stringify({ name, image }));
+    alert(`You selected: ${name}`);
 }
 
-// Confirm Selection
 function confirmJersey() {
-    alert("Jersey selection confirmed!");
+    const selectedJersey = JSON.parse(localStorage.getItem("selectedJersey"));
+
+    if (selectedJersey) {
+        alert(`Jersey Confirmed: ${selectedJersey.name}`);
+        // Redirect or handle jersey selection confirmation here
+    } else {
+        alert("Please select a jersey before confirming!");
+    }
 }
 
-// Load jerseys on page load
+// Load jerseys when the page loads
 window.onload = loadJerseys;

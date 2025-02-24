@@ -90,8 +90,15 @@ const jerseys = [
     { id: 1, name: "Classic Blue", color: "#0000FF", image: "J1.jpg" },
     { id: 2, name: "Cyber Neon", color: "#00FFFF", image: "J2.jpg" },
     { id: 3, name: "Electric Purple", color: "#8A2BE2", image: "J3.jpg" },
-    { id: 4, name: "Flame Red", color: "#FF0000", image: "J4.jpg"  }
+    { id: 4, name: "Flame Red", color: "#FF0000", image: "J4.jpg" },
+    { id: 5, name: "Golden Strike", color: "#FFD700", image: "J5.jpg" },
+    { id: 6, name: "Emerald Green", color: "#008000", image: "J6.jpg" },
+    { id: 7, name: "Sunset Orange", color: "#FF4500", image: "J7.jpg" },
+    { id: 8, name: "Shadow Black", color: "#000000", image: "J8.jpg" },
+    { id: 9, name: "Silver Flash", color: "#C0C0C0", image: "J9.jpg" },
+    { id: 10, name: "Neon Pink", color: "#FF1493", image: "J10.jpg" }
 ];
+
 
 // API Route to Get Jerseys
 app.get("/api/jerseys", (req, res) => {
