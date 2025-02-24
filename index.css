@@ -189,3 +189,128 @@ main {
       height: 150px;
   }
 }
+
+
+
+
+
+/* Header Styling */
+header {
+    background: linear-gradient(135deg, #9400FF, #00FFFF);
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+}
+
+/* Menu Icon */
+.menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+}
+
+
+/* Sidebar Navigation */
+#sidebar {
+    position: fixed;
+    left: -280px;
+    top: 0;
+    width: 280px;
+    height: 100%;
+    background: rgba(10, 25, 47, 0.9); /* Glass effect */
+    backdrop-filter: blur(8px);
+    box-shadow: 6px 0 15px rgba(0, 255, 255, 0.3);
+    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
+    padding-top: 70px;
+    overflow-y: auto;
+    border-right: 2px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Smooth Slide-in & Scale Animation */
+#sidebar.active {
+    left: 0;
+    transform: scale(1.02);
+}
+
+/* Custom Scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+#sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.6);
+    border-radius: 10px;
+}
+
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 1);
+}
+
+/* Sidebar List */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#sidebar ul li {
+    padding: 16px 24px;
+    transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.2);
+}
+
+/* Neon Glow Effect */
+#sidebar ul li:hover {
+    background: rgba(0, 255, 255, 0.15);
+    transform: scale(1.05);
+}
+
+/* Sidebar Links */
+#sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 600;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+/* Cyberpunk Hover Effect */
+#sidebar ul li a:hover {
+    color: #00FFFF;
+    text-shadow: 0 0 12px #00FFFF, 0 0 24px #00FFFF;
+    transform: translateX(8px);
+}
+
+/* Sidebar Icons */
+#sidebar ul li a i {
+    margin-right: 14px;
+    font-size: 22px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+/* Animate Icons on Hover */
+#sidebar ul li a:hover i {
+    color: #00FFFF;
+    transform: rotate(360deg);
+}
+
+/* Main Container */
+.container {
+    margin-top: 70px;
+    transition: margin-left 0.4s ease-in-out;
+}
+
+/* Push Content When Sidebar Opens */
+#sidebar.active + .container {
+    margin-left: 280px;
+}
+
+/* Close Sidebar When Clicking Outside */
+body.active {
+    overflow: hidden;
+}
+
