@@ -3,15 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jersey Number Selector</title>
+    <title>Jersey Number Selection</title>
     <link rel="stylesheet" href="JerseyNo.css">
 </head>
 <body>
     <div class="jersey-number-container">
+        <button class="back-button" onclick="goBack()">← Back</button>
         <h3>Select Your Jersey Number</h3>
-        <input type="text" id="jersey-number" class="number-input" maxlength="3" placeholder="Enter number">
-        <button class="submit-btn">Submit</button>
+        <input type="text" id="numberInput" class="number-input" placeholder="Enter Number" maxlength="3">
+        <button class="submit-btn" onclick="displayJersey()">Submit</button>
     </div>
+
+    <div class="jersey-display" id="jerseyDisplay" style="display: none;">
+        <p>Jersey No: <span id="jerseyNumber"></span></p>
+    </div>
+
     <script src="JerseyNo.js"></script>
 </body>
 </html>
