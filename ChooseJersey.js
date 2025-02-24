@@ -1,21 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const basicPatterns = [
-        "Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes",
-        "Polka Dots", "Chevron", "Triangles", "Paisley"
-    ];
+    const patterns = {
+        "Basic Patterns": ["Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes"],
+        "Textured Patterns": ["Polka Dots", "Camouflage", "Hexagonal Grid", "Chevron", "Galaxy"],
+        "Special Effects": ["Fire", "Electric", "Watercolor", "Smoke", "Digital"]
+    };
 
-    const texturedPatterns = [
-        "Carbon Fiber", "Cybernetic Mesh", "Circuit Board", "Honeycomb",
-        "Waveform", "Camouflage", "Hexagonal Grid"
-    ];
+    let selectedPattern = "solid";
 
-    const specialPatterns = [
-        "Fire", "Galaxy", "Glitch", "Electric", "Frost", "Rain", "Barcode", "Illusion"
-    ];
-
-    function generateButtons(patternList, containerId) {
+    // Function to populate dropdowns
+    function populateDropdown(category, containerId) {
         const container = document.getElementById(containerId);
-        patternList.forEach(pattern => {
+        patterns[category].forEach(pattern => {
             const button = document.createElement("button");
             button.classList.add("pattern-btn");
             button.setAttribute("data-pattern", pattern.toLowerCase().replace(/\s+/g, "-"));
@@ -24,28 +19,47 @@ document.addEventListener("DOMContentLoaded", function () {
             button.addEventListener("click", function () {
                 document.querySelectorAll(".pattern-btn").forEach(btn => btn.classList.remove("active"));
                 this.classList.add("active");
-                updateJerseyPreview(this.getAttribute("data-pattern"));
+                selectedPattern = this.getAttribute("data-pattern");
+                updateJerseyPreview();
             });
 
             container.appendChild(button);
         });
     }
 
-    generateButtons(basicPatterns, "basicPatterns");
-    generateButtons(texturedPatterns, "texturedPatterns");
-    generateButtons(specialPatterns, "specialPatterns");
+    // Populate dropdowns
+    populateDropdown("Basic Patterns", "basicPatterns");
+    populateDropdown("Textured Patterns", "texturedPatterns");
+    populateDropdown("Special Effects", "specialPatterns");
 
-    // Toggle dropdowns
-    document.querySelectorAll(".dropdown-btn").forEach(button => {
-        button.addEventListener("click", function () {
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === "block" ? "none" : "block";
-        });
-    });
+    // Initialize default selection
+    document.querySelector(".pattern-btn").classList.add("active");
 
-    function updateJerseyPreview(selectedPattern) {
+    function updateJerseyPreview() {
+        let primaryColor = document.getElementById("primaryColor").value;
+        let secondaryColor = document.getElementById("secondaryColor").value;
         let jerseyPreview = document.getElementById("jerseyPreview");
-        jerseyPreview.className = "jersey";
+
+        jerseyPreview.className = "jersey"; // Reset class
+        jerseyPreview.style.setProperty('--primary', primaryColor);
+        jerseyPreview.style.setProperty('--secondary', secondaryColor);
         jerseyPreview.classList.add(selectedPattern);
     }
+
+    // Event listeners for color changes
+    document.getElementById("primaryColor").addEventListener("input", updateJerseyPreview);
+    document.getElementById("secondaryColor").addEventListener("input", updateJerseyPreview);
+
+    // Confirm Selection
+    window.confirmJersey = function () {
+        const selectedJersey = {
+            pattern: selectedPattern,
+            primaryColor: document.getElementById("primaryColor").value,
+            secondaryColor: document.getElementById("secondaryColor").value
+        };
+
+        localStorage.setItem("selectedJerseyPattern", JSON.stringify(selectedJersey));
+        alert(`Jersey Confirmed with ${selectedPattern} pattern!`);
+        window.location.href = "index.html";
+    };
 });
