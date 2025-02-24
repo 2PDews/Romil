@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let selectedPattern = "solid"; // Default pattern
 
-    // Function to populate pattern buttons
     function populateDropdown(category, containerId) {
         const container = document.getElementById(containerId);
         patterns[category].forEach(pattern => {
@@ -27,47 +26,34 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // Populate pattern sections
     populateDropdown("Basic Patterns", "basicPatterns");
     populateDropdown("Textured Patterns", "texturedPatterns");
     populateDropdown("Special Effects", "specialPatterns");
 
-    // Ensure the first pattern button is selected by default
     const firstButton = document.querySelector(".pattern-btn");
     if (firstButton) {
         firstButton.classList.add("active");
     }
 
-    // Function to update the jersey preview
     function updateJerseyPreview() {
         let primaryColor = document.getElementById("primaryColor").value;
         let secondaryColor = document.getElementById("secondaryColor").value;
         let jerseyPreview = document.getElementById("jerseyPreview");
 
-        jerseyPreview.className = "jersey"; // Reset class
+        // Reset previous classes
+        jerseyPreview.className = "jersey";
+
+        // Apply primary and secondary colors
         jerseyPreview.style.setProperty('--primary', primaryColor);
         jerseyPreview.style.setProperty('--secondary', secondaryColor);
-        jerseyPreview.classList.add(selectedPattern);
 
-        // Special Effects Dynamic Behavior
-        if (selectedPattern === "fire") {
-            jerseyPreview.style.animation = "fireGlow 1.5s infinite alternate";
-        } else if (selectedPattern === "electric") {
-            jerseyPreview.style.animation = "electricPulse 1s infinite alternate";
-        } else if (selectedPattern === "smoke") {
-            jerseyPreview.style.animation = "smokeFade 3s infinite alternate";
-        } else if (selectedPattern === "digital") {
-            jerseyPreview.style.animation = "glitchEffect 0.5s infinite alternate";
-        } else {
-            jerseyPreview.style.animation = ""; // Remove animations for non-special patterns
-        }
+        // Add selected pattern class
+        jerseyPreview.classList.add(selectedPattern);
     }
 
-    // Event listeners for color changes
     document.getElementById("primaryColor").addEventListener("input", updateJerseyPreview);
     document.getElementById("secondaryColor").addEventListener("input", updateJerseyPreview);
 
-    // Confirm Selection
     window.confirmJersey = function () {
         const selectedJersey = {
             pattern: selectedPattern,
@@ -80,7 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html";
     };
 
-    // Back Button Functionality (Top Left Corner)
+    // Back Button (Top Left Corner)
     const backButton = document.createElement("button");
     backButton.textContent = "← Back";
     backButton.classList.add("back-button");

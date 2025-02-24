@@ -1,99 +1,102 @@
+/* General Styling */
 body {
     font-family: Arial, sans-serif;
-    background-color: #0A192F;
+    background-color: #121212;
     color: white;
     text-align: center;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: rgba(0, 0, 0, 0.3);
-}
-
-.logo-img {
-    height: 50px;
-    cursor: pointer;
-}
-
-.customization-container {
-    max-width: 600px;
-    margin: 20px auto;
+.container {
+    max-width: 500px;
+    margin: auto;
     padding: 20px;
-    background: rgba(255, 255, 255, 0.1);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 10px;
+    box-shadow: 0 0 10px cyan;
 }
 
-h2 {
-    margin-bottom: 10px;
+h1, h2 {
     color: cyan;
 }
 
-.patterns, .color-options {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
+.color-selection {
     margin-bottom: 20px;
 }
 
+label {
+    display: block;
+    margin-top: 10px;
+}
+
+/* Jersey Preview */
+.jersey {
+    width: 200px;
+    height: 250px;
+    margin: 20px auto;
+    border-radius: 10px;
+    border: 4px solid var(--secondary);
+    background-color: var(--primary);
+    transition: all 0.5s ease-in-out;
+}
+
+/* Pattern Buttons */
 .pattern-btn {
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.2);
+    padding: 8px 12px;
+    margin: 5px;
     border: none;
     cursor: pointer;
     border-radius: 5px;
-    color: white;
-    transition: 0.3s ease;
+    transition: 0.3s;
+    background: cyan;
+    color: black;
+    font-weight: bold;
 }
 
 .pattern-btn:hover, .pattern-btn.active {
-    background: cyan;
-    color: black;
+    background: purple;
+    color: white;
 }
 
-.color-options input {
-    width: 50px;
-    height: 50px;
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    padding: 8px 15px;
     border: none;
+    border-radius: 5px;
+    background: red;
+    color: white;
+    font-size: 16px;
     cursor: pointer;
 }
 
-.jersey-preview {
-    margin-top: 20px;
+.back-button:hover {
+    background: darkred;
 }
 
-/* Base Jersey */
-.jersey {
-    width: 150px;
-    height: 200px;
-    border-radius: 10px;
-    margin: 0 auto;
-    background: var(--primary);
+/* --- Patterns --- */
+
+/* Solid */
+.solid {
+    background-color: var(--primary);
 }
 
-//* General Styles */
-.jersey {
-    width: 150px;
-    height: 200px;
-    border-radius: 10px;
-    margin: 20px auto;
-    background: var(--primary);
-    border: 5px solid var(--secondary);
-}
-
-/* === Basic Patterns === */
-
-/* 1. Solid (Default) */
-.jersey.solid {
-    background: var(--primary);
-}
-
-/* 2. Stripes */
-.jersey.stripes {
+/* Stripes */
+.stripes {
     background: repeating-linear-gradient(
-        90deg,
+        45deg,
+        var(--primary),
+        var(--primary) 10px,
+        var(--secondary) 10px,
+        var(--secondary) 20px
+    );
+}
+
+/* Checkered */
+.checkered {
+    background: repeating-linear-gradient(
+        45deg,
         var(--primary) 0px,
         var(--primary) 20px,
         var(--secondary) 20px,
@@ -101,175 +104,99 @@ h2 {
     );
 }
 
-/* 3. Checkered */
-.jersey.checkered {
-    background: repeating-linear-gradient(
-        45deg,
-        var(--primary) 0px,
-        var(--primary) 25px,
-        var(--secondary) 25px,
-        var(--secondary) 50px
-    );
-    background-size: 50px 50px;
-}
-
-/* 4. Gradient */
-.jersey.gradient {
+/* Gradient */
+.gradient {
     background: linear-gradient(to right, var(--primary), var(--secondary));
 }
 
-/* 5. Diagonal Stripes */
-.jersey.diagonal-stripes {
+/* Diagonal Stripes */
+.diagonal-stripes {
     background: repeating-linear-gradient(
-        135deg,
-        var(--primary) 0px,
-        var(--primary) 10px,
-        var(--secondary) 10px,
-        var(--secondary) 20px
-    );
-}
-
-/* === Textured Patterns === */
-
-/* 6. Polka Dots */
-.jersey.polka-dots {
-    background: radial-gradient(var(--primary) 15%, transparent 20%), var(--secondary);
-    background-size: 30px 30px;
-}
-
-
-
-/* 9. Chevron */
-.jersey.chevron {
-    background: repeating-linear-gradient(
-        135deg,
-        var(--primary) 0px,
+        -45deg,
+        var(--primary),
         var(--primary) 15px,
         var(--secondary) 15px,
         var(--secondary) 30px
     );
 }
 
+/* --- Textured Patterns --- */
 
-/* === Responsive Adjustments === */
-@media (max-width: 600px) {
-    .jersey {
-        width: 120px;
-        height: 160px;
-    }
+/* Polka Dots */
+.polka-dots {
+    background: radial-gradient(circle, var(--secondary) 10%, transparent 10%) 0px 0px / 20px 20px,
+                var(--primary);
 }
 
-
-.jersey.lightning-bolt {
-    background: url('lightning.png');
-    background-size: cover;
+/* Chevron */
+.chevron {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--primary) 0px,
+        var(--primary) 20px,
+        var(--secondary) 20px,
+        var(--secondary) 40px
+    );
 }
 
-.jersey.circuit-board {
-    background: url('circuit-board.png');
-    background-size: cover;
-}
+/* --- Special Effects --- */
 
-.jersey.watercolor {
-    background: url('watercolor.png');
-    background-size: cover;
-}
-
-.jersey.barcode {
-    background: repeating-linear-gradient(90deg, var(--primary) 0px, var(--primary) 5px, var(--secondary) 5px, var(--secondary) 10px);
-}
-
-.jersey.fire {
-    background: url('fire.png');
-    background-size: cover;
-}
-
-.jersey.illusion {
-    background: url('illusion.png');
-    background-size: cover;
-}
-
-.submit-container button {
-    padding: 10px 20px;
-    background: cyan;
-    border: none;
-    cursor: pointer;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: 0.3s ease;
-}
-
-.submit-container button:hover {
-    background: purple;
-    color: white;
-}
-
-
-
-
-/* === Special Effects Patterns === */
-
-/* 1. Fire */
-.jersey.fire {
-    background: url('fire.png'); /* Make sure to add fire texture */
+/* Fire Effect */
+.fire {
+    background-image: url('fire.png');
     background-size: cover;
     animation: fireGlow 1.5s infinite alternate;
 }
 
-/* Fire Glow Animation */
-@keyframes fireGlow {
-    0% { filter: brightness(100%); }
-    100% { filter: brightness(130%); }
-}
-
-/* 2. Electric */
-.jersey.electric {
-    background: url('electric.png'); /* Add electric effect image */
+/* Electric Effect */
+.electric {
+    background-image: url('electric.png');
     background-size: cover;
     animation: electricPulse 1s infinite alternate;
 }
 
-/* Electric Pulse Animation */
-@keyframes electricPulse {
-    0% { filter: brightness(100%) contrast(100%); }
-    100% { filter: brightness(150%) contrast(120%); }
-}
-
-/* 3. Watercolor */
-.jersey.watercolor {
-    background: url('watercolor.png'); /* Add watercolor effect */
+/* Watercolor Effect */
+.watercolor {
+    background-image: url('watercolor.png');
     background-size: cover;
-    filter: saturate(120%);
 }
 
-/* 4. Smoke */
-.jersey.smoke {
-    background: url('smoke.png'); /* Add smoke texture */
+/* Smoke Effect */
+.smoke {
+    background-image: url('smoke.png');
     background-size: cover;
     animation: smokeFade 3s infinite alternate;
 }
 
-/* Smoke Fade Animation */
-@keyframes smokeFade {
-    0% { opacity: 1; filter: blur(1px); }
-    100% { opacity: 0.8; filter: blur(3px); }
-}
-
-/* 5. Digital */
-.jersey.digital {
-    background: url('digital.png'); /* Add digital effect */
+/* Digital Effect */
+.digital {
+    background-image: url('digital.png');
     background-size: cover;
     animation: glitchEffect 0.5s infinite alternate;
 }
 
-/* Digital Glitch Effect */
-@keyframes glitchEffect {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(2px); }
-    50% { transform: translateX(-2px); }
-    75% { transform: translateX(2px); }
-    100% { transform: translateX(0); }
+/* --- Special Effect Animations --- */
+
+/* Fire Glow */
+@keyframes fireGlow {
+    0% { box-shadow: 0 0 10px orange; }
+    100% { box-shadow: 0 0 30px red; }
 }
 
+/* Electric Pulse */
+@keyframes electricPulse {
+    0% { box-shadow: 0 0 10px cyan; }
+    100% { box-shadow: 0 0 30px blue; }
+}
 
+/* Smoke Fade */
+@keyframes smokeFade {
+    0% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
 
+/* Glitch Effect */
+@keyframes glitchEffect {
+    0% { transform: skewX(-5deg); }
+    100% { transform: skewX(5deg); }
+}
