@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const patterns = {
         "Basic Patterns": ["Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes"],
         "Textured Patterns": ["Polka Dots", "Chevron"],
-        "Special Effects": ["Fire", "Electric", "Watercolor", "Smoke", "Digital"]
+      
     };
 
     let selectedPattern = "solid"; // Default pattern
