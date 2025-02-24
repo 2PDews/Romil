@@ -76,33 +76,3 @@ app.listen(PORT, () => console.log(Server running on https://quilted-enchanting-
 const express = require("express");
 const cors = require("cors");
 const path = require("path");
-
-const app = express();
-const PORT = process.env.PORT || 3000; // Use Glitch's dynamic port
-
-app.use(cors()); // Enable CORS for API access
-app.use(express.static("public")); // Serve static files
-
-// Mock Jersey Data
-const jerseys = [
-    { id: 1, name: "Classic Blue", color: "#0000FF", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J3.jpg?v=1740389228096" },
-    { id: 2, name: "Cyber Neon", color: "#00FFFF", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J2.jpg?v=1740389228097" },
-    { id: 3, name: "Electric Purple", color: "#8A2BE2", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J1.jpg?v=1740389228097" },
-    { id: 4, name: "Flame Red", color: "#FF0000", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J4.jpg?v=1740389228441" },
-    { id: 5, name: "Golden Strike", color: "#FFD700", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J5.jpg?v=1740389229824" },
-    { id: 6, name: "Emerald Green", color: "#008000", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J6.jpg?v=1740389231173" },
-    { id: 7, name: "Sunset Orange", color: "#FF4500", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J7.jpg?v=1740389231989" },
-    { id: 8, name: "Shadow Black", color: "#000000", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J8.jpg?v=1740389235260" },
-    { id: 9, name: "Silver Flash", color: "#C0C0C0", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J9.jpg?v=1740389235608" },
-    { id: 10, name: "Neon Pink", color: "#FF1493", image: "https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/J10.jpg?v=1740389236083" }
-];
-
-// API Route to Get Jerseys
-app.get("/api/jerseys", (req, res) => {
-    res.json(jerseys);
-});
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`✅ Server running at: https://${process.env.quilted-enchanting-grade}.glitch.me/api/jerseys`);
-});
