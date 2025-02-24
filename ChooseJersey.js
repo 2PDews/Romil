@@ -6,7 +6,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     let selectedPattern = "solid"; // Default pattern
 
-    // Apply pattern selection
+    // Function to update jersey preview
+    function updateJerseyPreview() {
+        let primaryColor = primaryColorPicker.value;
+        let secondaryColor = secondaryColorPicker.value;
+        
+        // Reset class and apply new colors
+        jerseyPreview.className = "jersey";
+        jerseyPreview.style.setProperty('--primary', primaryColor);
+        jerseyPreview.style.setProperty('--secondary', secondaryColor);
+
+        // Apply selected pattern
+        if (selectedPattern) {
+            jerseyPreview.classList.add(selectedPattern);
+        }
+    }
+
+    // Event listener for pattern selection
     patternButtons.forEach(button => {
         button.addEventListener("click", function () {
             document.querySelectorAll(".pattern-btn").forEach(btn => btn.classList.remove("active"));
@@ -16,30 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // Update Jersey Preview
-    function updateJerseyPreview() {
-        let primaryColor = primaryColorPicker.value;
-        let secondaryColor = secondaryColorPicker.value;
-
-        if (selectedPattern === "solid") {
-            jerseyPreview.style.background = primaryColor;
-        } else if (selectedPattern === "stripes") {
-            jerseyPreview.style.background = `repeating-linear-gradient(
-                45deg, ${primaryColor}, ${primaryColor} 10px, ${secondaryColor} 10px, ${secondaryColor} 20px)`;
-        } else if (selectedPattern === "checkered") {
-            jerseyPreview.style.background = `linear-gradient(45deg, ${primaryColor} 25%, ${secondaryColor} 25%, 
-                ${secondaryColor} 50%, ${primaryColor} 50%, ${primaryColor} 75%, ${secondaryColor} 75%)`;
-            jerseyPreview.style.backgroundSize = "40px 40px";
-        } else if (selectedPattern === "gradient") {
-            jerseyPreview.style.background = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
-        }
-    }
-
-    // Update Preview on Color Change
+    // Event listeners for color pickers
     primaryColorPicker.addEventListener("input", updateJerseyPreview);
     secondaryColorPicker.addEventListener("input", updateJerseyPreview);
 
-    // Confirm Jersey Selection
+    // Function to confirm jersey selection
     window.confirmJersey = function () {
         const selectedJersey = {
             pattern: selectedPattern,
@@ -52,6 +49,6 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html"; // Redirect after selection
     };
 
-    // Initialize Default Preview
+    // Initialize the preview on page load
     updateJerseyPreview();
 });

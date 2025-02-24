@@ -64,12 +64,71 @@ h2 {
     margin-top: 20px;
 }
 
+/* Base Jersey */
 .jersey {
     width: 150px;
     height: 200px;
-    margin: 0 auto;
     border-radius: 10px;
-    background: blue;
+    margin: 0 auto;
+    background: var(--primary);
+}
+
+/* Patterns */
+.jersey.diagonal-stripes {
+    background: repeating-linear-gradient(135deg, var(--primary) 0px, var(--primary) 10px, var(--secondary) 10px, var(--secondary) 20px);
+}
+
+.jersey.polka-dots {
+    background: radial-gradient(var(--primary) 15%, transparent 20%), var(--secondary);
+    background-size: 30px 30px;
+}
+
+.jersey.checkered {
+    background: repeating-linear-gradient(45deg, var(--primary) 25%, var(--secondary) 25%, var(--secondary) 50%, var(--primary) 50%);
+    background-size: 40px 40px;
+}
+
+.jersey.gradient {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+.jersey.honeycomb {
+    background: url('honeycomb.png');
+    background-size: cover;
+}
+
+.jersey.galaxy {
+    background: url('galaxy.png');
+    background-size: cover;
+}
+
+.jersey.lightning-bolt {
+    background: url('lightning.png');
+    background-size: cover;
+}
+
+.jersey.circuit-board {
+    background: url('circuit-board.png');
+    background-size: cover;
+}
+
+.jersey.watercolor {
+    background: url('watercolor.png');
+    background-size: cover;
+}
+
+.jersey.barcode {
+    background: repeating-linear-gradient(90deg, var(--primary) 0px, var(--primary) 5px, var(--secondary) 5px, var(--secondary) 10px);
+}
+
+.jersey.fire {
+    background: url('fire.png');
+    background-size: cover;
+}
+
+.jersey.illusion {
+    background: url('illusion.png');
+    background-size: cover;
 }
 
 .submit-container button {
