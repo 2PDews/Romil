@@ -3,52 +3,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jersey Customization - CricOnBoard</title>
+    <title>Jersey Customization</title>
     <link rel="stylesheet" href="ChooseJersey.css">
+    <script src="script.js" defer></script>
 </head>
 <body>
-
-    <!-- Header -->
-    <header>
-        <div class="center-logo" onclick="location.href='index.html'">
-            <img src="logo.png" alt="CricOnBoard Logo" class="logo-img">
-        </div>
+    <div class="container">
         <h1>Customize Your Jersey</h1>
-    </header>
-
-    <!-- Customization Section -->
-    <main class="customization-container">
         
-        <!-- Pattern Selection -->
-      <section class="pattern-selection">
-    <h2>Select Pattern</h2>
-
         <!-- Color Selection -->
-        <section class="color-selection">
-            <h2>Select Color</h2>
-            <div class="color-options">
-                <input type="color" id="primaryColor" value="#0000FF">
-                <label for="primaryColor">Primary Color</label>
+        <div class="color-selection">
+            <label for="primaryColor">Primary Color:</label>
+            <input type="color" id="primaryColor" value="#ff0000">
+            
+            <label for="secondaryColor">Secondary Color:</label>
+            <input type="color" id="secondaryColor" value="#0000ff">
+        </div>
 
-                <input type="color" id="secondaryColor" value="#FF0000">
-                <label for="secondaryColor" class="secondary-label">Secondary Color</label>
+        <!-- Pattern Selection -->
+        <div class="pattern-selection">
+            <h2>Select a Pattern</h2>
+            <div class="pattern-category">
+                <h3>Basic Patterns</h3>
+                <div id="basicPatterns" class="pattern-container"></div>
             </div>
-        </section>
+            <div class="pattern-category">
+                <h3>Textured Patterns</h3>
+                <div id="texturedPatterns" class="pattern-container"></div>
+            </div>
+            <div class="pattern-category">
+                <h3>Special Effects</h3>
+                <div id="specialPatterns" class="pattern-container"></div>
+            </div>
+        </div>
 
         <!-- Jersey Preview -->
-        <section class="jersey-preview">
+        <div class="preview-section">
             <h2>Jersey Preview</h2>
-            <div class="jersey" id="jerseyPreview"></div>
-        </section>
-
-        <!-- Confirm Button -->
-        <div class="submit-container">
-            <button onclick="confirmJersey()">Confirm Selection</button>
+            <div id="jerseyPreview" class="jersey"></div>
         </div>
 
-    </main>
-
-    <script src="ChooseJersey.js"></script>
-
+        <!-- Confirm Button -->
+        <button onclick="confirmJersey()">Confirm Selection</button>
+    </div>
+  <script src="ChooseJersey.js"></script>
 </body>
 </html>
