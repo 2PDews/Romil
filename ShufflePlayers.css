@@ -1,12 +1,19 @@
-/* General Styling */
+/* Import Reospec Font */
+@font-face {
+    font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background:#0A192F;
-  margin: 0;
-  padding: 0;
-  color: #00FFFF; /* Orange */
-  text-align: center;
-  line-height: 1.6;
+    font-family: 'Reospec', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0A192F; /* Deep cyberpunk blue */
+    color: #f1f1f1; /* Light text color */
+    line-height: 1.6;
 }
 
 /* Container */
@@ -56,6 +63,7 @@ body {
   color: #ffffff;
   background: linear-gradient(135deg, #9400FF, #00FFFF);
   border: none;
+   font-family: 'Reospec', sans-serif;
   border-radius: 12px;
   cursor: pointer;
   transition: all 0.3s ease;

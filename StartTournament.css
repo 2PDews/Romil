@@ -1,7 +1,8 @@
 /* General Styles */
 body {
   margin: 0;
-  font-family: 'Poppins', sans-serif;
+   font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
   background-color: #0A192F; /* Deep Cyberpunk Blue */
     color: #00FFFF;
   display: flex;
