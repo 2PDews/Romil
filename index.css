@@ -54,15 +54,59 @@ body::after {
 
 /* Heading Animation */
 
+/* Header Title */
 h1 {
     font-size: 30px;
     font-weight: bold;
-    color: #00000;
+    color: #FFFFFF; /* Fixed invalid color */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    transform: translateX(-140px); /* Moves it slightly left */
+    transform: translateX(-50px); /* Moves slightly left on large screens */
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 26px; /* Reduce size for tablets */
+        transform: translateX(-20px); /* Slightly left on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 22px; /* Further reduce size for mobile */
+        transform: translateX(0); /* Fully centered on small screens */
+    }
+}
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0A192F;
+    padding: 10px 20px;
+    color: white;
+}
+
+/* Right-side Header Icons */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icons i {
+    font-size: 20px;
+    cursor: pointer;
+    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+/* Hover Effect */
+.header-icons i:hover {
+    color: #00FFFF;
+    transform: scale(1.2);
 }
 
 /* Main Options */
