@@ -1,33 +1,35 @@
-/* Import Mars Thin Font */
+/* Import Reospec Font */
 @font-face {
-    font-family: 'Mars Thin';
-    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Mars%20Thin.ttf?v=1740394610193') format('truetype');
+    font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
     font-weight: normal;
-    font-style: bold;
+    font-style: normal;
 }
 
-/* Global Styles */
-body {
-    font-family: 'Mars Thin', sans-serif; /* Apply Mars Thin font */
-    background-color: #0A192F; /* Deep dark blue */
-    color: #f1f1f1; /* Soft white text */
+/* General Styles */
+html, body {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    user-scalable: no; /* Disables zooming */
-    -webkit-user-select: none; /* Prevents text selection */
-    -webkit-touch-callout: none; /* No touch popup */
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+    color: #00FFFF; 
+    overflow-y: auto; /* Enables vertical scrolling */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Reospec', sans-serif; /* Apply Reospec font */
 }
 
-/* Headings */
+/* Example Usage for Headings & Buttons */
 h1, h2, h3 {
-    font-family: 'Mars Thin', sans-serif;
-    font-weight: bold; /* Ensure font weight is properly applied */
+    font-family: 'Reospec', sans-serif;
+    font-weight: normal;
 }
 
-/* Buttons */
 button {
-    font-family: 'Mars Thin', sans-serif;
+    font-family: 'Reospec', sans-serif;
     font-size: 18px;
     background: linear-gradient(45deg, #00FFFF, #8A2BE2);
     color: white;
@@ -42,6 +44,7 @@ button:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
 }
+
 
 /* Back Button */
 .back-button a {
