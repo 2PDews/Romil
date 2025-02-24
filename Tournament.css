@@ -1,6 +1,14 @@
+/* Import Mars Bold Font */
+@font-face {
+    font-family: 'Mars Thin';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Mars%20Thin.ttf?v=1740394610193');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Global Styles */
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Mars Thin', sans-serif; /* Apply Mars Bold font */
     background-color: #0A192F; /* Deep dark blue */
     color: #f1f1f1; /* Soft white text */
     margin: 0;
@@ -10,6 +18,30 @@ body {
     -webkit-user-select: none; /* Prevents text selection */
     -webkit-touch-callout: none; /* No touch popup */
 }
+
+/* Headings */
+h1, h2, h3 {
+    font-family: 'Mars Thin', sans-serif;
+}
+
+/* Buttons */
+button {
+    font-family: 'Mars Thin', sans-serif;
+    font-size: 18px;
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
+}
+
 
 /* Back Button */
 .back-button a {
