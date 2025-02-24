@@ -4,18 +4,14 @@ document.addEventListener("DOMContentLoaded", function () {
     const primaryColorInput = document.getElementById("primaryColor");
     const secondaryColorInput = document.getElementById("secondaryColor");
 
-    const patterns = [
-        "Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes",
-        "Polka Dots", "Wavy Lines", "Camouflage", "Hexagonal Grid", "Lightning Bolt",
-        "Chevron", "Split Design", "Triangles", "Paisley", "Tribal",
-        "Floral", "Waveform", "Carbon Fiber", "Cybernetic Mesh", "Circuit Board",
-        "Fractal", "Abstract", "Maze", "Hoops", "Watercolor",
-        "Retro Wave", "Grunge", "Smoke", "Lava", "Metallic",
-        "Stardust", "Fire", "Electric", "Frost", "Rain",
-        "Glitch", "Splatter", "Smoke Swirl", "Digital", "Illusion",
-        "Barcode", "Kaleidoscope", "Galaxy", "Zebra", "Leopard",
-        "Honeycomb", "Digital Camouflage"
-    ];
+const patterns = [
+    "Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes",
+    "Polka Dots", "Wavy Lines", "Hexagonal Grid", "Chevron", "Triangles",
+    "Tribal", "Floral", "Carbon Fiber", "Circuit Board", "Maze",
+    "Watercolor", "Grunge", "Smoke", "Metallic", "Fire",
+    "Electric", "Frost", "Rain", "Glitch", "Splatter",
+    "Digital", "Illusion", "Barcode", "Galaxy", "Honeycomb"
+];
 
     let selectedPattern = "solid"; // Default selection
 

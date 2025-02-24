@@ -1,8 +1,25 @@
+/* Import Reospec Font */
+@font-face {
+    font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #0A192F;
-    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden; /* Prevent scrolling */
+    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+    color: #00FFFF; 
+    overflow-y: auto; /* Enables vertical scrolling */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    font-family: 'Reospec', sans-serif; /* Apply Reospec font */
 }
 
 header {
@@ -29,28 +46,51 @@ header {
 h2 {
     margin-bottom: 10px;
     color: cyan;
+    font-family: 'Reospec', sans-serif;
 }
 
-.patterns, .color-options {
-    display: flex;
+.patterns {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
+    padding: 15px;
+    max-width: 500px;
+    margin: 0 auto;
 }
 
 .pattern-btn {
-    padding: 10px 15px;
-    background: rgba(255, 255, 255, 0.2);
-    border: none;
+    padding: 12px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid transparent;
     cursor: pointer;
-    border-radius: 5px;
+    border-radius: 8px;
     color: white;
-    transition: 0.3s ease;
+    font-size: 13px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    min-width: 100px;
+    text-align: center;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
 }
 
-.pattern-btn:hover, .pattern-btn.active {
+.pattern-btn:hover {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 0px 10px cyan;
+    transform: translateY(-3px);
+}
+
+.pattern-btn.active {
     background: cyan;
     color: black;
+    border-color: cyan;
+    box-shadow: 0px 0px 15px cyan;
 }
 
 .color-options input {
@@ -133,56 +173,131 @@ h2 {
 
 .submit-container button {
     padding: 10px 20px;
-    background: cyan;
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+    color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    transition: 0.3s ease;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+    font-family: 'Reospec', sans-serif;
+    text-transform: uppercase;
 }
 
 .submit-container button:hover {
-    background: purple;
-    color: white;
+    transform: scale(1.1);
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
 }
 
-.patterns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 12px;
-    padding: 10px;
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
 }
 
-.pattern-btn {
-    padding: 12px 18px;
-    background: rgba(0, 255, 255, 0.2);
-    border: 2px solid transparent;
-    cursor: pointer;
-    border-radius: 8px;
-    color: white;
-    font-size: 14px;
-    font-weight: bold;
+.back-button a {
+    text-decoration: none;
+    color: #00FFFF;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px 15px;
     transition: 0.3s ease-in-out;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    min-width: 120px;
-    text-align: center;
-    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5);
 }
 
-.pattern-btn:hover {
-    background: rgba(0, 255, 255, 0.4);
-    box-shadow: 0px 0px 10px cyan;
+.back-button a:hover {
+    color: #9400FF;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #00FFFF, #00CCFF);
+    color: #0A192F;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 2em;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Tournament Card Styling */
+.tournament-card {
+    background: rgba(10, 25, 47, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    margin: 15px 0;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+    color: #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: 0.3s ease-in-out;
+}
+
+.tournament-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 255, 255, 0.5);
+}
+
+.tournament-card button {
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.tournament-card button:hover {
+    background: linear-gradient(145deg, #9400FF, #4B0082);
     transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.6);
 }
 
-.pattern-btn.active {
-    background: cyan;
-    color: black;
-    border-color: cyan;
-    box-shadow: 0px 0px 15px cyan;
+/* Responsive Design */
+@media (max-width: 768px) {
+    .customization-container {
+        width: 95%;
+        padding: 20px;
+    }
+
+    .patterns {
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+
+    .pattern-btn {
+        min-width: 80px;
+        font-size: 12px;
+    }
 }
 
+@media (max-width: 480px) {
+    .customization-container {
+        width: 95%;
+        padding: 20px;
+    }
 
-
+    .pattern-btn {
+        min-width: 70px;
+        font-size: 11px;
+    }
+}
