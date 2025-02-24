@@ -48,42 +48,36 @@ h2 {
     color: cyan;
     font-family: 'Reospec', sans-serif;
 }
-
 .patterns {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Responsive grid */
+    gap: 10px;
     justify-content: center;
-    padding: 15px;
-    max-width: 500px;
+    padding: 10px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .pattern-btn {
-    padding: 12px;
+    padding: 12px 15px;
     background: rgba(0, 255, 255, 0.2);
     border: 2px solid transparent;
     cursor: pointer;
     border-radius: 8px;
     color: white;
-    font-size: 13px;
+    font-size: 14px;
     font-weight: bold;
     transition: 0.3s ease-in-out;
     text-transform: uppercase;
     letter-spacing: 1px;
-    min-width: 100px;
     text-align: center;
     box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 40px;
 }
 
 .pattern-btn:hover {
     background: rgba(0, 255, 255, 0.4);
     box-shadow: 0px 0px 10px cyan;
-    transform: translateY(-3px);
+    transform: scale(1.05);
 }
 
 .pattern-btn.active {
@@ -92,6 +86,7 @@ h2 {
     border-color: cyan;
     box-shadow: 0px 0px 15px cyan;
 }
+
 
 .color-options input {
     width: 50px;
@@ -111,6 +106,73 @@ h2 {
     border-radius: 10px;
     margin: 0 auto;
     background: var(--primary);
+}
+/* Dropdown Styles */
+.pattern-dropdown {
+    width: 100%;
+    max-width: 600px;
+    margin: 10px auto;
+}
+
+.dropdown-btn {
+    width: 100%;
+    padding: 12px;
+    background: rgba(0, 255, 255, 0.3);
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.dropdown-btn:hover {
+    background: cyan;
+    color: black;
+}
+
+.dropdown-content {
+    display: none;
+    padding: 10px;
+}
+
+/* Pattern Buttons */
+.patterns {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+    justify-content: center;
+}
+
+.pattern-btn {
+    padding: 10px;
+    background: rgba(0, 255, 255, 0.2);
+    border: 2px solid transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+    box-shadow: 0px 0px 5px rgba(0, 255, 255, 0.5);
+}
+
+.pattern-btn:hover {
+    background: rgba(0, 255, 255, 0.4);
+    box-shadow: 0px 0px 10px cyan;
+    transform: scale(1.05);
+}
+
+.pattern-btn.active {
+    background: cyan;
+    color: black;
+    border-color: cyan;
+    box-shadow: 0px 0px 15px cyan;
 }
 
 /* Patterns */
