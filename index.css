@@ -7,6 +7,7 @@ html, body {
   font-family: 'https://cdn.glitch.global/8b201ecf-9d9a-4aa8-bf48-65667cf3aecf/Reospec.otf?v=1739773883559', sans-serif;
   background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
   color: #00FFFF; 
+   overflow-y: auto; /* Enables vertical scrolling */
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -62,25 +63,27 @@ h1 {
     font-size: 30px;
     font-weight: bold;
     color: #00000;
-    text-align: center; /* Keeps text centered */
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0;
-    transform: translateX(-150px); /* Moves it slightly left */
+    transform: translateX(-90px); /* Moves it slightly left */
+}
+* Responsive adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 28px; /* Reduce size for smaller screens */
+        transform: translateX(-10px); /* Move slightly left but less than desktop */
+    }
 }
 
-/* Glowing Effect */
-@keyframes glow {
-  0% { text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF; }
-  100% { text-shadow: 0 0 20px #00CCFF, 0 0 40px #00CCFF; }
+@media (max-width: 480px) {
+    h1 {
+        font-size: 24px; /* Further reduce size for mobile */
+        transform: translateX(0); /* Keep it fully centered on small screens */
+    }
 }
 
-/* Bounce Effect */
-@keyframes bounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
-}
 
 /* Main Options */
 main {
