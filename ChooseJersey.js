@@ -1,49 +1,57 @@
-const API_URL = "https://quilted-enchanting-grade.glitch.me/api/jerseys";
+document.addEventListener("DOMContentLoaded", function () {
+    const patternButtons = document.querySelectorAll(".pattern-btn");
+    const primaryColorPicker = document.getElementById("primaryColor");
+    const secondaryColorPicker = document.getElementById("secondaryColor");
+    const jerseyPreview = document.getElementById("jerseyPreview");
 
-async function loadJerseys() {
-    try {
-        const response = await fetch(API_URL);
-        const jerseys = await response.json();
+    let selectedPattern = "solid"; // Default pattern
 
-        console.log(jerseys); // Check if data is coming correctly
-
-        const container = document.getElementById("jerseyContainer");
-        container.innerHTML = ""; // Clear any existing content
-
-        jerseys.forEach(jersey => {
-            const jerseyDiv = document.createElement("div");
-            jerseyDiv.classList.add("jersey-card");
-
-            jerseyDiv.innerHTML = `
-                <img src="${jersey.image}" alt="${jersey.name}" class="jersey-img">
-                <h3>${jersey.name}</h3>
-                <button class="select-btn" onclick="selectJersey('${jersey.name}', '${jersey.image}')">
-                    Select
-                </button>
-            `;
-
-            container.appendChild(jerseyDiv);
+    // Apply pattern selection
+    patternButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            document.querySelectorAll(".pattern-btn").forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
+            selectedPattern = this.getAttribute("data-pattern");
+            updateJerseyPreview();
         });
-    } catch (error) {
-        console.error("Error loading jerseys:", error);
+    });
+
+    // Update Jersey Preview
+    function updateJerseyPreview() {
+        let primaryColor = primaryColorPicker.value;
+        let secondaryColor = secondaryColorPicker.value;
+
+        if (selectedPattern === "solid") {
+            jerseyPreview.style.background = primaryColor;
+        } else if (selectedPattern === "stripes") {
+            jerseyPreview.style.background = `repeating-linear-gradient(
+                45deg, ${primaryColor}, ${primaryColor} 10px, ${secondaryColor} 10px, ${secondaryColor} 20px)`;
+        } else if (selectedPattern === "checkered") {
+            jerseyPreview.style.background = `linear-gradient(45deg, ${primaryColor} 25%, ${secondaryColor} 25%, 
+                ${secondaryColor} 50%, ${primaryColor} 50%, ${primaryColor} 75%, ${secondaryColor} 75%)`;
+            jerseyPreview.style.backgroundSize = "40px 40px";
+        } else if (selectedPattern === "gradient") {
+            jerseyPreview.style.background = `linear-gradient(to right, ${primaryColor}, ${secondaryColor})`;
+        }
     }
-}
 
-function selectJersey(name, image) {
-    localStorage.setItem("selectedJersey", JSON.stringify({ name, image }));
-    alert(`You selected: ${name}`);
-}
+    // Update Preview on Color Change
+    primaryColorPicker.addEventListener("input", updateJerseyPreview);
+    secondaryColorPicker.addEventListener("input", updateJerseyPreview);
 
-function confirmJersey() {
-    const selectedJersey = JSON.parse(localStorage.getItem("selectedJersey"));
+    // Confirm Jersey Selection
+    window.confirmJersey = function () {
+        const selectedJersey = {
+            pattern: selectedPattern,
+            primaryColor: primaryColorPicker.value,
+            secondaryColor: secondaryColorPicker.value
+        };
 
-    if (selectedJersey) {
-        alert(`Jersey Confirmed: ${selectedJersey.name}`);
-        // Redirect or handle jersey selection confirmation here
-    } else {
-        alert("Please select a jersey before confirming!");
-    }
-}
+        localStorage.setItem("selectedJerseyPattern", JSON.stringify(selectedJersey));
+        alert(`Jersey Confirmed with ${selectedPattern} pattern!`);
+        window.location.href = "index.html"; // Redirect after selection
+    };
 
-// Load jerseys when the page loads
-window.onload = loadJerseys;
+    // Initialize Default Preview
+    updateJerseyPreview();
+});

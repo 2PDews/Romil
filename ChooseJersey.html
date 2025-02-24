@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Choose Jersey - CricOnBoard</title>
+    <title>Jersey Customization - CricOnBoard</title>
     <link rel="stylesheet" href="ChooseJersey.css">
 </head>
 <body>
@@ -13,24 +13,49 @@
         <div class="center-logo" onclick="location.href='index.html'">
             <img src="logo.png" alt="CricOnBoard Logo" class="logo-img">
         </div>
-        <h1>Choose Your Jersey</h1>
-        <div class="header-icons">
-            <i class="fas fa-user"></i>
-            <i class="fas fa-cog"></i>
-        </div>
+        <h1>Customize Your Jersey</h1>
     </header>
 
-    <!-- Jersey Selection Container -->
-    <main class="jersey-container" id="jerseyContainer">
-        <!-- Jerseys will be loaded here dynamically -->
+    <!-- Customization Section -->
+    <main class="customization-container">
+        
+        <!-- Pattern Selection -->
+        <section class="pattern-selection">
+            <h2>Select Pattern</h2>
+            <div class="patterns">
+                <button class="pattern-btn" data-pattern="solid">Solid</button>
+                <button class="pattern-btn" data-pattern="stripes">Stripes</button>
+                <button class="pattern-btn" data-pattern="checkered">Checkered</button>
+                <button class="pattern-btn" data-pattern="gradient">Gradient</button>
+            </div>
+        </section>
+
+        <!-- Color Selection -->
+        <section class="color-selection">
+            <h2>Select Color</h2>
+            <div class="color-options">
+                <input type="color" id="primaryColor" value="#0000FF">
+                <label for="primaryColor">Primary Color</label>
+
+                <input type="color" id="secondaryColor" value="#FF0000">
+                <label for="secondaryColor" class="secondary-label">Secondary Color</label>
+            </div>
+        </section>
+
+        <!-- Jersey Preview -->
+        <section class="jersey-preview">
+            <h2>Jersey Preview</h2>
+            <div class="jersey" id="jerseyPreview"></div>
+        </section>
+
+        <!-- Confirm Button -->
+        <div class="submit-container">
+            <button onclick="confirmJersey()">Confirm Selection</button>
+        </div>
+
     </main>
 
-    <!-- Submit Button -->
-    <div class="submit-container">
-        <button onclick="confirmJersey()">Confirm Selection</button>
-    </div>
-
-    <script src="Choosejersey.js"></script>
+    <script src="ChooseJersey.js"></script>
 
 </body>
 </html>
