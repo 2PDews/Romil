@@ -73,34 +73,92 @@ h2 {
     background: var(--primary);
 }
 
-/* Patterns */
-.jersey.diagonal-stripes {
-    background: repeating-linear-gradient(135deg, var(--primary) 0px, var(--primary) 10px, var(--secondary) 10px, var(--secondary) 20px);
+//* General Styles */
+.jersey {
+    width: 150px;
+    height: 200px;
+    border-radius: 10px;
+    margin: 20px auto;
+    background: var(--primary);
+    border: 5px solid var(--secondary);
 }
 
+/* === Basic Patterns === */
+
+/* 1. Solid (Default) */
+.jersey.solid {
+    background: var(--primary);
+}
+
+/* 2. Stripes */
+.jersey.stripes {
+    background: repeating-linear-gradient(
+        90deg,
+        var(--primary) 0px,
+        var(--primary) 20px,
+        var(--secondary) 20px,
+        var(--secondary) 40px
+    );
+}
+
+/* 3. Checkered */
+.jersey.checkered {
+    background: repeating-linear-gradient(
+        45deg,
+        var(--primary) 0px,
+        var(--primary) 25px,
+        var(--secondary) 25px,
+        var(--secondary) 50px
+    );
+    background-size: 50px 50px;
+}
+
+/* 4. Gradient */
+.jersey.gradient {
+    background: linear-gradient(to right, var(--primary), var(--secondary));
+}
+
+/* 5. Diagonal Stripes */
+.jersey.diagonal-stripes {
+    background: repeating-linear-gradient(
+        135deg,
+        var(--primary) 0px,
+        var(--primary) 10px,
+        var(--secondary) 10px,
+        var(--secondary) 20px
+    );
+}
+
+/* === Textured Patterns === */
+
+/* 6. Polka Dots */
 .jersey.polka-dots {
     background: radial-gradient(var(--primary) 15%, transparent 20%), var(--secondary);
     background-size: 30px 30px;
 }
 
-.jersey.checkered {
-    background: repeating-linear-gradient(45deg, var(--primary) 25%, var(--secondary) 25%, var(--secondary) 50%, var(--primary) 50%);
-    background-size: 40px 40px;
+
+
+/* 9. Chevron */
+.jersey.chevron {
+    background: repeating-linear-gradient(
+        135deg,
+        var(--primary) 0px,
+        var(--primary) 15px,
+        var(--secondary) 15px,
+        var(--secondary) 30px
+    );
 }
 
-.jersey.gradient {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+
+/* === Responsive Adjustments === */
+@media (max-width: 600px) {
+    .jersey {
+        width: 120px;
+        height: 160px;
+    }
 }
 
-.jersey.honeycomb {
-    background: url('honeycomb.png');
-    background-size: cover;
-}
-
-.jersey.galaxy {
-    background: url('galaxy.png');
-    background-size: cover;
-}
 
 .jersey.lightning-bolt {
     background: url('lightning.png');
@@ -144,6 +202,73 @@ h2 {
 .submit-container button:hover {
     background: purple;
     color: white;
+}
+
+
+
+
+/* === Special Effects Patterns === */
+
+/* 1. Fire */
+.jersey.fire {
+    background: url('fire.png'); /* Make sure to add fire texture */
+    background-size: cover;
+    animation: fireGlow 1.5s infinite alternate;
+}
+
+/* Fire Glow Animation */
+@keyframes fireGlow {
+    0% { filter: brightness(100%); }
+    100% { filter: brightness(130%); }
+}
+
+/* 2. Electric */
+.jersey.electric {
+    background: url('electric.png'); /* Add electric effect image */
+    background-size: cover;
+    animation: electricPulse 1s infinite alternate;
+}
+
+/* Electric Pulse Animation */
+@keyframes electricPulse {
+    0% { filter: brightness(100%) contrast(100%); }
+    100% { filter: brightness(150%) contrast(120%); }
+}
+
+/* 3. Watercolor */
+.jersey.watercolor {
+    background: url('watercolor.png'); /* Add watercolor effect */
+    background-size: cover;
+    filter: saturate(120%);
+}
+
+/* 4. Smoke */
+.jersey.smoke {
+    background: url('smoke.png'); /* Add smoke texture */
+    background-size: cover;
+    animation: smokeFade 3s infinite alternate;
+}
+
+/* Smoke Fade Animation */
+@keyframes smokeFade {
+    0% { opacity: 1; filter: blur(1px); }
+    100% { opacity: 0.8; filter: blur(3px); }
+}
+
+/* 5. Digital */
+.jersey.digital {
+    background: url('digital.png'); /* Add digital effect */
+    background-size: cover;
+    animation: glitchEffect 0.5s infinite alternate;
+}
+
+/* Digital Glitch Effect */
+@keyframes glitchEffect {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(2px); }
+    50% { transform: translateX(-2px); }
+    75% { transform: translateX(2px); }
+    100% { transform: translateX(0); }
 }
 
 
