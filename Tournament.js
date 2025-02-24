@@ -7,3 +7,5 @@ document.getElementById('create-tournament-btn').addEventListener('click', () =>
 document.getElementById("saved-tournament-btn").addEventListener("click", function() {
     window.location.href = "SaveTournament.html";
 });
+
+

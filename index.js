@@ -18,8 +18,8 @@ document.getElementById('follow-option').onclick = () => {
 document.getElementById('jersey-option').onclick = () => {
     window.location.href = "ChooseJersey.html";
 };
-document.getElementById('number-option').onclick = () => {
-    window.location.href = "JerseyNo.html";
+document.getElementById('jersey-option').onclick = () => {
+    window.location.href = "ChooseJersey.html";
 };
 
         function toggleMenu(event) {
@@ -35,31 +35,27 @@ document.getElementById('number-option').onclick = () => {
         }
 
         document.body.addEventListener("click", closeMenu); // Close sidebar on body click
-function closeSidebar() {
-    document.getElementById("sidebar").classList.remove("active");
-}
-// Load Header and Footer
 document.addEventListener("DOMContentLoaded", function () {
+    // Load Header
     fetch("header.html")
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) throw new Error("Header file not found");
+            return response.text();
+        })
         .then(data => {
             document.body.insertAdjacentHTML("afterbegin", data);
-        });
+            attachMenuEvents();
+        })
+        .catch(error => console.error(error));
 
+    // Load Footer
     fetch("footer.html")
-        .then(response => response.text())
+        .then(response => {
+            if (!response.ok) throw new Error("Footer file not found");
+            return response.text();
+        })
         .then(data => {
             document.body.insertAdjacentHTML("beforeend", data);
-        });
+        })
+        .catch(error => console.error(error));
 });
-
-// Sidebar Toggle Function
-function toggleMenu(event) {
-    event.stopPropagation();
-    document.getElementById("sidebar").classList.toggle("active");
-}
-
-// Close Sidebar when clicking outside
-function closeSidebar() {
-    document.getElementById("sidebar").classList.remove("active");
-}
