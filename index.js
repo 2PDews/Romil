@@ -38,3 +38,28 @@ document.getElementById('number-option').onclick = () => {
 function closeSidebar() {
     document.getElementById("sidebar").classList.remove("active");
 }
+// Load Header and Footer
+document.addEventListener("DOMContentLoaded", function () {
+    fetch("header.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("afterbegin", data);
+        });
+
+    fetch("footer.html")
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML("beforeend", data);
+        });
+});
+
+// Sidebar Toggle Function
+function toggleMenu(event) {
+    event.stopPropagation();
+    document.getElementById("sidebar").classList.toggle("active");
+}
+
+// Close Sidebar when clicking outside
+function closeSidebar() {
+    document.getElementById("sidebar").classList.remove("active");
+}
