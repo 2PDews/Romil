@@ -34,29 +34,30 @@
           
 */
 // Updates the character count dynamically
+// Function to update the character count dynamically
 function updateCharCount() {
-    const nameInput = document.getElementById('name');
-    const charCount = document.getElementById('charCount');
+    const nameInput = document.getElementById("name");
+    const charCount = document.getElementById("charCount");
     charCount.textContent = `${nameInput.value.length}/40`;
 }
 
-// Save tournament name to localStorage and sessionStorage as JSON
+// Function to save the tournament name and navigate to AddLeaguePlayers.html
 function saveTournamentName() {
     const tournamentName = document.getElementById("name").value.trim();
 
     if (tournamentName === "") {
-        alert("Tournament name is required!");
-        return; // Prevent navigation
+        showCustomPopup("Please add a tournament name!");
+        return; // Stop function execution
     }
 
-    // Create a tournament object (you can add more properties if needed)
+    // Create a tournament object
     const tournament = {
         name: tournamentName,
-        createdAt: new Date().toISOString(), // Add a creation timestamp (example)
-        players: [] // You can add players or other properties as needed
+        createdAt: new Date().toISOString(),
+        players: [] // Players list can be updated later
     };
 
-    // Store the tournament object as a JSON string
+    // Store the tournament object in localStorage and sessionStorage
     localStorage.setItem("currentTournament", JSON.stringify(tournament));
     sessionStorage.setItem("currentTournament", JSON.stringify(tournament));
 
@@ -64,7 +65,7 @@ function saveTournamentName() {
     window.location.href = "AddLeaguePlayers.html";
 }
 
-// Optionally, you can retrieve the tournament from localStorage or sessionStorage and parse it
+// Function to retrieve and log the tournament data
 function getTournament() {
     const tournament = JSON.parse(localStorage.getItem("currentTournament") || sessionStorage.getItem("currentTournament"));
     
@@ -73,4 +74,15 @@ function getTournament() {
     } else {
         console.log("No tournament found.");
     }
+}
+
+// Function to display a custom pop-up message with neon styling
+function showCustomPopup(message) {
+    const popup = document.createElement("div");
+    popup.className = "custom-popup";
+    popup.innerHTML = `
+        <p>${message}</p>
+        <button onclick="this.parentElement.remove()">OK</button>
+    `;
+    document.body.appendChild(popup);
 }

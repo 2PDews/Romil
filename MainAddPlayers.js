@@ -161,3 +161,10 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load existing players on page load
     loadPlayers();
 });
+
+
+function addPlayer(playerName) {
+    let players = JSON.parse(localStorage.getItem("MainAddPlayers")) || [];
+    players.push(playerName);
+    localStorage.setItem("MainAddPlayers", JSON.stringify(players));
+}

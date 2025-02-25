@@ -71,3 +71,15 @@ document.addEventListener("DOMContentLoaded", () => {
     loadAvailablePlayers();
     renderSelectedPlayers();
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    // Retrieve the list of players from localStorage (or sessionStorage if used)
+    let players = JSON.parse(localStorage.getItem("MainAddPlayers")) || [];
+
+    // Check if there are no players
+    if (players.length === 0) {
+        alert("No players found! Redirecting to MainAddPlayers...");
+        window.location.href = "MainAddPlayers.html"; // Redirect to MainAddPlayers
+    }
+});
+
