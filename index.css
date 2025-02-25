@@ -337,59 +337,42 @@ header {
     box-shadow: 12px 0 35px rgba(0, 255, 255, 0.8);
 }
 
-/* ✨ Transparent Cyberpunk Sidebar */
-#sidebar {
-    position: fixed;
-    left: -280px;
-    top: 0;
-    width: 270px;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.6); /* More transparent */
-    backdrop-filter: blur(50px); /* Soft blur effect */
-    box-shadow: 6px 0 20px rgba(0, 255, 255, 0.4);
-    transition: left 0.4s ease-in-out, transform 0.3s ease-in-out;
-    padding-top: 70px;
-    overflow-y: auto;
-    border-right: 2px solid rgba(0, 255, 255, 0.3);
-    z-index: 1000;
+/* 🌟 Sidebar Neon Glow Scrollbar */
+#sidebar::-webkit-scrollbar {
+    width: 8px;
 }
 
-/* 🚀 Activate Sidebar - Transparent with More Glow */
-#sidebar.active {
-    left: 0;
-    transform: scale(1.05);
-    background: rgba(10, 25, 47, 0.4); /* Increased transparency */
-    backdrop-filter: blur(12px); /* Stronger blur for a futuristic effect */
-    box-shadow: 12px 0 35px rgba(0, 255, 255, 0.8);
+#sidebar::-webkit-scrollbar-thumb {
+    background: rgba(0, 255, 255, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 0 18px rgba(0, 255, 255, 0.9);
 }
 
-/* 💡 Soft Neon Glow Edges */
-#sidebar::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 100%;
-    width: 15px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 255, 255, 0.3), transparent);
-    opacity: 0.8;
+#sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(0, 255, 255, 1);
 }
 
-/* 🔥 Sidebar Items - Enhanced Transparency */
+/* 🌀 Sidebar List */
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* 🔥 Sidebar Items - Better Hover & Glow */
 #sidebar ul li {
-    padding: 16px 24px;
-    transition: all 0.3s ease-in-out;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.15);
-    background: rgba(255, 255, 255, 0.05); /* Soft glass effect */
+    padding: 18px 26px;
+    transition: all 0.4s ease-in-out;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+    position: relative;
 }
 
-/* 🌟 Sidebar Neon Hover Glow */
+/* 🌟 Neon Hover Glow Effect */
 #sidebar ul li:hover {
-    background: rgba(0, 255, 255, 0.12);
-    transform: scale(1.07);
-    box-shadow: 0 0 18px rgba(0, 255, 255, 0.6);
+    background: rgba(0, 255, 255, 0.2);
+    transform: scale(1.08);
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
 }
-
 
 /* 🔥 Active Page Highlight */
 #sidebar ul li.active {
