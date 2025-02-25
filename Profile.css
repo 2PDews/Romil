@@ -1,0 +1,50 @@
+body {
+    background: #0A192F;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.profile-container {
+    width: 90%;
+    max-width: 500px;
+    background: rgba(10, 25, 47, 0.95);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    text-align: center;
+}
+
+.profile-pic-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 2px solid #00FFFF;
+    cursor: pointer;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 2px solid #00FFFF;
+    background: transparent;
+    color: white;
+    border-radius: 5px;
+}
+
+.jersey-preview img {
+    width: 100px;
+    height: 100px;
+    margin-top: 10px;
+    border: 2px solid #8A2BE2;
+    border-radius: 5px;
+}
+
+h3 {
+    color: #00FFFF;
+    text-shadow: 0 0 10px #00FFFF;
+}
