@@ -8,8 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Load the available players from localStorage
     function loadAvailablePlayers() {
         availablePlayersList.innerHTML = "";
-        
-        // Ensure we only show players not yet selected
+
         availablePlayers.forEach(player => {
             if (!selectedPlayers.includes(player)) {
                 const li = document.createElement("li");
@@ -55,11 +54,11 @@ document.addEventListener("DOMContentLoaded", () => {
             localStorage.setItem("selectedPlayers", JSON.stringify(selectedPlayers));
             window.location.href = "SelectFormat.html"; // Redirect to the shuffle page
         } else {
-            alert("Please select at least one player before proceeding.");
+            showCustomPopup("Please select at least one player before proceeding.");
         }
     });
 
-    // Load the tournament name if it's set in localStorage
+    // Load the tournament name if it's set in sessionStorage
     window.onload = function () {
         const tournamentName = sessionStorage.getItem("tournamentName");
         if (tournamentName) {
@@ -70,16 +69,28 @@ document.addEventListener("DOMContentLoaded", () => {
     // Initial load and render of available and selected players
     loadAvailablePlayers();
     renderSelectedPlayers();
-});
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Retrieve the list of players from localStorage (or sessionStorage if used)
+    // Check if there are no players and redirect
     let players = JSON.parse(localStorage.getItem("MainAddPlayers")) || [];
-
-    // Check if there are no players
     if (players.length === 0) {
-        alert("No players found! Redirecting to MainAddPlayers...");
-        window.location.href = "MainAddPlayers.html"; // Redirect to MainAddPlayers
+        showCustomPopup("No players found! Redirecting to MainAddPlayers...", () => {
+            window.location.href = "MainAddPlayers.html"; // Redirect to MainAddPlayers
+        });
     }
 });
 
+// Function to display a custom pop-up with neon styling
+function showCustomPopup(message, callback = null) {
+    const popup = document.createElement("div");
+    popup.className = "custom-popup";
+    popup.innerHTML = `
+        <p>${message}</p>
+        <button class="popup-button">OK</button>
+    `;
+    document.body.appendChild(popup);
+
+    document.querySelector(".popup-button").addEventListener("click", () => {
+        popup.remove();
+        if (callback) callback(); // Execute callback if provided (e.g., redirect)
+    });
+}

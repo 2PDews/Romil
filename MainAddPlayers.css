@@ -394,3 +394,72 @@ li button {
         font-size: 1em;
     }
 }
+
+
+
+
+/* Custom pop-up styling */
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(10, 25, 47, 0.95); /* Deep blue with transparency */
+    border: 2px solid #00FFFF; /* Neon Cyan Border */
+    color: #FFFFFF;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00FFFF, 0 0 30px #9400D3; /* Cyan and Electric Purple glow */
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+/* Custom pop-up styling */
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(10, 25, 47, 0.95);
+    border: 2px solid #00FFFF;
+    color: #FFFFFF;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+    padding: 20px;
+    width: 300px;
+    max-width: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 15px #00FFFF, 0 0 30px #9400D3;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Pop-up message text */
+.custom-popup p {
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 5px #FFFFFF;
+}
+
+/* Pop-up button styling */
+.popup-button {
+    background: linear-gradient(45deg, #00FFFF, #9400D3);
+    border: none;
+    color: #0A192F;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 0 10px #00FFFF, 0 0 15px #9400D3;
+}
+
+.popup-button:hover {
+    background: linear-gradient(45deg, #9400D3, #00FFFF);
+    color: #FFFFFF;
+    box-shadow: 0 0 20px #00FFFF, 0 0 25px #9400D3;
+}
