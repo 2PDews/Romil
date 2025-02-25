@@ -79,10 +79,8 @@ h1 {
     top: 20px;
     left: 20px;
     background: transparent;
-   
     color: cyan; /* Neon Cyan Text */
     font-size: 1.2em;
-  
     cursor: pointer;
     border-radius: 6px;
     transition: 0.3s ease-in-out;
@@ -105,4 +103,19 @@ h1 {
     color: black;
     box-shadow: 0 0 20px cyan;
     transform: scale(1.1);
+}
+
+
+.jersey-display {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #00FFFF; /* Neon Cyan */
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+    display: none;
+    padding: 10px;
+    border: 2px solid #00FFFF;
+    border-radius: 5px;
+    width: fit-content;
+    background: rgba(10, 25, 47, 0.8); /* Deep blue transparent */
 }

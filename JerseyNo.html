@@ -7,27 +7,29 @@
     <link rel="stylesheet" href="JerseyNo.css" />
   </head>
   <body>
-    <div class="jersey-container">
-   <div class="input-section">
-    <input
-        type="number"
+    <div class="jersey-number-container">
+
+      <h3>Select Your Jersey Number</h3>
+
+      <!-- Input Field -->
+      <input
+        type="text"
         id="numberInput"
         class="number-input"
         placeholder="Enter Number"
-        min="0"
         onkeypress="return isNumberKey(event)"
-        oninput="limitInputLength(this, 3)"
-    />
-</div>
+        maxlength="3"
+      />
 
-        <button class="submit-btn" onclick="displayJersey()">Submit</button>
-      </div>
+      <button class="submit-btn" onclick="displayJersey()">Submit</button>
 
-      <div class="jersey-display" id="jerseyDisplay">
+      <!-- Jersey Display (Now directly below the input field) -->
+      <div class="jersey-display" id="jerseyDisplay" style="display: none">
         <p>Jersey No: <span id="jerseyNumber"></span></p>
       </div>
-      <button class="back-button" onclick="goBack()"></button>
     </div>
+
+    <button class="back-button" onclick="goBack()"></button>
 
     <script src="JerseyNo.js"></script>
   </body>
