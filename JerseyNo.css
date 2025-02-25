@@ -71,6 +71,7 @@ h1 {
     color: lime;
     text-shadow: 0 0 10px lime;
     display: none;
+  text-align:center;
 }
 
 /* Back Button Styling */
