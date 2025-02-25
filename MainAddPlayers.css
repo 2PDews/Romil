@@ -109,6 +109,7 @@ li {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    color: White;
 }
 
 .player-item {
@@ -117,7 +118,7 @@ li {
     justify-content: space-between; /* Ensures space between player info & buttons */
     padding: 10px;
     border-radius: 5px;
-    background: linear-gradient(135deg, #9400FF, #00FFFF );
+    background: #9400FF;
     margin-bottom: 5px;
     color: white;
 }
