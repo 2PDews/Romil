@@ -11,14 +11,49 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let playerToDelete = null;
     let confirmationCode = "";
+    let currentPlayerNameSpan = null;
+
+    // Create Edit Pop-up dynamically
+    const editPopup = document.createElement("div");
+    editPopup.classList.add("edit-popup");
+    editPopup.innerHTML = `
+        <h3>Edit Player Name</h3>
+        <input type="text" id="editPlayerInput" placeholder="Enter new name">
+        <br>
+        <button class="save-edit" id="saveEditButton">Save</button>
+        <button class="cancel-edit" id="cancelEditButton">Cancel</button>
+    `;
+    document.body.appendChild(editPopup);
+
+    function showEditPopup(playerSpan) {
+        currentPlayerNameSpan = playerSpan;
+        document.getElementById("editPlayerInput").value = playerSpan.textContent;
+        editPopup.style.display = "block";
+        document.body.classList.add("blur-background"); // Apply blur to background
+    }
+
+    function hideEditPopup() {
+        editPopup.style.display = "none";
+        document.body.classList.remove("blur-background");
+    }
+
+    document.getElementById("saveEditButton").addEventListener("click", () => {
+        const newPlayerName = document.getElementById("editPlayerInput").value.trim();
+        if (newPlayerName && currentPlayerNameSpan) {
+            currentPlayerNameSpan.textContent = newPlayerName;
+            savePlayers();
+            hideEditPopup();
+        } else {
+            alert("Please enter a valid name!");
+        }
+    });
+
+    document.getElementById("cancelEditButton").addEventListener("click", hideEditPopup);
 
     // Load players from local storage
-  
     function loadPlayers() {
         const storedPlayers = JSON.parse(localStorage.getItem("players")) || [];
-        storedPlayers.forEach(player => {
-            addPlayerToList(player);
-        });
+        storedPlayers.forEach(player => addPlayerToList(player));
         updatePlayerNumbers(); // Ensure numbering is correct after loading
     }
 
@@ -60,42 +95,26 @@ document.addEventListener("DOMContentLoaded", () => {
         const playerNameSpan = document.createElement("span");
         playerNameSpan.classList.add("player-name");
         playerNameSpan.textContent = playerName;
-        playerNameInput.addEventListener("click", function () {
-            setTimeout(() => {
-                playerNameInput.focus();
-            }, 100); // Ensures keyboard opens on mobile
-        });
 
+        // Button container (edit & delete in one row)
+        const buttonContainer = document.createElement("div");
+        buttonContainer.classList.add("button-container");
 
-         // Button container (edit & delete in one row)
-    const buttonContainer = document.createElement("div");
-    buttonContainer.classList.add("button-container");
         // Edit button
         const editButton = document.createElement("button");
         editButton.classList.add("edit-button");
         editButton.innerHTML = '<span class="edit-icon">✏️</span>';
-
-        editButton.addEventListener("click", () => {
-            const newPlayerName = prompt("Edit Player Name:", playerName);
-            if (newPlayerName) {
-                playerNameSpan.textContent = newPlayerName.trim();
-                savePlayers(); // Save changes
-            }
-        });
+        editButton.addEventListener("click", () => showEditPopup(playerNameSpan));
 
         // Delete button
         const deleteButton = document.createElement("button");
         deleteButton.classList.add("delete-button");
         deleteButton.innerHTML = '❌';
+        deleteButton.addEventListener("click", () => showDeletePopup(listItem));
 
-        deleteButton.addEventListener("click", () => {
-            showDeletePopup(listItem);
-        });
-
-
-    // Append buttons to the button container
-    buttonContainer.appendChild(editButton);
-    buttonContainer.appendChild(deleteButton);
+        // Append buttons to the button container
+        buttonContainer.appendChild(editButton);
+        buttonContainer.appendChild(deleteButton);
 
         // Append number and name inside player info div
         playerInfo.appendChild(playerNumber);
