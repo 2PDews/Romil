@@ -33,7 +33,25 @@ document.getElementById('jersey-option').onclick = () => {
                 sidebar.classList.remove("active");
             }
         }
+  const sidebar = document.getElementById("sidebar");
+    const closeBtn = document.querySelector(".close-btn");
+    const menuBtn = document.querySelector(".menu-btn"); // Add menu button if needed
 
+    // Open Sidebar
+    if (menuBtn) {
+        menuBtn.addEventListener("click", function () {
+            sidebar.classList.add("active");
+            document.body.classList.add("active"); // Prevents scrolling when sidebar is open
+        });
+    }
+
+    // Close Sidebar
+    if (closeBtn) {
+        closeBtn.addEventListener("click", function () {
+            sidebar.classList.remove("active");
+            document.body.classList.remove("active"); // Allows scrolling again
+        });
+    }
         document.body.addEventListener("click", closeMenu); // Close sidebar on body click
 document.addEventListener("DOMContentLoaded", function () {
     // Load Header
