@@ -1,122 +1,108 @@
-/* Import Reospec Font */
-@font-face {
-  font-family: "Reospec";
-  src: url("https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563")
-    format("opentype");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
 
-/* General Styles */
 body {
-  font-family: "Reospec", sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #0a192f;
-  color: #f1f1f1;
-  margin: 0;
-  flex-direction: column;
+    background-color: #0A192F;
+    font-family: 'Orbitron', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    color: #fff;
 }
 
-.jersey-number-container {
-  background: rgba(10, 25, 47, 0.85);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-  text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  position: relative;
-  margin-bottom: 20px;
+.jersey-container {
+    text-align: center;
+    background: linear-gradient(135deg, rgba(100, 0, 200, 0.8), rgba(0, 255, 255, 0.8));
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 0 20px cyan;
+    max-width: 400px;
+    width: 100%;
 }
 
-.jersey-number-container:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.6);
+h1 {
+    color: cyan;
+    text-shadow: 0 0 10px cyan;
+    font-size: 24px;
 }
 
-h3 {
-  margin-bottom: 15px;
-  color: #00ffff;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+.input-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
 }
 
 .number-input {
-  width: 100px;
-  height: 40px;
-  font-size: 18px;
-  text-align: center;
-  margin-bottom: 15px;
-  border: 2px solid transparent;
-  border-radius: 5px;
-  background: #112240;
-  color: #f9f9f9;
-  transition: all 0.3s ease;
-}
-
-.number-input:focus,
-.number-input:hover {
-  border-color: #00ffff;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    padding: 12px;
+    font-size: 18px;
+    text-align: center;
+    width: 80%;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    background-color: black;
+    color: cyan;
+    box-shadow: 0 0 12px cyan;
 }
 
 .submit-btn {
-  background: linear-gradient(135deg, #9400ff, #00ffff);
-  color: #ffffff;
-  border: none;
-  padding: 12px 24px;
-  cursor: pointer;
-  font-size: 16px;
-  border-radius: 8px;
-  font-family: "Reospec", sans-serif;
-  transition: all 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0, 255, 255, 0.3);
+    padding: 12px 20px;
+    font-size: 18px;
+    background: linear-gradient(90deg, purple, cyan);
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px cyan;
 }
 
 .submit-btn:hover {
-  background: linear-gradient(135deg, #9400ff, #4b0082);
-  transform: translateY(-3px);
-  box-shadow: 0 6px 15px rgba(0, 255, 255, 0.5);
+    transform: scale(1.1);
+    box-shadow: 0 0 20px cyan;
 }
 
-.submit-btn:focus {
-  outline: none;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+.jersey-display {
+    margin-top: 20px;
+    font-size: 22px;
+    color: lime;
+    text-shadow: 0 0 10px lime;
+    display: none;
 }
 
-/* Back Button */
+/* Back Button Styling */
 .back-button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  background: none;
-  border: none;
-  color: #00ffff;
-  font-size: 18px;
-  cursor: pointer;
-  transition: color 0.3s ease;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: transparent;
+   
+    color: cyan; /* Neon Cyan Text */
+    font-size: 1.2em;
+  
+    cursor: pointer;
+    border-radius: 6px;
+    transition: 0.3s ease-in-out;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+/* Adding an arrow icon */
+.back-button::before {
+    content: "← ";
+    font-size: 1.5em;
+    margin-right: 5px;
 }
 
 .back-button:hover {
-  color: #9400ff;
-}
-
-/* Jersey Display */
-.jersey-display {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background: rgba(10, 25, 47, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
-  text-align: center;
-  font-size: 24px;
-  color: #00ffff;
-  font-weight: bold;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+    background: cyan;
+    color: black;
+    box-shadow: 0 0 20px cyan;
+    transform: scale(1.1);
 }

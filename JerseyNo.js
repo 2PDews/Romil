@@ -1,17 +1,20 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const inputField = document.getElementById("jersey-number");
-    const submitButton = document.querySelector(".submit-btn");
-
-    inputField.addEventListener("input", () => {
-        inputField.value = inputField.value.replace(/\D/g, ""); // Allow only numbers
-    });
-
-    submitButton.addEventListener("click", () => {
-        const number = inputField.value;
-        if (number.length > 0 && number.length <= 3) {
-            alert(`You selected jersey number: ${number}`);
-        } else {
-            alert("Please enter a valid jersey number (up to 3 digits).");
-        }
-    });
+document.getElementById("numberInput").addEventListener("input", function (e) {
+    this.value = this.value.replace(/\D/g, ""); // Remove non-numeric characters
 });
+
+function displayJersey() {
+    let numberInput = document.getElementById("numberInput").value.trim();
+
+    if (numberInput === "" || isNaN(numberInput) || parseInt(numberInput) < 0) {
+        alert("Please enter a valid jersey number.");
+        return;
+    }
+
+    localStorage.setItem("playerJerseyNumber", numberInput);
+    document.getElementById("jerseyNumber").innerText = numberInput;
+    document.getElementById("jerseyDisplay").style.display = "block";
+}
+
+function goBack() {
+    window.history.back();
+}
