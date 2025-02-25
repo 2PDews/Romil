@@ -1,50 +1,222 @@
+/* Import Reospec Font */
+@font-face {
+    font-family: 'Reospec';
+    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Cyberpunk Background */
 body {
-    background: #0A192F;
-    color: white;
-    font-family: Arial, sans-serif;
+    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+    color: #00FFFF;
+    font-family: 'Reospec', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-}
-
-.profile-container {
-    width: 90%;
-    max-width: 500px;
-    background: rgba(10, 25, 47, 0.95);
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    overflow: hidden;
     text-align: center;
 }
 
-.profile-pic-section img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    border: 2px solid #00FFFF;
-    cursor: pointer;
+/* Glassmorphism Profile Container */
+.profile-container {
+    width: 90%;
+    max-width: 500px;
+    background: rgba(10, 25, 47, 0.85);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8), 0 0 15px rgba(138, 43, 226, 0.6);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease-in-out;
 }
 
+.profile-container:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 40px rgba(0, 255, 255, 1), 0 0 20px rgba(138, 43, 226, 0.8);
+}
+
+/* Profile Picture */
+.profile-pic-section {
+    position: relative;
+}
+
+.profile-pic-section img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #00FFFF;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.8);
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic-section img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 1);
+}
+
+/* Input Fields & Dropdowns */
 input, select {
     width: 100%;
-    padding: 8px;
-    margin: 5px 0;
+    padding: 10px;
+    margin: 8px 0;
     border: 2px solid #00FFFF;
-    background: transparent;
+    background: rgba(255, 255, 255, 0.1);
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    transition: all 0.3s ease-in-out;
 }
 
+input:focus, select:focus {
+    box-shadow: 0 0 15px rgba(0, 255, 255, 1);
+    border-color: #8A2BE2;
+}
+
+/* Jersey Preview */
 .jersey-preview img {
-    width: 100px;
-    height: 100px;
-    margin-top: 10px;
-    border: 2px solid #8A2BE2;
-    border-radius: 5px;
+    width: 120px;
+    height: 120px;
+    margin-top: 15px;
+    border: 3px solid #8A2BE2;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+    transition: transform 0.3s ease-in-out;
 }
 
+.jersey-preview img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(138, 43, 226, 1);
+}
+
+/* Headers & Titles */
 h3 {
     color: #00FFFF;
-    text-shadow: 0 0 10px #00FFFF;
+    text-shadow: 0 0 15px #00FFFF, 0 0 10px #8A2BE2;
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+
+/* Stats Pie Chart */
+.stats-container {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6);
+}
+
+canvas {
+    width: 100% !important;
+    max-width: 300px;
+    margin: auto;
+    display: block;
+}
+
+/* Cyberpunk Button */
+.cyber-button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    background: linear-gradient(90deg, #00FFFF, #8A2BE2);
+    border: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    text-transform: uppercase;
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+}
+
+.cyber-button:hover {
+    background: linear-gradient(90deg, #8A2BE2, #00FFFF);
+    box-shadow: 0 0 25px rgba(0, 255, 255, 1);
+    transform: scale(1.05);
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button a {
+    text-decoration: none;
+    color: #00FFFF;
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 10px 15px;
+    transition: 0.3s ease-in-out;
+}
+
+.back-button a:hover {
+    color: #9400FF;
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Navigation Icons */
+.nav-icons {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.nav-icons i {
+    font-size: 2.2em;
+    color: #00FFFF;
+    transition: 0.3s ease-in-out;
+}
+
+.nav-icons i:hover {
+    color: #9400FF;
+    text-shadow: 0 0 15px rgba(0, 255, 255, 0.8);
+    transform: scale(1.1);
+}
+
+/* Floating Action Button */
+.fab {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(145deg, #00FFFF, #00CCFF);
+    color: #0A192F;
+    padding: 15px;
+    border-radius: 50%;
+    font-size: 2em;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.4);
+    cursor: pointer;
+    z-index: 100;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.fab:hover {
+    transform: scale(1.1);
+    background: linear-gradient(145deg, #9400FF, #4B0082);
+    box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .profile-container {
+        width: 95%;
+    }
+    input, select {
+        font-size: 14px;
+        padding: 8px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    .cyber-button {
+        font-size: 16px;
+    }
 }
