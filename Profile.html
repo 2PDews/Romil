@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Player Profile - CricOnBoard</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <div class="profile-container">
+        <h2>Player Profile</h2>
+
+        <!-- Profile Picture Upload -->
+        <div class="profile-pic-section">
+            <label for="profile-pic-input">
+                <img id="profile-pic" src="default-avatar.png" alt="Profile Picture">
+            </label>
+            <input type="file" id="profile-pic-input" accept="image/*">
+        </div>
+
+        <!-- Player Information Form -->
+        <div class="profile-info">
+            <label>Name:</label>
+            <input type="text" id="player-name" placeholder="Enter your name" required>
+
+            <label>Date of Birth:</label>
+            <input type="date" id="dob" required>
+
+            <label>Batting Style:</label>
+            <select id="batting-style">
+                <option value="LBH">Left-Hand Bat</option>
+                <option value="RBH">Right-Hand Bat</option>
+            </select>
+
+            <label>Playing Role:</label>
+            <select id="playing-role">
+                <option value="All">All-Rounder</option>
+                <option value="Top-order">Top-order</option>
+                <option value="Middle-order">Middle-order</option>
+                <option value="WK batter">WK Batter</option>
+                <option value="Bowler">Bowler</option>
+                <option value="Opening batter">Opening Batter</option>
+                <option value="LO Batter">LO Batter</option>
+                <option value="MO Batter">MO Batter</option>
+            </select>
+
+            <label>Bowling Style:</label>
+            <select id="bowling-style">
+                <option value="RA fast">Right Arm Fast</option>
+                <option value="LA fast">Left Arm Fast</option>
+                <option value="RA medium">Right Arm Medium</option>
+                <option value="LA medium">Left Arm Medium</option>
+                <option value="Slow orthodox">Slow Orthodox</option>
+                <option value="Chinaman">Chinaman</option>
+                <option value="RA off-break">Right Arm Off-break</option>
+                <option value="RA leg-break">Right Arm Leg-break</option>
+            </select>
+
+            <!-- Jersey Selection -->
+            <label>Choose Jersey:</label>
+            <input type="file" id="jersey-upload" accept="image/*">
+            <div class="jersey-preview">
+                <img id="jersey-preview-img" src="default-jersey.png" alt="Jersey Preview">
+            </div>
+        </div>
+
+        <!-- Stats Display (Pie Chart) -->
+        <h3>Your Stats</h3>
+        <canvas id="statsChart"></canvas>
+
+        <!-- Previous Matches Section -->
+        <h3>Previous Matches</h3>
+        <div id="previous-matches">
+            <p>No previous matches available.</p>
+        </div>
+
+    </div>
+
+    <script src="profile.js"></script>
+</body>
+</html>
