@@ -61,7 +61,7 @@ function saveTournamentName() {
     sessionStorage.setItem("currentTournament", JSON.stringify(tournament));
 
     // Redirect to the next page
-    window.location.href = "SelectFormat.html";
+    window.location.href = "AddLeaguePlayers.html";
 }
 
 // Optionally, you can retrieve the tournament from localStorage or sessionStorage and parse it

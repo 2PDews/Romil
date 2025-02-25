@@ -53,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelector(".next-button").addEventListener("click", () => {
         if (selectedPlayers.length > 0) {
             localStorage.setItem("selectedPlayers", JSON.stringify(selectedPlayers));
-            window.location.href = "ShufflePlayers.html"; // Redirect to the shuffle page
+            window.location.href = "SelectFormat.html"; // Redirect to the shuffle page
         } else {
             alert("Please select at least one player before proceeding.");
         }
