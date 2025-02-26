@@ -136,3 +136,66 @@ button:hover {
     box-shadow: 0 0 12px rgba(0, 229, 255, 0.6), 0 0 20px rgba(192, 38, 211, 0.6);
 }
 
+/* General Styles for Dropdowns */
+.profile-info select {
+    width: 90%;
+    padding: 12px;
+    border: 2px solid #00FFCC; /* Electric Green Border */
+    background: rgba(0, 47, 75, 0.95); /* Dark Cyan Background */
+    color: #00FFCC; /* Electric Green Text */
+    font-size: 18px;
+    text-align: center;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    appearance: none; /* Remove default arrow */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0px 0px 10px rgba(0, 255, 204, 0.4);
+}
+
+/* Custom Arrow for Dropdown */
+.profile-info select::after {
+    content: "▼";
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #00FFCC; /* Electric Green */
+    font-size: 12px;
+    pointer-events: none;
+}
+
+/* Hover Effect for Dropdown */
+.profile-info select:hover {
+    border-color: #C026D3; /* Electric Purple */
+    box-shadow: 0px 0px 15px rgba(0, 255, 204, 0.6), 0px 0px 15px rgba(192, 38, 211, 0.6);
+}
+
+/* Focus Effect for Dropdown */
+.profile-info select:focus {
+    outline: none;
+    border-color: #00FFCC; /* Electric Green */
+    box-shadow: 0px 0px 20px rgba(0, 255, 204, 0.8), 0px 0px 20px rgba(192, 38, 211, 0.8);
+}
+
+/* Option Styling (Limited Browser Support) */
+.profile-info select option {
+    background: rgba(0, 47, 75, 0.95); /* Dark Cyan Background */
+    color: #00FFCC; /* Electric Green Text */
+    padding: 10px;
+    font-size: 16px;
+    border-bottom: 1px solid #00FFCC; /* Electric Green Separator */
+}
+
+/* Active Option Styling */
+.profile-info select option:checked {
+    background: linear-gradient(135deg, #00FFCC, #C026D3); /* Cyan to Electric Purple */
+    color: white;
+}
+
+/* Placeholder Styling for Empty Select */
+.profile-info select:invalid {
+    color: rgba(0, 255, 204, 0.6); /* Semi-Transparent Electric Green */
+}
