@@ -82,3 +82,4 @@ function selectOption(option) {
 function showCustomPopup(message) {
     alert(message); // Replace with a custom popup implementation if desired
 }
+

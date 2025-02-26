@@ -1,0 +1,33 @@
+.container {
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+.team-card {
+    background: #0A192F;
+    color: white;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.team-card:hover {
+    transform: scale(1.05);
+}
+
+button {
+    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    box-shadow: 0 0 15px #00FFFF, 0 0 25px #8A2BE2;
+}
