@@ -26,15 +26,14 @@
       <input id="name" placeholder="Name" type="text" oninput="updateCharCount()"/>
       <div class="char-count" id="charCount">0/40</div>
     </div>
-  
-    <div class="buttons">
-      <div class="button">
-        <div>Cricket</div>
-      </div>
-      <div class="button" onclick="openPopup()">
-        <div>Tournament Type</div>
-      </div>
-    </div>
+<div class="buttons">
+  <div class="button">
+    <div>Cricket</div>
+  </div>
+  <div class="button" onclick="openPopup()" id="tournamentTypeButton">
+    <div>Tournament Type</div>
+  </div>
+</div>
     <div class="next-button">
       <button id="next-btn" onclick="saveTournamentName()">Select League Players</button>
     </div>

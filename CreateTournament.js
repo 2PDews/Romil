@@ -36,16 +36,26 @@
 // Updates the character count dynamically
 // Function to update the character count dynamically
 function updateCharCount() {
-    const nameInput = document.getElementById("name");
+    const input = document.getElementById("name");
     const charCount = document.getElementById("charCount");
-    charCount.textContent = `${nameInput.value.length}/40`;
+    const maxLength = 40;
+    const currentLength = input.value.length;
+
+    // Trim excess characters if the input exceeds the maximum length
+    if (currentLength > maxLength) {
+        input.value = input.value.substring(0, maxLength);
+    }
+
+    // Update the character count display
+    charCount.textContent = `${input.value.length}/${maxLength}`;
 }
 
-// Function to save the tournament name and navigate to AddLeaguePlayers.html
+// Function to save the tournament name and navigate to the next page
 function saveTournamentName() {
     const tournamentName = document.getElementById("name").value.trim();
 
-    if (tournamentName === "") {
+    // Validate that the tournament name is not empty
+    if (!tournamentName) {
         showCustomPopup("Please add a tournament name!");
         return; // Stop function execution
     }
@@ -67,8 +77,10 @@ function saveTournamentName() {
 
 // Function to retrieve and log the tournament data
 function getTournament() {
-    const tournament = JSON.parse(localStorage.getItem("currentTournament") || sessionStorage.getItem("currentTournament"));
-    
+    const tournament = JSON.parse(
+        localStorage.getItem("currentTournament") || sessionStorage.getItem("currentTournament")
+    );
+
     if (tournament) {
         console.log("Tournament:", tournament);
     } else {
@@ -86,32 +98,14 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 
-// Select an option from the popup
+// Select an option from the popup and update the button text
 function selectOption(option) {
-    alert(`Selected: ${option}`);
+    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
+    tournamentTypeButton.querySelector("div").textContent = option; // Update the button text
     closePopup();
 }
 
-// Update character count
-function updateCharCount() {
-    const input = document.getElementById("name");
-    const charCount = document.getElementById("charCount");
-    const maxLength = 40;
-    const currentLength = input.value.length;
-
-    if (currentLength > maxLength) {
-        input.value = input.value.substring(0, maxLength); // Trim excess characters
-    }
-
-    charCount.textContent = `${currentLength}/${maxLength}`;
-}
-
-// Save tournament name
-function saveTournamentName() {
-    const tournamentName = document.getElementById("name").value.trim();
-    if (!tournamentName) {
-        alert("Please enter a tournament name.");
-        return;
-    }
-    alert(`Tournament Name Saved: ${tournamentName}`);
+// Show a custom popup (if needed for alerts)
+function showCustomPopup(message) {
+    alert(message); // Replace with a custom popup implementation if desired
 }
