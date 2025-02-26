@@ -1,85 +1,87 @@
-// Function to update the character count dynamically
-function updateCharCount() {
-    const input = document.getElementById("name");
+document.addEventListener("DOMContentLoaded", () => {
+    const popup = document.getElementById("popup");
+    const nextButton = document.getElementById("next-btn");
+    const tournamentTypeButton = document.getElementById("tournamentTypeButton").querySelector("div"); // Get the inner div text
+    const tournamentNameInput = document.getElementById("name");
     const charCount = document.getElementById("charCount");
     const maxLength = 40;
-    const currentLength = input.value.length;
+    
+    let selectedType = null; // Stores selected tournament type
 
-    // Trim excess characters if the input exceeds the maximum length
-    if (currentLength > maxLength) {
-        input.value = input.value.substring(0, maxLength);
-    }
+    // Initially hide the next button
+    nextButton.style.display = "none";
 
-    // Update the character count display
-    charCount.textContent = `${input.value.length}/${maxLength}`;
-}
+    // Function to update character count dynamically
+    tournamentNameInput.addEventListener("input", () => {
+        let currentLength = tournamentNameInput.value.length;
 
-// Function to save the tournament name and navigate to the next page
-function saveTournamentName() {
-    const tournamentName = document.getElementById("name").value.trim();
+        // Trim excess characters if input exceeds the maximum length
+        if (currentLength > maxLength) {
+            tournamentNameInput.value = tournamentNameInput.value.substring(0, maxLength);
+            currentLength = maxLength;
+        }
 
-    // Validate that the tournament name is not empty
-    if (!tournamentName) {
-        showCustomPopup("Please add a tournament name!");
-        return; // Stop function execution
-    }
+        // Update the character count display
+        charCount.textContent = `${currentLength}/${maxLength}`;
+    });
 
-    // Create a tournament object
-    const tournament = {
-        name: tournamentName,
-        createdAt: new Date().toISOString(),
-        players: [] // Players list can be updated later
+    // Function to open the tournament type selection popup
+    window.openPopup = () => {
+        popup.style.display = "block";
     };
 
-    // Store the tournament object in localStorage and sessionStorage
-    localStorage.setItem("currentTournament", JSON.stringify(tournament));
-    sessionStorage.setItem("currentTournament", JSON.stringify(tournament));
+    // Function to close the popup
+    window.closePopup = () => {
+        popup.style.display = "none";
+    };
 
-    // Determine the selected tournament type
-    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
-    const selectedType = tournamentTypeButton.querySelector("div").textContent;
+    // Function to select an option from the popup
+    window.selectOption = (type) => {
+        selectedType = type;
+        closePopup();
 
-    // Redirect based on the selected tournament type
-    if (selectedType === "Individual") {
-        window.location.href = "AddLeaguePlayers.html";
-    } else if (selectedType === "Teams") {
-        window.location.href = "AddLeagueTeams.html";
-    } else {
-        showCustomPopup("Please select a valid tournament type.");
+        // Update "Tournament Type" button text
+        tournamentTypeButton.textContent = type;
+
+        // Enable and update next button text
+        nextButton.style.display = "block";
+        nextButton.textContent = type === "Individual" ? "Select League Players" : "Select League Teams";
+    };
+
+    // Function to save the tournament name and navigate to the appropriate page
+    window.saveTournamentName = () => {
+        const tournamentName = tournamentNameInput.value.trim();
+
+        // Validate that the tournament name is not empty
+        if (!tournamentName) {
+            showCustomPopup("Please add a tournament name!");
+            return;
+        }
+
+        // Validate that the tournament type is selected
+        if (!selectedType) {
+            showCustomPopup("Please select a tournament type first!");
+            return;
+        }
+
+        // Create a tournament object
+        const tournament = {
+            name: tournamentName,
+            type: selectedType,
+            createdAt: new Date().toISOString(),
+            players: [] // Players list can be updated later
+        };
+
+        // Store tournament data in localStorage
+        localStorage.setItem("currentTournament", JSON.stringify(tournament));
+        sessionStorage.setItem("currentTournament", JSON.stringify(tournament));
+
+        // Redirect based on the selected tournament type
+        window.location.href = selectedType === "Individual" ? "AddLeaguePlayers.html" : "AddLeagueTeams.html";
+    };
+
+    // Function to show a custom alert (can be replaced with a modal if needed)
+    function showCustomPopup(message) {
+        alert(message); // Replace with a styled modal popup if needed
     }
-}
-
-// Function to open the popup
-function openPopup() {
-    document.getElementById("popup").style.display = "block";
-}
-
-// Function to close the popup
-function closePopup() {
-    document.getElementById("popup").style.display = "none";
-}
-
-// Function to select an option from the popup and update the button texts
-function selectOption(option) {
-    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
-    const nextButton = document.getElementById("next-btn");
-
-    // Update the "Tournament Type" button text
-    tournamentTypeButton.querySelector("div").textContent = option;
-
-    // Update the "Continue" button text based on the selected option
-    if (option === "Individual") {
-        nextButton.innerText = "Select League Players";
-    } else if (option === "Teams") {
-        nextButton.innerText = "Select League Teams";
-    }
-
-    // Close the popup after selection
-    closePopup();
-}
-
-// Show a custom popup (if needed for alerts)
-function showCustomPopup(message) {
-    alert(message); // Replace with a custom popup implementation if desired
-}
-
+});
