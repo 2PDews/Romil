@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let teams = JSON.parse(localStorage.getItem("teams")) || [];
     let selectedLeagueTeams = JSON.parse(localStorage.getItem("selectedLeagueTeams")) || [];
 
+    // Display all teams for selection
     function displayTeams() {
         teamsList.innerHTML = "";
         teams.forEach((team, index) => {
@@ -21,6 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Load teams for league selection
     function loadTeamsForLeagueSelection() {
         leagueTeamsContainer.innerHTML = "";
         teams.forEach(team => {
@@ -38,6 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Select team for the league
     window.selectTeam = (index) => {
         if (!selectedLeagueTeams.find(team => team.name === teams[index].name)) {
             selectedLeagueTeams.push(teams[index]);
@@ -45,6 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
+    // Update selected teams UI
     function updateSelectedTeams() {
         selectedTeams.innerHTML = "";
         selectedLeagueTeams.forEach((team, index) => {
@@ -57,11 +61,13 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
+    // Remove team from selected league teams
     window.removeTeam = (index) => {
         selectedLeagueTeams.splice(index, 1);
         updateSelectedTeams();
     };
 
+    // Confirm League Selection
     confirmLeagueSelectionBtn.addEventListener("click", () => {
         selectedLeagueTeams = [];
         document.querySelectorAll(".team-select-checkbox:checked").forEach(checkbox => {
@@ -80,6 +86,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSelectedTeams();
     });
 
+    // Generate match schedule
     generateScheduleBtn.addEventListener("click", () => {
         matchSchedule.innerHTML = "<h2>Match Schedule</h2>";
         for (let i = 0; i < selectedLeagueTeams.length; i++) {
@@ -91,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
+    // Initialize UI
     displayTeams();
     loadTeamsForLeagueSelection();
     updateSelectedTeams();
