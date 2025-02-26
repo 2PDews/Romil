@@ -76,13 +76,17 @@ function getTournament() {
     }
 }
 
-// Function to display a custom pop-up message with neon styling
-function showCustomPopup(message) {
-    const popup = document.createElement("div");
-    popup.className = "custom-popup";
-    popup.innerHTML = `
-        <p>${message}</p>
-        <button onclick="this.parentElement.remove()">OK</button>
-    `;
-    document.body.appendChild(popup);
-}
+document.addEventListener("DOMContentLoaded", function () {
+    let individualButton = document.getElementById("individual-btn");
+    let teamsButton = document.getElementById("teams-btn");
+
+    if (individualButton && teamsButton) {
+        teamsButton.addEventListener("click", function () {
+            window.location.href = "LeaguAddTeams.html"; // Redirects to teams page
+        });
+
+        individualButton.addEventListener("click", function () {
+            closePopup(); // If needed, just closes the popup
+        });
+    }
+});
