@@ -8,43 +8,56 @@
 
 /* General Styles */
 body {
-    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
-    color: #00FFFF;
+    background: linear-gradient(135deg, #0A192F, #1A1A40);
+    color: #00E5FF;
     font-family: 'Reospec', sans-serif;
     text-align: center;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
 }
 
 /* Headings */
 h1, h2 {
     color: #C026D3;
-    text-shadow: 0px 0px 15px cyan;
+    text-shadow: 0px 0px 8px rgba(192, 38, 211, 0.7);
+    letter-spacing: 1px;
 }
 
 /* Profile Container */
 .profile-container {
-    width: 80%;
+    width: 75%;
     margin: auto;
     padding: 20px;
-    border: 3px solid #00FFFF;
-    border-radius: 15px;
-    background: rgba(10, 25, 47, 0.9);
-    box-shadow: 0px 0px 25px #00FFFF;
+    border: 2px solid #00E5FF;
+    border-radius: 12px;
+    background: rgba(10, 25, 47, 0.95);
+    box-shadow: 0px 0px 15px rgba(0, 229, 255, 0.3);
+    transition: transform 0.2s ease-in-out;
+}
+
+.profile-container:hover {
+    transform: scale(1.02);
 }
 
 /* Profile Picture */
 .profile-pic-container {
-    margin: 20px;
+    margin: 15px 0;
     position: relative;
 }
 
 #profile-pic {
-    width: 140px;
-    height: 140px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
-    border: 3px solid cyan;
+    border: 2px solid #00E5FF;
     cursor: pointer;
-    box-shadow: 0px 0px 15px cyan;
+    box-shadow: 0px 0px 10px rgba(0, 229, 255, 0.6);
+    transition: transform 0.3s ease-in-out;
+}
+
+#profile-pic:hover {
+    transform: scale(1.1);
 }
 
 #profile-pic-upload {
@@ -54,37 +67,39 @@ h1, h2 {
 /* Form Styling */
 .profile-info label {
     display: block;
-    margin-top: 12px;
+    margin-top: 10px;
     color: #C026D3;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
 }
 
 .profile-info input, .profile-info select {
     width: 85%;
-    padding: 10px;
-    border: 2px solid #00FFFF;
+    padding: 8px;
+    border: 2px solid #00E5FF;
     background: transparent;
-    color: white;
-    font-size: 18px;
+    color: #fff;
+    font-size: 16px;
     text-align: center;
     border-radius: 8px;
-    transition: all 0.3s ease-in-out;
+    transition: 0.3s ease-in-out;
 }
 
 .profile-info input:focus,
 .profile-info select:focus {
-    box-shadow: 0 0 12px #00FFFF;
+    box-shadow: 0px 0px 8px #00E5FF;
     border-color: #C026D3;
 }
 
 /* Jersey Section */
 .jersey-section {
-    margin-top: 20px;
+    margin-top: 15px;
 }
 
 .jersey-preview {
     position: relative;
-    width: 120px;
+    width: 110px;
     margin: auto;
 }
 
@@ -94,12 +109,12 @@ h1, h2 {
 
 #jersey-no-preview {
     position: absolute;
-    top: 30px;
+    top: 28px;
     left: 50%;
     transform: translateX(-50%);
-    font-size: 26px;
+    font-size: 24px;
     color: white;
-    text-shadow: 0px 0px 12px cyan;
+    text-shadow: 0px 0px 8px #00E5FF;
 }
 
 /* Previous Matches */
@@ -109,29 +124,34 @@ h1, h2 {
 }
 
 .previous-matches li {
-    background: rgba(0, 255, 255, 0.2);
-    margin: 5px;
-    padding: 12px;
-    border-radius: 8px;
-    font-size: 18px;
+    background: rgba(0, 229, 255, 0.15);
+    margin: 6px 0;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 16px;
+    transition: 0.2s ease-in-out;
+}
+
+.previous-matches li:hover {
+    background: rgba(0, 229, 255, 0.25);
 }
 
 /* Buttons */
 button {
     font-family: 'Reospec', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    padding: 14px 28px;
-    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+    font-weight: 800;
+    font-size: 20px;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #00E5FF, #C026D3);
     color: white;
     border: none;
     cursor: pointer;
     text-transform: uppercase;
     transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-    border-radius: 10px;
+    border-radius: 8px;
 }
 
 button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 15px #00FFFF, 0 0 25px #8A2BE2;
-}
+    transform: scale(1.08);
+    box-shadow: 0 0 12px rgba(0, 229, 255, 0.6), 0 0 20px rgba(192, 38, 211, 0.6);
+} 
