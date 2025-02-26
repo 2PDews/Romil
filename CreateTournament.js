@@ -88,15 +88,30 @@ function getTournament() {
     }
 }
 
-// Open the popup
+// Function to open the popup
 function openPopup() {
     document.getElementById("popup").style.display = "block";
 }
 
-// Close the popup
+// Function to close the popup
 function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
+
+// Function to update button text based on selection
+function selectOption(type) {
+    let nextButton = document.getElementById("next-btn");
+
+    if (type === "Teams") {
+        nextButton.innerText = "Select Teams";
+    } else if (type === "Individual") {
+        nextButton.innerText = "Select League Players";
+    }
+
+    // Close the popup after selection
+    closePopup();
+}
+
 
 // Select an option from the popup and update the button text
 function selectOption(option) {
