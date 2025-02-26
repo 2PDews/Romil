@@ -10,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const playersList = document.getElementById("playersList");
     const confirmPlayersBtn = document.getElementById("confirmPlayersBtn");
 
-    // Retrieve teams from localStorage
+    // Retrieve teams and players from localStorage
     let teams = JSON.parse(localStorage.getItem("teams")) || [];
-    let players = JSON.parse(localStorage.getItem("players")) || [];
+    let players = JSON.parse(localStorage.getItem("players")) || ["Player1", "Player2", "Player3"]; // Sample Players
     let selectedTeam = null;
 
     // Display Teams on Page Load
@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         const newTeam = { name: teamName, players: [] };
         teams.push(newTeam);
-        saveTeams();
+        saveData();
         teamNameInput.value = "";
         displayTeams();
     });
@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Remove Team
     window.removeTeam = (index) => {
         teams.splice(index, 1);
-        saveTeams();
+        saveData();
         displayTeams();
     };
 
@@ -86,15 +86,16 @@ document.addEventListener("DOMContentLoaded", () => {
         });
 
         teams[selectedTeam].players = selectedPlayers;
-        saveTeams();
+        saveData();
         displayTeams();
         playerModal.style.display = "none";
     });
 
-    // Save Teams to Local Storage
-    function saveTeams() {
+    // Save Data (Teams & Players) to Local Storage
+    function saveData() {
         localStorage.setItem("teams", JSON.stringify(teams));
-        console.log("Saved Teams:", teams);  // Debugging line
+        localStorage.setItem("players", JSON.stringify(players));
+        console.log("Saved Data:", { teams, players });  // Debugging line
     }
 
     // Close Player Modal

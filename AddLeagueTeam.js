@@ -18,7 +18,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const teamDiv = document.createElement("div");
             teamDiv.classList.add("team-card");
             teamDiv.innerHTML = `
-                <strong>${team.name}</strong><br>Players: ${team.players.join(", ")}
+                <strong>${team.name}</strong><br>
+                <div class="team-players"><strong>Players:</strong> ${team.players.length > 0 ? team.players.join(", ") : "None"}</div>
                 <br><button onclick="selectTeam(${index})">Add to League</button>`;
             teamsList.appendChild(teamDiv);
         });
@@ -37,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
                         ${selectedLeagueTeams.some(t => t.name === team.name) ? "checked" : ""}>
                     <span class="team-name">${team.name}</span>
                 </label>
-                <div class="team-players"><strong>Players:</strong> ${team.players.join(", ")}</div>
+                <div class="team-players"><strong>Players:</strong> ${team.players.length > 0 ? team.players.join(", ") : "None"}</div>
             `;
             leagueTeamsContainer.appendChild(li);
         });
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!selectedLeagueTeams.find(team => team.name === teams[index].name)) {
             selectedLeagueTeams.push(teams[index]);
             updateSelectedTeams();
+            saveLeagueTeams();
         }
     };
 
@@ -58,7 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
             const teamDiv = document.createElement("div");
             teamDiv.classList.add("team-card");
             teamDiv.innerHTML = `
-                <strong>${team.name}</strong> 
+                <strong>${team.name}</strong><br>
+                <div class="team-players"><strong>Players:</strong> ${team.players.length > 0 ? team.players.join(", ") : "None"}</div>
                 <button onclick="removeTeam(${index})">Remove</button>`;
             selectedTeams.appendChild(teamDiv);
         });
@@ -68,7 +71,14 @@ document.addEventListener("DOMContentLoaded", () => {
     window.removeTeam = (index) => {
         selectedLeagueTeams.splice(index, 1);
         updateSelectedTeams();
+        saveLeagueTeams();
     };
+
+    // Save selected league teams to localStorage
+    function saveLeagueTeams() {
+        localStorage.setItem("selectedLeagueTeams", JSON.stringify(selectedLeagueTeams));
+        console.log("Saved League Teams:", selectedLeagueTeams);
+    }
 
     // Confirm League Selection (for checkbox-based selection)
     confirmLeagueSelectionBtn.addEventListener("click", () => {
@@ -84,7 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        localStorage.setItem("selectedLeagueTeams", JSON.stringify(selectedLeagueTeams));
+        saveLeagueTeams();
         alert("Teams selected successfully!");
         updateSelectedTeams();
     });
