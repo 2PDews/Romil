@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Player Profile - CricOnBoard</title>
+    <title>Player Profile</title>
     <link rel="stylesheet" href="Profile.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- For Pie Chart -->
 </head>
 <body>
 
     <div class="profile-container">
-        <h2>Player Profile</h2>
+        <h1>Player Profile</h1>
 
-        <!-- Profile Picture Upload -->
-        <div class="profile-pic-section">
-            <label for="profile-pic-input">
+        <!-- Profile Picture -->
+        <div class="profile-pic-container">
+            <label for="profile-pic-upload">
                 <img id="profile-pic" src="default-avatar.png" alt="Profile Picture">
             </label>
-            <input type="file" id="profile-pic-input" accept="image/*">
+            <input type="file" id="profile-pic-upload" accept="image/*">
         </div>
 
-        <!-- Player Information Form -->
+        <!-- Profile Info -->
         <div class="profile-info">
             <label>Name:</label>
-            <input type="text" id="player-name" placeholder="Enter your name" required>
+            <input type="text" id="player-name" placeholder="Enter your name">
 
             <label>Date of Birth:</label>
-            <input type="date" id="dob" required>
+            <input type="date" id="dob">
 
             <label>Batting Style:</label>
             <select id="batting-style">
@@ -36,44 +36,51 @@
 
             <label>Playing Role:</label>
             <select id="playing-role">
-                <option value="All">All-Rounder</option>
-                <option value="Top-order">Top-order</option>
-                <option value="Middle-order">Middle-order</option>
-                <option value="WK batter">WK Batter</option>
-                <option value="Bowler">Bowler</option>
-                <option value="Opening batter">Opening Batter</option>
-                <option value="LO Batter">LO Batter</option>
-                <option value="MO Batter">MO Batter</option>
+                <option>All</option>
+                <option>Top-order</option>
+                <option>Middle-order</option>
+                <option>WK batter</option>
+                <option>Bowler</option>
+                <option>Opening batter</option>
+                <option>LO Batter</option>
+                <option>MO Batter</option>
             </select>
 
             <label>Bowling Style:</label>
             <select id="bowling-style">
-                <option value="RA fast">Right Arm Fast</option>
-                <option value="LA fast">Left Arm Fast</option>
-                <option value="RA medium">Right Arm Medium</option>
-                <option value="LA medium">Left Arm Medium</option>
-                <option value="Slow orthodox">Slow Orthodox</option>
-                <option value="Chinaman">Chinaman</option>
-                <option value="RA off-break">Right Arm Off-break</option>
-                <option value="RA leg-break">Right Arm Leg-break</option>
+                <option>RA Fast</option>
+                <option>LA Fast</option>
+                <option>RA Medium</option>
+                <option>LA Medium</option>
+                <option>Slow Orthodox</option>
+                <option>Chinaman</option>
+                <option>RA Off Break</option>
+                <option>RA Leg Break</option>
             </select>
+        </div>
 
-            <!-- Jersey Selection -->
-            <label>Choose Jersey:</label>
-            <input type="file" id="jersey-upload" accept="image/*">
+        <!-- Jersey Selection -->
+        <div class="jersey-section">
+            <label>Jersey Number:</label>
+            <input type="number" id="jersey-number" min="0" max="99">
             <div class="jersey-preview">
-                <img id="jersey-preview-img" src="default-jersey.png" alt="Jersey Preview">
+                <img src="jersey-template.png" alt="Jersey">
+                <span id="jersey-no-preview">00</span>
             </div>
         </div>
 
-        <!-- Stats Display (Pie Chart) -->
-        <h3>Your Stats</h3>
-        <canvas id="statsChart"></canvas>
+        <!-- Stats Section -->
+        <div class="stats-section">
+            <h2>Your Stats</h2>
+            <canvas id="stats-chart"></canvas>
+        </div>
 
         <!-- Previous Matches Section -->
-        <h3>Previous Matches</h3>
-        <div id="previous-matches">
-            <p>No previous matches available.</p>
+        <div class="previous-matches">
+            <h2>Previous Matches</h2>
+            <ul id="matches-list">
+                <!-- Matches will be populated dynamically -->
+            </ul>
         </div>
 
     </div>
