@@ -10,104 +10,96 @@ document.addEventListener("DOMContentLoaded", () => {
     const playersList = document.getElementById("playersList");
     const confirmPlayersBtn = document.getElementById("confirmPlayersBtn");
 
-    let selectedTeam = null;
-    let players = JSON.parse(localStorage.getItem("players")) || [];
     let teams = JSON.parse(localStorage.getItem("teams")) || [];
+    let players = JSON.parse(localStorage.getItem("players")) || [];
+    let selectedTeam = null;
 
-    // Load saved teams on page load
-    function loadTeams() {
+    // Display Teams on Page Load
+    function displayTeams() {
         teamsContainer.innerHTML = "";
-        teams.forEach(team => {
-            addTeamToDOM(team.name, team.players);
+        teams.forEach((team, index) => {
+            addTeamToDOM(team, index);
         });
     }
 
-    // Add Team
-    addTeamBtn.addEventListener("click", () => {
-        const teamName = teamNameInput.value.trim();
-        if (teamName) {
-            addTeamToDOM(teamName, []);
-            teams.push({ name: teamName, players: [] });
-            saveTeamsToLocalStorage();
-            teamNameInput.value = "";
-        }
-    });
-
-    // Function to add a team to the DOM
-    function addTeamToDOM(teamName, teamPlayers) {
+    // Add Team to DOM
+    function addTeamToDOM(team, index) {
         const li = document.createElement("li");
         li.innerHTML = `
-            <span class="team-name">${teamName}</span>
-            <div class="team-players"><strong>Players:</strong> ${teamPlayers.join(", ")}</div>
+            <span class="team-name">${team.name}</span>
+            <div class="team-players"><strong>Players:</strong> ${team.players.length > 0 ? team.players.join(", ") : "None"}</div>
             <div class="buttons">
-                <button class="add-players-btn" onclick="openPlayerModal(this)">Add Players</button>
-                <button class="delete-btn" onclick="deleteTeam(this)">Remove</button>
+                <button class="add-players-btn" onclick="openPlayerModal(${index})">Add Players</button>
+                <button class="delete-btn" onclick="removeTeam(${index})">Remove</button>
             </div>
         `;
         teamsContainer.appendChild(li);
     }
 
-    // Delete Team
-    window.deleteTeam = (btn) => {
-        const li = btn.closest("li");
-        const teamName = li.querySelector(".team-name").textContent;
+    // Add Team
+    addTeamBtn.addEventListener("click", () => {
+        const teamName = teamNameInput.value.trim();
+        if (!teamName) return alert("Enter a team name");
 
-        // Remove from local storage
-        teams = teams.filter(team => team.name !== teamName);
-        saveTeamsToLocalStorage();
+        if (teams.some(team => team.name === teamName)) {
+            return alert("Team already exists!");
+        }
 
-        // Remove from UI
-        li.remove();
+        const newTeam = { name: teamName, players: [] };
+        teams.push(newTeam);
+        saveTeams();
+        teamNameInput.value = "";
+        displayTeams();
+    });
+
+    // Remove Team
+    window.removeTeam = (index) => {
+        teams.splice(index, 1);
+        saveTeams();
+        displayTeams();
     };
 
     // Open Player Modal
-    window.openPlayerModal = (btn) => {
-        playerModal.style.display = "block";
-        selectedTeam = btn.closest("li");
-        selectedTeamName.textContent = selectedTeam.querySelector(".team-name").textContent;
+    window.openPlayerModal = (teamIndex) => {
+        selectedTeam = teamIndex;
+        selectedTeamName.textContent = teams[teamIndex].name;
         loadPlayersList();
+        playerModal.style.display = "block";
     };
 
-    // Load players from MainAddPlayers.html
+    // Load Players List (For Selection)
     function loadPlayersList() {
         playersList.innerHTML = "";
-        players.forEach((player) => {
+        players.forEach(player => {
             const li = document.createElement("li");
-            li.innerHTML = `<input type="checkbox" value="${player}"> ${player}`;
+            li.innerHTML = `<input type="checkbox" value="${player}" ${teams[selectedTeam].players.includes(player) ? "checked" : ""}> ${player}`;
             playersList.appendChild(li);
         });
     }
 
     // Confirm Player Selection
     confirmPlayersBtn.addEventListener("click", () => {
-        const selectedPlayers = [];
-        document.querySelectorAll("#playersList input:checked").forEach((checkbox) => {
+        let selectedPlayers = [];
+        document.querySelectorAll("#playersList input:checked").forEach(checkbox => {
             selectedPlayers.push(checkbox.value);
         });
 
-        const teamName = selectedTeam.querySelector(".team-name").textContent;
-        const teamIndex = teams.findIndex(team => team.name === teamName);
-        if (teamIndex !== -1) {
-            teams[teamIndex].players = selectedPlayers;
-            saveTeamsToLocalStorage();
-        }
-
-        const teamPlayersDiv = selectedTeam.querySelector(".team-players");
-        teamPlayersDiv.innerHTML = `<strong>Players:</strong> ${selectedPlayers.join(", ")}`;
-
+        teams[selectedTeam].players = selectedPlayers;
+        saveTeams();
+        displayTeams();
         playerModal.style.display = "none";
     });
 
-    // Save teams to local storage
-    function saveTeamsToLocalStorage() {
+    // Save Teams to Local Storage
+    function saveTeams() {
         localStorage.setItem("teams", JSON.stringify(teams));
     }
 
-    // Close Modal
+    // Close Player Modal
     closeModal.addEventListener("click", () => {
         playerModal.style.display = "none";
     });
 
-    // Load teams from local storage on page load
-    loadTeams();
+    // Load Teams on Page Load
+    displayTeams();
 });
