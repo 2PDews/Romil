@@ -9,6 +9,8 @@ document.addEventListener("DOMContentLoaded", () => {
     let teams = JSON.parse(localStorage.getItem("teams")) || [];
     let selectedLeagueTeams = JSON.parse(localStorage.getItem("selectedLeagueTeams")) || [];
 
+    console.log("Loading Teams in AddLeagueTeams:", teams); // Debugging log
+
     // Display all teams for selection
     function displayTeams() {
         teamsList.innerHTML = "";
@@ -22,9 +24,10 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Load teams for league selection
+    // Load teams for league selection (checkbox UI)
     function loadTeamsForLeagueSelection() {
         leagueTeamsContainer.innerHTML = "";
+
         teams.forEach(team => {
             const li = document.createElement("li");
             li.classList.add("team-item");
@@ -40,7 +43,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Select team for the league
+    // Select team for the league (button-based selection)
     window.selectTeam = (index) => {
         if (!selectedLeagueTeams.find(team => team.name === teams[index].name)) {
             selectedLeagueTeams.push(teams[index]);
@@ -67,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
         updateSelectedTeams();
     };
 
-    // Confirm League Selection
+    // Confirm League Selection (for checkbox-based selection)
     confirmLeagueSelectionBtn.addEventListener("click", () => {
         selectedLeagueTeams = [];
         document.querySelectorAll(".team-select-checkbox:checked").forEach(checkbox => {

@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const playersList = document.getElementById("playersList");
     const confirmPlayersBtn = document.getElementById("confirmPlayersBtn");
 
+    // Retrieve teams from localStorage
     let teams = JSON.parse(localStorage.getItem("teams")) || [];
     let players = JSON.parse(localStorage.getItem("players")) || [];
     let selectedTeam = null;
@@ -93,6 +94,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Save Teams to Local Storage
     function saveTeams() {
         localStorage.setItem("teams", JSON.stringify(teams));
+        console.log("Saved Teams:", teams);  // Debugging line
     }
 
     // Close Player Modal
