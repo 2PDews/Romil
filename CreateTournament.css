@@ -222,7 +222,7 @@ button:hover {
         font-size: 16px;
     }
 }
-
+/* Popup */
 .custom-popup {
     position: fixed;
     top: 50%;
@@ -237,14 +237,18 @@ button:hover {
     font-family: "Orbitron", sans-serif;
     animation: fadeIn 0.3s ease-in-out;
     z-index: 1000;
+    width: 300px;
 }
-
 .custom-popup p {
     margin: 0 0 15px;
     font-size: 18px;
 }
-
-.custom-popup button {
+.custom-popup .popup-options {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+.custom-popup .popup-options button {
     background: rgba(255, 0, 255, 0.8);
     border: none;
     color: white;
@@ -253,20 +257,17 @@ button:hover {
     border-radius: 5px;
     cursor: pointer;
     box-shadow: 0 0 10px rgba(255, 0, 255, 0.8);
+    transition: all 0.3s ease;
 }
-
-.custom-popup button:hover {
+.custom-popup .popup-options button:hover {
     background: rgba(255, 0, 255, 1);
     box-shadow: 0 0 15px rgba(255, 0, 255, 1);
 }
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translate(-50%, -55%);
-    }
-    to {
-        opacity: 1;
-        transform: translate(-50%, -50%);
-    }
+.custom-popup button:last-child {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ff00ff;
+    box-shadow: none;
+}
+.custom-popup button:last-child:hover {
+    background: rgba(255, 255, 255, 0.3);
 }

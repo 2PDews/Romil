@@ -31,14 +31,23 @@
       <div class="button">
         <div>Cricket</div>
       </div>
-      <div class="button">
-        <div>Individual</div>
+      <div class="button" onclick="openPopup()">
+        <div>Tournament Type</div>
       </div>
-     
     </div>
     <div class="next-button">
       <button id="next-btn" onclick="saveTournamentName()">Select League Players</button>
     </div>
+  </div>
+
+  <!-- Popup -->
+  <div id="popup" class="custom-popup" style="display: none;">
+    <p>Select Tournament Type:</p>
+    <div class="popup-options">
+      <button onclick="selectOption('Individual')">Individual</button>
+      <button onclick="selectOption('Teams')">Teams</button>
+    </div>
+    <button onclick="closePopup()">Cancel</button>
   </div>
 
   <script src="CreateTournament.js"></script>

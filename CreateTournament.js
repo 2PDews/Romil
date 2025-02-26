@@ -76,17 +76,42 @@ function getTournament() {
     }
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    let individualButton = document.getElementById("individual-btn");
-    let teamsButton = document.getElementById("teams-btn");
+// Open the popup
+function openPopup() {
+    document.getElementById("popup").style.display = "block";
+}
 
-    if (individualButton && teamsButton) {
-        teamsButton.addEventListener("click", function () {
-            window.location.href = "LeaguAddTeams.html"; // Redirects to teams page
-        });
+// Close the popup
+function closePopup() {
+    document.getElementById("popup").style.display = "none";
+}
 
-        individualButton.addEventListener("click", function () {
-            closePopup(); // If needed, just closes the popup
-        });
+// Select an option from the popup
+function selectOption(option) {
+    alert(`Selected: ${option}`);
+    closePopup();
+}
+
+// Update character count
+function updateCharCount() {
+    const input = document.getElementById("name");
+    const charCount = document.getElementById("charCount");
+    const maxLength = 40;
+    const currentLength = input.value.length;
+
+    if (currentLength > maxLength) {
+        input.value = input.value.substring(0, maxLength); // Trim excess characters
     }
-});
+
+    charCount.textContent = `${currentLength}/${maxLength}`;
+}
+
+// Save tournament name
+function saveTournamentName() {
+    const tournamentName = document.getElementById("name").value.trim();
+    if (!tournamentName) {
+        alert("Please enter a tournament name.");
+        return;
+    }
+    alert(`Tournament Name Saved: ${tournamentName}`);
+}
