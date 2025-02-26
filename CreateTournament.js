@@ -1,39 +1,3 @@
-// Updates the character count dynamically
-/*function updateCharCount() {
-    const nameInput = document.getElementById('name');
-    const charCount = document.getElementById('charCount');
-    charCount.textContent = `${nameInput.value.length}/40`;
-}
-
-// Saves the tournament name to localStorage and navigates to the next page
-
-
- function UpdateCharCount() {
-            const charCount = document.getElementById('name').value.length;
-            document.getElementById('charCount').textContent = `${charCount}/40`;
-        }
-
-        // Save tournament name to localStorage and redirect
-
-        // JavaScript for CreateTournament.js
-        function saveTournamentName() {
-            const tournamentName = document.getElementById("name").value.trim();
-            
-            if (tournamentName === "") {
-              alert("Tournament name is required!");
-              return; // Prevent navigation
-            }
-            
-            // Store the tournament name (if required)
-            localStorage.setItem("currentTournamentName", tournamentName);
-            sessionStorage.setItem("currentTournamentName", tournamentName);
-            
-            // Redirect to the next page
-            window.location.href = "SelectFormat.html";
-          }
-          
-*/
-// Updates the character count dynamically
 // Function to update the character count dynamically
 function updateCharCount() {
     const input = document.getElementById("name");
@@ -71,20 +35,17 @@ function saveTournamentName() {
     localStorage.setItem("currentTournament", JSON.stringify(tournament));
     sessionStorage.setItem("currentTournament", JSON.stringify(tournament));
 
-    // Redirect to the next page
-    window.location.href = "AddLeaguePlayers.html";
-}
+    // Determine the selected tournament type
+    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
+    const selectedType = tournamentTypeButton.querySelector("div").textContent;
 
-// Function to retrieve and log the tournament data
-function getTournament() {
-    const tournament = JSON.parse(
-        localStorage.getItem("currentTournament") || sessionStorage.getItem("currentTournament")
-    );
-
-    if (tournament) {
-        console.log("Tournament:", tournament);
+    // Redirect based on the selected tournament type
+    if (selectedType === "Individual") {
+        window.location.href = "AddLeaguePlayers.html";
+    } else if (selectedType === "Teams") {
+        window.location.href = "AddLeagueTeams.html";
     } else {
-        console.log("No tournament found.");
+        showCustomPopup("Please select a valid tournament type.");
     }
 }
 
@@ -98,25 +59,22 @@ function closePopup() {
     document.getElementById("popup").style.display = "none";
 }
 
-// Function to update button text based on selection
-function selectOption(type) {
-    let nextButton = document.getElementById("next-btn");
+// Function to select an option from the popup and update the button texts
+function selectOption(option) {
+    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
+    const nextButton = document.getElementById("next-btn");
 
-    if (type === "Teams") {
-        nextButton.innerText = "Select Teams";
-    } else if (type === "Individual") {
+    // Update the "Tournament Type" button text
+    tournamentTypeButton.querySelector("div").textContent = option;
+
+    // Update the "Continue" button text based on the selected option
+    if (option === "Individual") {
         nextButton.innerText = "Select League Players";
+    } else if (option === "Teams") {
+        nextButton.innerText = "Select League Teams";
     }
 
     // Close the popup after selection
-    closePopup();
-}
-
-
-// Select an option from the popup and update the button text
-function selectOption(option) {
-    const tournamentTypeButton = document.getElementById("tournamentTypeButton");
-    tournamentTypeButton.querySelector("div").textContent = option; // Update the button text
     closePopup();
 }
 
