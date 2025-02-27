@@ -84,8 +84,8 @@ label {
 }
 
 .pattern-btn:hover, .pattern-btn.active {
-    background: linear-gradient(135deg, purple, cyan);
-    box-shadow: 0 0 20px purple, 0 0 40px cyan;
+    background: purple);
+    box-shadow:purple
     transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
