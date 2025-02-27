@@ -2,12 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jersey Customization</title>
     <link rel="stylesheet" href="ChooseJersey.css">
     <script src="script.js" defer></script>
 </head>
 <body>
+     <!-- Back Button -->
+    <div class="back-button">
+        <a href="index.html">
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
     <div class="container">
         <h1>Customize Your Jersey</h1>
         
@@ -34,15 +41,20 @@
             
         </div>
 
-        <!-- Jersey Preview -->
-        <div class="preview-section">
-            <h2>Jersey Preview</h2>
-            <div id="jerseyPreview" class="jersey"></div>
-        </div>
+  <!-- Jersey Preview Section -->
+<div class="preview-section">
+    <h2>Jersey Preview</h2>
+    <div id="jerseyPreviewContainer">
+        <img src="jersey-icon.png" alt="Jersey Icon" id="jerseyIcon">
+        <div id="jerseyPreview"></div>
+    </div>
+</div>
 
         <!-- Confirm Button -->
         <button onclick="confirmJersey()">Confirm Selection</button>
     </div>
+  
+  
     <script src="ChooseJersey.js"></script>
   
 </body>
