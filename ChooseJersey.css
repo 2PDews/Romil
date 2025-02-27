@@ -33,29 +33,23 @@ label {
     margin-top: 20px;
 }
 
-#jerseyPreviewContainer {
-    position: relative;
-    display: inline-block;
+.jersey-container {
     width: 200px;
     height: 250px;
-}
-
-#jerseyIcon {
-    width: 100%;
-    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: none;
 }
 
 #jerseyPreview {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: transparent; /* This will be dynamically updated */
-    z-index: 2;
-    border-radius: 10px;
 }
 
+#jerseyFill {
+    transition: all 0.3s ease-in-out;
+}
 
 /* Pattern Buttons */
 .pattern-btn {
