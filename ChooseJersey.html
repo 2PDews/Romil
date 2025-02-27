@@ -2,19 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jersey Customization</title>
+  <!-- Font Awesome CDN -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="ChooseJersey.css">
     <script src="script.js" defer></script>
 </head>
 <body>
-     <!-- Back Button -->
-    <div class="back-button">
-        <a href="index.html">
-            <i class="fas fa-arrow-left"></i>
-        </a>
-    </div>
+<!-- Back Button -->
+<div class="back-button">
+    <a href="index.html">
+        <i class="fas fa-arrow-left"></i>
+    </a>
+</div>
+
     <div class="container">
         <h1>Customize Your Jersey</h1>
         
@@ -41,26 +44,15 @@
             
         </div>
 
-<!-- Jersey Preview -->
-<div class="preview-section">
-    <h2>Jersey Preview</h2>
-    <div class="jersey-container">
-        <svg id="jerseyPreview" viewBox="0 0 200 250">
-            <defs>
-                <mask id="jerseyMask">
-                    <path fill="white" d="M20,50 Q40,10 80,10 Q120,10 140,50 L160,50 Q180,50 180,90 L180,210 Q180,230 160,240 L40,240 Q20,230 20,210 L20,90 Q20,50 40,50 Z"/>
-                </mask>
-            </defs>
-            <rect id="jerseyFill" width="100%" height="100%" mask="url(#jerseyMask)"></rect>
-        </svg>
-    </div>
-</div>
+        <!-- Jersey Preview -->
+        <div class="preview-section">
+            <h2>Jersey Preview</h2>
+            <div id="jerseyPreview" class="jersey"></div>
+        </div>
 
         <!-- Confirm Button -->
         <button onclick="confirmJersey()">Confirm Selection</button>
     </div>
-  
-  
     <script src="ChooseJersey.js"></script>
   
 </body>
