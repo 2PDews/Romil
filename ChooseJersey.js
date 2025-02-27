@@ -66,6 +66,7 @@ document.addEventListener("DOMContentLoaded", function () {
         window.location.href = "index.html";
     };
 
+
     // Back Button (Top Left Corner)
     const backButton = document.createElement("button");
     backButton.textContent = "← Back";
@@ -76,3 +77,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.prepend(backButton);
 });
+
