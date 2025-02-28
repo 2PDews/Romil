@@ -113,7 +113,7 @@
   /* 🔹 Responsive Adjustments */
   @media (max-width: 768px) {
       h1 {
-          font-size: 28px;
+          font-size: 201px;
           text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
       }
   }
@@ -125,22 +125,16 @@
       }
   }
 
-  /* 🔹 Enhanced Header Styling */
-  header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      
-      padding: 15px 30px;
-      color: white;
-      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-      backdrop-filter: blur(10px);
-      position: sticky;
-      top: 0;
-      z-index: 1000;    
+header {
+    position: fixed; /* Fixes header at the top */
+    width: 90%; /* Ensures full width */
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Keeps it above other content */
     background: #121E35;
     border-bottom: 2px solid rgba(0, 255, 255, 0.3);
-  }
+}
+
 
   /* 🔹 Right-side Header Icons */
   .header-icons {
@@ -652,7 +646,8 @@
     width: 45px;
     border-radius: 50%;  /* Makes it circular */
     object-fit: cover;  /* Ensures the image fills the circle */
-    margin-right: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
     vertical-align: middle;
 }
 
