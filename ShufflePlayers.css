@@ -198,3 +198,142 @@ li button:hover {
     width: 65%;
   }
 }
+
+
+/* Bottom Menu Bar */
+.bottom-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    background: #121E35;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.bottom-menu i {
+    font-size: 22px;
+    color: white;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.bottom-menu i:hover {
+    color: #00FFFF;
+    transform: scale(1.1);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .option {
+        width: 140px;
+        height: 140px;
+    }
+
+    .option i {
+        font-size: 30px;
+    }
+
+    .option h2 {
+        font-size: 16px;
+    }
+
+    .bottom-menu {
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    .option {
+        width: 120px;
+        height: 120px;
+    }
+
+    .option i {
+        font-size: 25px;
+    }
+
+    .option h2 {
+        font-size: 14px;
+    }
+
+    .bottom-menu {
+        height: 40px;
+    }
+}
+
+  /* Center CricOnBoard Logo Button */
+  .center-logo {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #00FFFF, #8A2BE2); /* Futuristic gradient */
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0; /* Prevents logo from shrinking */
+        margin-bottom: 40px/* Added bottom margin */
+
+  }
+
+/* Logo Image */
+.center-logo .logo-img {
+    width: 65px;  /* Increased size */
+    height: 65px; /* Increased size */
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+/* Hover Effect */
+.center-logo:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.9);
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 600px) {
+    .bottom-menu {
+        height: 55px;
+        padding: 0 12px;
+    }
+    .bottom-menu i {
+        font-size: 22px;
+        flex: 1;
+    }
+    .center-logo {
+        width: 80px;
+        height: 80px;
+    }
+    .center-logo .logo-img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+@media (max-width: 400px) {
+    .bottom-menu {
+        height: 60px;
+        padding: 0 12px;
+    }
+    .bottom-menu i {
+        font-size: 22px;
+    }
+    .center-logo {
+        width: 60px;
+        height: 60px;
+    }
+    .center-logo .logo-img {
+        width: 60px;
+        height: 60px;
+    }
+}
+
+
+
+
+
