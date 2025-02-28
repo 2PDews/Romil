@@ -4,6 +4,7 @@
     src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
     font-weight: normal;
     font-style: normal;
+  padding-bottom: 70px; /* Ensures content is not hidden behind the bottom menu */
 }
 
 /* General Styles */

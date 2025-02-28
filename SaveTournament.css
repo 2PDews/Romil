@@ -3,6 +3,7 @@ body {
     margin: 20px;
     background-color: #000; /* Black background */
     color: #FFD700; /* Golden Yellow text */
+  padding-bottom: 70px; /* Ensures content is not hidden behind the bottom menu */
 }
 
 h1 {

@@ -21,6 +21,8 @@ html, body {
     flex-direction: column;
     position: relative;
     font-family: 'Reospec', sans-serif; /* Apply Reospec font */
+      padding-bottom: 70px; /* Ensures content is not hidden behind the bottom menu */
+
 }
 
 /* Example Usage for Headings & Buttons */
