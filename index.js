@@ -77,3 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch(error => console.error(error));
 });
+
+
+
+
+
+
+ setTimeout(() => {
+            document.getElementById('loading-screen').style.display = 'none';
+            document.getElementById('main-content').classList.remove('hidden');
+        }, 5000);
