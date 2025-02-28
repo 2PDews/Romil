@@ -651,7 +651,7 @@
     width: 45px;
     border-radius: 50%;  /* Makes it circular */
     object-fit: cover;  /* Ensures the image fills the circle */
-    margin-right: 10px;
+    margin-right: 20px;
     vertical-align: middle;
 }
 
