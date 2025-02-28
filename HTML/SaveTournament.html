@@ -3,41 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tournaments</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="Tournament.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1">
 
+    <title>Save Tournaments</title>
+    <link rel="stylesheet" href="../CSS/SaveTournament.css">
 </head>
 <body>
-    <!-- Back Button -->
     <div class="back-button">
-        <a href="index.html">
+        <a href="Tournament.html">
             <i class="fas fa-arrow-left"></i>
         </a>
     </div>
 
-    <div class="nav-icons">
-        <i class="fas fa-trophy active"></i>
-    </div>
-    
+    <h1>Save Tournaments</h1>
 
-            <div>
-                <button id="create-tournament-btn">Create Tournament</button>
-                <button id="saved-tournament-btn">Save Tournaments </button>
+    <table id="tournamentsTable">
+        <thead>
+            <tr>
+                <th>Sr. No.</th>
+                <th>Tournament Name</th>
+                <th>Scorecard</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Tournament rows will be added here dynamically -->
+        </tbody>
+    </table>
 
-                <div>
-                  <body>
-    <div id="header-container"></div>
-
-    <div class="container" onclick="closeMenu(event)">
-   
-    </div>
-
-    <div id="footer-container"></div>
-
-              
-<!-- Bottom Menu Bar -->
+  
+  <!-- Bottom Menu Bar -->
 <div class="bottom-menu">
     <!-- Left Side: Follow Tournament & Search -->
     <i class="fas fa-eye" onclick="location.href='FollowTournament.html'"></i>
@@ -56,6 +50,6 @@
     <i class="fas fa-user" onclick="location.href='Profile.html'"></i>
 </div>
 
-    <script src="Tournament.js"></script>
+    <script src="../JS/SaveTournament.js"></script>
 </body>
 </html>
