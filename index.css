@@ -644,3 +644,32 @@
     height: 100%;
     z-index: 9999;
 }
+
+/* 🔹 Circular Header Logo */
+.header-logo {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;  /* Makes it circular */
+    object-fit: cover;  /* Ensures the image fills the circle */
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* 🔹 Circular Sidebar Logo */
+.sidebar-logo img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;  /* Circular shape */
+    object-fit: cover;
+    display: block;
+    margin: 10px auto;
+}
+
+/* 🔹 Circular Bottom Menu Logo */
+.center-logo img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
