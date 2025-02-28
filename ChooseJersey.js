@@ -71,14 +71,3 @@ document.addEventListener("DOMContentLoaded", function () {
         alert(`Jersey Confirmed with ${selectedPattern} pattern and Number ${jerseyNumber}!`);
         window.location.href = "index.html";
     };
-
-    // Back Button (Top Left Corner)
-    const backButton = document.createElement("button");
-    backButton.textContent = "← Back";
-    backButton.classList.add("back-button");
-    backButton.addEventListener("click", function () {
-        window.history.back();
-    });
-
-    document.body.prepend(backButton);
-});

@@ -8,6 +8,10 @@ body {
     overflow-x: hidden; /* Prevent horizontal scrolling */
   padding-bottom: 70px;
 }
+html, body {
+    overflow: auto; /* Allows scrolling */
+    height: 100%; 
+}
 
 .container {
     max-width: 500px;
@@ -169,6 +173,26 @@ button {
     animation: buttonGlow 1.5s infinite alternate;
 }
 
+
+button {
+    position: fixed; /* Stays visible on scroll */
+    bottom: 20px;
+    right: 20px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, purple, cyan);
+    color: white;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    animation: buttonGlow 1.5s infinite alternate;
+    box-shadow: 0 0 15px cyan, 0 0 30px purple;
+    z-index: 9999; /* Ensures button appears on top */
+}
+
 @keyframes buttonGlow {
     0% { box-shadow: 0 0 15px cyan, 0 0 30px purple; }
     100% { box-shadow: 0 0 30px purple, 0 0 60px cyan; }
@@ -177,13 +201,14 @@ button {
 button:hover {
     background: linear-gradient(90deg, purple, cyan);
     box-shadow: 0 0 30px cyan, 0 0 60px purple;
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 button:active {
     transform: scale(0.95);
     box-shadow: 0 0 10px cyan;
 }
+
 
 /* Star Container */
 .star-container {
