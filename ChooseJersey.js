@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function () {
     const patterns = {
         "Basic Patterns": ["Solid", "Stripes", "Checkered", "Gradient", "Diagonal Stripes"],
         "Textured Patterns": ["Polka Dots", "Chevron"],
-      
     };
 
     let selectedPattern = "solid"; // Default pattern
@@ -28,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
     populateDropdown("Basic Patterns", "basicPatterns");
     populateDropdown("Textured Patterns", "texturedPatterns");
-    populateDropdown("Special Effects", "specialPatterns");
 
     const firstButton = document.querySelector(".pattern-btn");
     if (firstButton) {
@@ -55,17 +53,24 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("secondaryColor").addEventListener("input", updateJerseyPreview);
 
     window.confirmJersey = function () {
+        const jerseyNumber = document.getElementById("jerseyNumber").value.trim(); // Get the Jersey Number
+
+        if (jerseyNumber === "") {
+            alert("Please enter the jersey number before confirming!"); // Show Error Message
+            return;
+        }
+
         const selectedJersey = {
             pattern: selectedPattern,
             primaryColor: document.getElementById("primaryColor").value,
-            secondaryColor: document.getElementById("secondaryColor").value
+            secondaryColor: document.getElementById("secondaryColor").value,
+            jerseyNumber: jerseyNumber, // Save Jersey Number
         };
 
         localStorage.setItem("selectedJerseyPattern", JSON.stringify(selectedJersey));
-        alert(`Jersey Confirmed with ${selectedPattern} pattern!`);
+        alert(`Jersey Confirmed with ${selectedPattern} pattern and Number ${jerseyNumber}!`);
         window.location.href = "index.html";
     };
-
 
     // Back Button (Top Left Corner)
     const backButton = document.createElement("button");
@@ -77,4 +82,3 @@ document.addEventListener("DOMContentLoaded", function () {
 
     document.body.prepend(backButton);
 });
-

@@ -1,44 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1">
     <title>Jersey Number Selection</title>
     <link rel="stylesheet" href="JerseyNo.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1, minimum-scale=1">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"></script>
+</head>
+<body>
 
-  </head>
-  <body>
-        <!-- Back Button -->
+    <!-- Back Button (Top Left Corner) -->
     <div class="back-button">
         <a href="index.html">
-            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-left"></i> 
         </a>
     </div>
+
+    <!-- Main Container -->
     <div class="jersey-number-container">
+        <h3>Select Your Jersey Number</h3>
 
-      <h3>Select Your Jersey Number</h3>
+        <!-- Input Field for Jersey Number -->
+        <input
+            type="text"
+            id="numberInput"
+            class="number-input"
+            placeholder="Enter Number"
+            onkeypress="return isNumberKey(event)"
+            maxlength="3"
+        />
 
-      <!-- Input Field -->
-      <input
-        type="text"
-        id="numberInput"
-        class="number-input"
-        placeholder="Enter Number"
-        onkeypress="return isNumberKey(event)"
-        maxlength="3"
-      />
+        <!-- Submit Button -->
+        <button class="submit-btn" onclick="displayJersey()">Submit</button>
 
-      <button class="submit-btn" onclick="displayJersey()">Submit</button>
+        <!-- Error Message (Hidden by Default) -->
+        <p id="error-message" class="error-message" style="display: none; color: red;">Please enter a valid jersey number!</p>
 
-      <!-- Jersey Display (Now directly below the input field) -->
-      <div class="jersey-display" id="jerseyDisplay" style="display: none">
-        <p>Jersey No: <span id="jerseyNumber"></span></p>
-      </div>
+        <!-- Jersey Display -->
+        <div class="jersey-display" id="jerseyDisplay" style="display: none">
+            <p>Jersey No: <span id="jerseyNumber"></span></p>
+        </div>
     </div>
 
-    <button class="back-button" onclick="goBack()"></button>
-
     <script src="JerseyNo.js"></script>
-  </body>
+</body>
 </html>

@@ -1,35 +1,50 @@
-document.getElementById("numberInput").addEventListener("input", function (e) {
-    // Remove non-numeric characters and limit to 3 digits
-    this.value = this.value.replace(/\D/g, "").slice(0, 3);
-});
+document.addEventListener("DOMContentLoaded", function () {
+    let numberInput = document.getElementById("numberInput");
+    let errorMessage = document.createElement("div");
+    errorMessage.id = "error-message";
+    errorMessage.classList.add("error-message");
+    errorMessage.textContent = "Please enter a valid jersey number!";
+    numberInput.parentNode.insertBefore(errorMessage, numberInput.nextSibling);
+    errorMessage.style.display = "none"; // Initially hidden
 
-function isNumberKey(event) {
-    let charCode = event.which ? event.which : event.keyCode;
-    return charCode >= 48 && charCode <= 57; // Only allow numbers (0-9)
-}
+    // Allow only numbers & limit to 3 digits
+    numberInput.addEventListener("input", function () {
+        this.value = this.value.replace(/\D/g, "").slice(0, 3);
+    });
 
-function displayJersey() {
-    let numberInput = document.getElementById("numberInput").value.trim();
+    function displayJersey() {
+        let jerseyNumber = numberInput.value.trim();
+        let jerseyDisplay = document.getElementById("jerseyDisplay");
+        let jerseyNumberSpan = document.getElementById("jerseyNumber");
 
-    if (numberInput === "" || isNaN(numberInput) || parseInt(numberInput) < 0) {
-        alert("Please enter a valid jersey number (0-999).");
-        return;
+        // Validation: Show error if empty or 0
+        if (jerseyNumber === "" || isNaN(jerseyNumber) || Number(jerseyNumber) < 1) {
+            errorMessage.style.display = "block";
+            jerseyDisplay.style.display = "none"; // Hide display if error
+            return;
+        }
+
+        // Hide error if input is valid
+        errorMessage.style.display = "none";
+
+        // Display jersey number
+        jerseyNumberSpan.textContent = jerseyNumber;
+        jerseyDisplay.style.display = "block";
+
+        // Smooth fade-in animation
+        jerseyDisplay.style.opacity = "0";
+        setTimeout(() => {
+            jerseyDisplay.style.opacity = "1";
+            jerseyDisplay.style.transition = "opacity 0.5s ease-in-out";
+        }, 100);
     }
 
-    localStorage.setItem("playerJerseyNumber", numberInput);
-    document.getElementById("jerseyNumber").innerText = numberInput;
-    
-    let displaySection = document.getElementById("jerseyDisplay");
-    displaySection.style.display = "block";
+    // Function to go back to the previous page
+    function goBack() {
+        window.history.back();
+    }
 
-    // Smooth fade-in animation
-    displaySection.style.opacity = "0";
-    setTimeout(() => {
-        displaySection.style.opacity = "1";
-        displaySection.style.transition = "opacity 0.5s ease-in-out";
-    }, 100);
-}
-
-function goBack() {
-    window.history.back();
-}
+    // Expose functions globally
+    window.displayJersey = displayJersey;
+    window.goBack = goBack;
+});

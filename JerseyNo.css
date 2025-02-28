@@ -120,3 +120,26 @@ h1 {
     width: fit-content;
     background: rgba(10, 25, 47, 0.8); /* Deep blue transparent */
 }
+
+
+/* Error Message - Neon Glow Effect */
+.error-message {
+    display: none; /* Initially hidden */
+    font-size: 14px;
+    font-weight: bold;
+    color: #ff3860; /* Neon Red (Cyberpunk Alert) */
+    text-shadow: 0 0 8px rgba(255, 56, 96, 0.9);
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+    border: 1px solid rgba(255, 56, 96, 0.6);
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    margin-top: 10px;
+    animation: blinkError 1s infinite alternate;
+}
+
+/* Blinking effect to grab attention */
+@keyframes blinkError {
+    0% { opacity: 1; }
+    100% { opacity: 0.6; }
+}
