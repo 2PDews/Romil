@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings | CricOnBoard</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="settings-container">
+        <h1>Settings</h1>
+
+        <!-- Profile Settings -->
+        <div class="setting">
+            <label for="username">Change Profile Name:</label>
+            <input type="text" id="username" placeholder="Enter new name">
+            <button onclick="saveProfile()">Save</button>
+        </div>
+
+        <!-- Theme Toggle -->
+        <div class="setting">
+            <label>Theme:</label>
+            <button id="themeToggle">Switch Theme</button>
+        </div>
+
+        <!-- Reset Button -->
+        <div class="setting">
+            <button id="resetBtn">Reset Settings</button>
+        </div>
+    </div>
+
+    <script src="settings.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+/* Cyberpunk Theme */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0A192F;
+    color: #00FFFF;
+    text-align: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+/* Settings Container */
+.settings-container {
+    width: 80%;
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(10, 25, 47, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 0 10px #00FFFF;
+}
+
+/* Input Fields & Buttons */
+.setting {
+    margin: 15px 0;
+}
+
+input {
+    padding: 8px;
+    border: 2px solid #00FFFF;
+    background: transparent;
+    color: #00FFFF;
+    outline: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px 15px;
+    margin-top: 5px;
+    background: #8A2BE2;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #00FFFF;
+    color: #0A192F;
+}
+
+/* Dark Theme */
+.dark-mode {
+    background-color: #111;
+    color: #8A2BE2;
+}
+
+.dark-mode .settings-container {
+    background: rgba(20, 20, 20, 0.9);
+    box-shadow: 0 0 12px #8A2BE2;
+}
+
+.dark-mode input {
+    border-color: #8A2BE2;
+    color: #8A2BE2;
+}
