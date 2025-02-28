@@ -1,595 +1,595 @@
-/* Import Reospec Font */
-@font-face {
-    font-family: 'Reospec';
-    src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-/* General Styles */
-html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    overflow: hidden; /* Prevent scrolling */
-    background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
-    color: #00FFFF; 
-    overflow-y: auto; /* Enables vertical scrolling */
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    font-family: 'Reospec', sans-serif; /* Apply Reospec font */
-}
-
-/* Example Usage for Headings & Buttons */
-h1, h2, h3 {
-    font-family: 'Reospec', sans-serif;
-    font-weight: normal;
-}
-
-button {
-    font-family: 'Reospec', sans-serif;
-    font-size: 18px;
-    background: linear-gradient(45deg, #00FFFF, #8A2BE2);
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-    text-transform: uppercase;
-    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
-}
-
-button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
-}
-
-
-/* Overlay to Enhance Neon Effect */
-body::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 30%, rgba(10, 25, 47, 0.9) 100%);
-  z-index: -1;
-}
-
-/* Cricket Pitch Texture */
-body::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 80%;
-  height: 20%;
-  background: rgba(0, 0, 0, 0.3);
-  border-top: 2px solid rgba(0, 255, 255, 0.5);
-  border-radius: 50%;
-  box-shadow: 0px -10px 40px rgba(0, 255, 255, 0.3);
-  z-index: -1;
-}
-
-/* Container */
-.container {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-}
-
-/* Heading Animation */
-
-/* 🔹 Futuristic Header Title */
-h1 {
-    font-size: 32px;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: #00FFFF;
-    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(138, 43, 226, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    letter-spacing: 2px;
-    position: relative;
-    animation: flicker 2s infinite alternate;
-}
-
-/* 🔹 Title Neon Flicker Effect */
-@keyframes flicker {
-    0% { opacity: 1; text-shadow: 0 0 8px #00FFFF, 0 0 18px #8A2BE2; }
-    50% { opacity: 0.8; text-shadow: 0 0 15px #00FFFF, 0 0 25px #8A2BE2; }
-    100% { opacity: 1; text-shadow: 0 0 12px #00FFFF, 0 0 20px #8A2BE2; }
-}
-
-/* 🔹 Responsive Adjustments */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 28px;
-        text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-    }
-}
-
-@media (max-width: 480px) {
-    h1 {
-        font-size: 24px;
-        text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
-    }
-}
-
-/* 🔹 Enhanced Header Styling */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(0, 255, 255, 0.2)); /* Glassy effect */
-    padding: 15px 30px;
-    color: white;
-    border-bottom: 2px solid rgba(0, 255, 255, 0.4);
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* 🔹 Right-side Header Icons */
-.header-icons {
-    display: flex;
-    gap: 25px;
-}
-
-.header-icons i {
-    font-size: 22px;
-    cursor: pointer;
-    transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
-    text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
-}
-
-/* 🔹 Neon Hover Effect */
-.header-icons i:hover {
-    color: #00FFFF;
-    transform: scale(1.3);
-    text-shadow: 0 0 12px rgba(0, 255, 255, 1), 0 0 20px rgba(138, 43, 226, 0.8);
-}
-
-/* 🔹 Mobile Responsiveness */
-@media (max-width: 600px) {
-    header {
-        padding: 10px 20px;
-    }
-
-    .header-icons i {
-        font-size: 20px;
-    }
-}
-
-@media (max-width: 400px) {
-    header {
-        padding: 8px 15px;
-    }
-
-    .header-icons i {
-        font-size: 18px;
-    }
-}
-
-
-/* Main Options */
-main {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  max-width: 100%;
-}
-
-/* Option Box */
-.option {
-  background: linear-gradient(145deg, #00FFFF, #00CCFF); /* Electric Purple gradient */
-  border: 2px solid #1A0033;
-  border-radius: 15px;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 0px 5px 15px rgba(128, 0, 255, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.8);
-  transition: all 0.3s ease;
-  position: relative;
-}
-
-.option i {
-  font-size: 50px;
-  color: #0A192F;
-}
-
-.option h2 {
-  margin-top: 10px;
-  color: #FFFFFF;
-  font-size: 30px;
-  font-weight: bold;
-}
-
-.option a {
-  text-decoration: none;
-  color: inherit;
-}
-
-.option:hover {
-  transform: scale(1.1);
-  box-shadow: 0px 10px 25px rgba(128, 0, 255, 0.7), 0px 0px 15px rgba(0, 0, 0, 1);
-  background: linear-gradient(145deg, #9400D3, #4B0082);
-}
-
-/* Glossy Effect */
-.option:before {
-  content: '';
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 15px;
-  transform: translateY(-20px) rotate(-45deg);
-  z-index: 1;
-  pointer-events: none;
-}
-
-.option:hover:before {
-  background: rgba(255, 255, 255, 0.3);
-}
-
-/* Stadium Floodlight Glow */
-.floodlight {
-  position: absolute;
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(0, 255, 255, 0) 70%);
-  opacity: 0.7;
-  z-index: -1;
-}
-
-.floodlight.left {
-  top: 10%;
-  left: 5%;
-}
-
-.floodlight.right {
-  top: 10%;
-  right: 5%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  main {
-      padding: 20px;
-      margin-top: 0; /* Remove excess space */
+  /* Import Reospec Font */
+  @font-face {
+      font-family: 'Reospec';
+      src: url('https://cdn.glitch.global/55a60d88-a984-4cbb-a35b-7a6ebb653979/Reospec.otf?v=1740393583563') format('opentype');
+      font-weight: normal;
+      font-style: normal;
   }
 
-  .option {
-      width: 140px;
-      height: 140px;
+  /* General Styles */
+  html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden; /* Prevent scrolling */
+      background: url('cricket-stadium-bg.jpg') no-repeat center center/cover, #0A192F;
+      color: #00FFFF; 
+      overflow-y: auto; /* Enables vertical scrolling */
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      font-family: 'Reospec', sans-serif; /* Apply Reospec font */
   }
 
-  .option i {
-      font-size: 35px;
+  /* Example Usage for Headings & Buttons */
+  h1, h2, h3 {
+      font-family: 'Reospec', sans-serif;
+      font-weight: normal;
   }
 
-  .option h2 {
-      font-size: 16px;
+  button {
+      font-family: 'Reospec', sans-serif;
+      font-size: 18px;
+      background: linear-gradient(45deg, #00FFFF, #8A2BE2);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      text-transform: uppercase;
+      transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
   }
 
-  .floodlight {
-      width: 150px;
-      height: 150px;
+  button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 10px #00FFFF, 0 0 20px #8A2BE2;
   }
-}
 
 
-
-
-
-/* Header Styling */
-header {
-    background: linear-gradient(135deg, #9400FF, #00FFFF);
-    color: white;
-    padding: 15px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
-}
-
-/* Menu Icon */
-.menu-icon {
-    font-size: 24px;
-    cursor: pointer;
-}
-/* ✨ Sidebar Base Styling */
-#sidebar {
-    position: fixed;
-    left: -280px;
-    top: 0;
-    width: 280px;
-    height: 100%;
-    background: rgba(10, 25, 47, 0.95); /* Stronger glass effect */
-    backdrop-filter: blur(18px); /* Increased blur for depth */
-    box-shadow: 10px 0 30px rgba(0, 255, 255, 0.6);
-    transition: left 0.5s ease-in-out, transform 0.4s ease-in-out;
-    padding-top: 70px;
-    overflow-y: auto;
-    border-right: 3px solid rgba(0, 255, 255, 0.5);
-    z-index: 1000;
-}
-
-/* 🚀 Activate Sidebar */
-#sidebar.active {
-    left: 0;
-    transform: scale(1.05);
-    box-shadow: 12px 0 35px rgba(0, 255, 255, 0.8);
-}
-
-/* 🌟 Sidebar Neon Glow Scrollbar */
-#sidebar::-webkit-scrollbar {
-    width: 8px;
-}
-
-#sidebar::-webkit-scrollbar-thumb {
-    background: rgba(0, 255, 255, 0.7);
-    border-radius: 10px;
-    box-shadow: 0 0 18px rgba(0, 255, 255, 0.9);
-}
-
-#sidebar::-webkit-scrollbar-thumb:hover {
-    background: rgba(0, 255, 255, 1);
-}
-
-/* 🌀 Sidebar List */
-#sidebar ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-/* 🔥 Sidebar Items - Better Hover & Glow */
-#sidebar ul li {
-    padding: 18px 26px;
-    transition: all 0.4s ease-in-out;
-    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
-    position: relative;
-}
-
-/* 🌟 Neon Hover Glow Effect */
-#sidebar ul li:hover {
-    background: rgba(0, 255, 255, 0.2);
-    transform: scale(1.08);
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
-}
-
-/* 🔥 Active Page Highlight */
-#sidebar ul li.active {
-    background: rgba(0, 255, 255, 0.25);
-    box-shadow: 0 0 22px rgba(0, 255, 255, 0.9);
-    transform: scale(1.1);
-}
-
-/* ✨ Sidebar Links - Improved Futuristic Look */
-#sidebar ul li a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    font-size: 19px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    transition: transform 0.3s ease, color 0.3s ease;
-    position: relative;
-}
-
-/* ⚡ Neon Hover Animation */
-#sidebar ul li a:hover {
-    color: #00FFFF;
-    text-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF;
-    transform: translateX(14px);
-}
-
-/* 🔷 Sidebar Icons - More Dynamic */
-#sidebar ul li a i {
-    margin-right: 14px;
-    font-size: 24px;
-    transition: transform 0.3s ease, text-shadow 0.3s ease;
-}
-
-/* 💫 Rotate, Bounce & Glow Effect on Hover */
-#sidebar ul li a:hover i {
-    color: #00FFFF;
-    transform: rotate(360deg) scale(1.3);
-    text-shadow: 0 0 20px #00FFFF;
-}
-
-/* 🖥 Adjust Main Content When Sidebar is Open */
-#sidebar.active ~ .container {
-    margin-left: 280px;
-    transition: margin-left 0.5s ease-in-out;
-}
-
-/* 🚫 Disable Scroll When Sidebar is Open */
-body.active {
-    overflow: hidden;
-}
-
-/* 💡 Soft Glowing Edges */
-#sidebar::before {
+  /* Overlay to Enhance Neon Effect */
+  body::before {
     content: "";
     position: absolute;
     top: 0;
-    left: 100%;
-    width: 18px;
-    height: 100%;
-    background: linear-gradient(to right, rgba(0, 255, 255, 0.4), transparent);
-    opacity: 0.9;
-}
-
-/* 📱 Mobile Responsive Adjustments */
-@media (max-width: 768px) {
-    #sidebar {
-        width: 250px;
-    }
-
-    #sidebar.active ~ .container {
-        margin-left: 250px;
-    }
-}
-
-@media (max-width: 480px) {
-    #sidebar {
-        width: 220px;
-    }
-
-    #sidebar.active ~ .container {
-        margin-left: 0;
-    }
-
-    #sidebar ul li {
-        padding: 14px 22px;
-    }
-
-    #sidebar ul li a {
-        font-size: 17px;
-    }
-
-    #sidebar ul li a i {
-        font-size: 21px;
-    }
-}
-
-                                                                                                                                                                                                                                             
-/* Close Button Styling */
-.close-btn {
-    position: absolute;
-    top: 40px;
-    right: 20px;
-    font-size: 35px;
-    color: red;
-    cursor: pointer;
-    transition: 0.3s ease;
-}
-
-/* Cyberpunk Hover Effect */
-.close-btn:hover {
-    color: #00FFFF;
-    text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
-    transform: scale(1.2);
-  
-}
-
-/* Bottom Menu Bar */
-.bottom-menu {
-    position: fixed;
-    bottom: 0;
     left: 0;
     width: 100%;
-    height: 60px;
-    background: rgba(10, 25, 47, 0.9); /* Cyberpunk glass effect */
-    backdrop-filter: blur(10px);
+    height: 100%;
+    background: radial-gradient(circle, rgba(0, 255, 255, 0.1) 30%, rgba(10, 25, 47, 0.9) 100%);
+    z-index: -1;
+  }
+
+  /* Cricket Pitch Texture */
+  body::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 20%;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 2px solid rgba(0, 255, 255, 0.5);
+    border-radius: 50%;
+    box-shadow: 0px -10px 40px rgba(0, 255, 255, 0.3);
+    z-index: -1;
+  }
+
+  /* Container */
+  .container {
+    flex: 1;
     display: flex;
-    justify-content: space-around; /* Equal spacing for all items */
-    align-items: center;
-    padding: 0 15px;
-    box-shadow: 0 -4px 10px rgba(0, 255, 255, 0.3);
-    z-index: 1000;
-}
-
-/* Menu Icons */
-.bottom-menu i {
-    font-size: 22px;
-    color: white;
-    transition: transform 0.3s ease, color 0.3s ease;
-    cursor: pointer;
-    flex: 1; /* Ensures equal spacing */
-    text-align: center;
-}
-
-/* Neon Hover Effect */
-.bottom-menu i:hover {
-    color: #00FFFF;
-    text-shadow: 0 0 12px #00FFFF, 0 0 24px #00FFFF;
-    transform: scale(1.1);
-}
-
-/* Center CricOnBoard Logo Button */
-.center-logo {
-    width: 80px;
-    height: 80px;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #00FFFF, #8A2BE2); /* Futuristic gradient */
-    border-radius: 50%;
-    box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    flex-shrink: 0; /* Prevents logo from shrinking */
-      margin-bottom: 40px/* Added bottom margin */
+    padding: 20px;
+  }
 
-}
+  /* Heading Animation */
 
-/* Logo Image */
-.center-logo .logo-img {
-    width: 45px;
-    height: 45px;
-    object-fit: contain;
-    border-radius: 50%;
-}
+  /* 🔹 Futuristic Header Title */
+  h1 {
+      font-size: 32px;
+      font-weight: bold;
+      text-transform: uppercase;
+      color: #00FFFF;
+      text-shadow: 0 0 10px rgba(0, 255, 255, 0.8), 0 0 20px rgba(138, 43, 226, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 0;
+      letter-spacing: 2px;
+      position: relative;
+      animation: flicker 2s infinite alternate;
+  }
 
-/* Hover Effect */
-.center-logo:hover {
-    transform: scale(1.15);
-    box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
-}
+  /* 🔹 Title Neon Flicker Effect */
+  @keyframes flicker {
+      0% { opacity: 1; text-shadow: 0 0 8px #00FFFF, 0 0 18px #8A2BE2; }
+      50% { opacity: 0.8; text-shadow: 0 0 15px #00FFFF, 0 0 25px #8A2BE2; }
+      100% { opacity: 1; text-shadow: 0 0 12px #00FFFF, 0 0 20px #8A2BE2; }
+  }
 
-/* Mobile Responsiveness */
-@media (max-width: 600px) {
-    .bottom-menu {
-        height: 50px;
-        padding: 0 10px;
-    }
-    .bottom-menu i {
-        font-size: 20px;
-        flex: 1; /* Ensures spacing remains balanced */
-    }
-    .center-logo {
-        width: 70px;
-        height: 70px;
-    }
-    .center-logo .logo-img {
-        width: 70px;
-        height: 70px;
-    }
-}
+  /* 🔹 Responsive Adjustments */
+  @media (max-width: 768px) {
+      h1 {
+          font-size: 28px;
+          text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+      }
+  }
 
-@media (max-width: 400px) {
-    .bottom-menu {
-        height: 55px;
-        padding: 0 10px;
+  @media (max-width: 480px) {
+      h1 {
+          font-size: 24px;
+          text-shadow: 0 0 6px rgba(0, 255, 255, 0.6);
+      }
+  }
+
+  /* 🔹 Enhanced Header Styling */
+  header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: linear-gradient(135deg, rgba(10, 25, 47, 0.8), rgba(0, 255, 255, 0.2)); /* Glassy effect */
+      padding: 15px 30px;
+      color: white;
+      border-bottom: 2px solid rgba(0, 255, 255, 0.4);
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+  }
+
+  /* 🔹 Right-side Header Icons */
+  .header-icons {
+      display: flex;
+      gap: 25px;
+  }
+
+  .header-icons i {
+      font-size: 22px;
+      cursor: pointer;
+      transition: color 0.3s ease-in-out, transform 0.2s ease-in-out;
+      text-shadow: 0 0 8px rgba(0, 255, 255, 0.8);
+  }
+
+  /* 🔹 Neon Hover Effect */
+  .header-icons i:hover {
+      color: #00FFFF;
+      transform: scale(1.3);
+      text-shadow: 0 0 12px rgba(0, 255, 255, 1), 0 0 20px rgba(138, 43, 226, 0.8);
+  }
+
+  /* 🔹 Mobile Responsiveness */
+  @media (max-width: 600px) {
+      header {
+          padding: 10px 20px;
+      }
+
+      .header-icons i {
+          font-size: 20px;
+      }
+  }
+
+  @media (max-width: 400px) {
+      header {
+          padding: 8px 15px;
+      }
+
+      .header-icons i {
+          font-size: 18px;
+      }
+  }
+
+
+  /* Main Options */
+  main {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    max-width: 100%;
+  }
+
+  /* Option Box */
+  .option {
+    background: linear-gradient(145deg, #00FFFF, #00CCFF); /* Electric Purple gradient */
+    border: 2px solid #1A0033;
+    border-radius: 15px;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 5px 15px rgba(128, 0, 255, 0.5), 0px 0px 10px rgba(0, 0, 0, 0.8);
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .option i {
+    font-size: 50px;
+    color: #0A192F;
+  }
+
+  .option h2 {
+    margin-top: 10px;
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+  }
+
+  .option a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .option:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 10px 25px rgba(128, 0, 255, 0.7), 0px 0px 15px rgba(0, 0, 0, 1);
+    background: linear-gradient(145deg, #9400D3, #4B0082);
+  }
+
+  /* Glossy Effect */
+  .option:before {
+    content: '';
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    transform: translateY(-20px) rotate(-45deg);
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  .option:hover:before {
+    background: rgba(255, 255, 255, 0.3);
+  }
+
+  /* Stadium Floodlight Glow */
+  .floodlight {
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.6) 10%, rgba(0, 255, 255, 0) 70%);
+    opacity: 0.7;
+    z-index: -1;
+  }
+
+  .floodlight.left {
+    top: 10%;
+    left: 5%;
+  }
+
+  .floodlight.right {
+    top: 10%;
+    right: 5%;
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    main {
+        padding: 20px;
+        margin-top: 0; /* Remove excess space */
     }
-    .bottom-menu i {
-        font-size: 20px;
+
+    .option {
+        width: 140px;
+        height: 140px;
     }
-    .center-logo {
-        width: 50px;
-        height: 50px;
+
+    .option i {
+        font-size: 35px;
     }
-    .center-logo .logo-img {
-        width: 45px;
-        height: 45px;
+
+    .option h2 {
+        font-size: 16px;
     }
-}
+
+    .floodlight {
+        width: 150px;
+        height: 150px;
+    }
+  }
+
+
+
+
+
+  /* Header Styling */
+  header {
+      background: linear-gradient(135deg, #9400FF, #00FFFF);
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+  }
+
+  /* Menu Icon */
+  .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+  }
+  /* ✨ Sidebar Base Styling */
+  #sidebar {
+      position: fixed;
+      left: -280px;
+      top: 0;
+      width: 280px;
+      height: 100%;
+      background: rgba(10, 25, 47, 0.95); /* Stronger glass effect */
+      backdrop-filter: blur(18px); /* Increased blur for depth */
+      box-shadow: 10px 0 30px rgba(0, 255, 255, 0.6);
+      transition: left 0.5s ease-in-out, transform 0.4s ease-in-out;
+      padding-top: 70px;
+      overflow-y: auto;
+      border-right: 3px solid rgba(0, 255, 255, 0.5);
+      z-index: 1000;
+  }
+
+  /* 🚀 Activate Sidebar */
+  #sidebar.active {
+      left: 0;
+      transform: scale(1.05);
+      box-shadow: 12px 0 35px rgba(0, 255, 255, 0.8);
+  }
+
+  /* 🌟 Sidebar Neon Glow Scrollbar */
+  #sidebar::-webkit-scrollbar {
+      width: 8px;
+  }
+
+  #sidebar::-webkit-scrollbar-thumb {
+      background: rgba(0, 255, 255, 0.7);
+      border-radius: 10px;
+      box-shadow: 0 0 18px rgba(0, 255, 255, 0.9);
+  }
+
+  #sidebar::-webkit-scrollbar-thumb:hover {
+      background: rgba(0, 255, 255, 1);
+  }
+
+  /* 🌀 Sidebar List */
+  #sidebar ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+  }
+
+  /* 🔥 Sidebar Items - Better Hover & Glow */
+  #sidebar ul li {
+      padding: 18px 26px;
+      transition: all 0.4s ease-in-out;
+      border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+      position: relative;
+  }
+
+  /* 🌟 Neon Hover Glow Effect */
+  #sidebar ul li:hover {
+      background: rgba(0, 255, 255, 0.2);
+      transform: scale(1.08);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
+  }
+
+  /* 🔥 Active Page Highlight */
+  #sidebar ul li.active {
+      background: rgba(0, 255, 255, 0.25);
+      box-shadow: 0 0 22px rgba(0, 255, 255, 0.9);
+      transform: scale(1.1);
+  }
+
+  /* ✨ Sidebar Links - Improved Futuristic Look */
+  #sidebar ul li a {
+      color: white;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      font-size: 19px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      transition: transform 0.3s ease, color 0.3s ease;
+      position: relative;
+  }
+
+  /* ⚡ Neon Hover Animation */
+  #sidebar ul li a:hover {
+      color: #00FFFF;
+      text-shadow: 0 0 20px #00FFFF, 0 0 40px #00FFFF;
+      transform: translateX(14px);
+  }
+
+  /* 🔷 Sidebar Icons - More Dynamic */
+  #sidebar ul li a i {
+      margin-right: 14px;
+      font-size: 24px;
+      transition: transform 0.3s ease, text-shadow 0.3s ease;
+  }
+
+  /* 💫 Rotate, Bounce & Glow Effect on Hover */
+  #sidebar ul li a:hover i {
+      color: #00FFFF;
+      transform: rotate(360deg) scale(1.3);
+      text-shadow: 0 0 20px #00FFFF;
+  }
+
+  /* 🖥 Adjust Main Content When Sidebar is Open */
+  #sidebar.active ~ .container {
+      margin-left: 280px;
+      transition: margin-left 0.5s ease-in-out;
+  }
+
+  /* 🚫 Disable Scroll When Sidebar is Open */
+  body.active {
+      overflow: hidden;
+  }
+
+  /* 💡 Soft Glowing Edges */
+  #sidebar::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 100%;
+      width: 18px;
+      height: 100%;
+      background: linear-gradient(to right, rgba(0, 255, 255, 0.4), transparent);
+      opacity: 0.9;
+  }
+
+  /* 📱 Mobile Responsive Adjustments */
+  @media (max-width: 768px) {
+      #sidebar {
+          width: 250px;
+      }
+
+      #sidebar.active ~ .container {
+          margin-left: 250px;
+      }
+  }
+
+  @media (max-width: 480px) {
+      #sidebar {
+          width: 220px;
+      }
+
+      #sidebar.active ~ .container {
+          margin-left: 0;
+      }
+
+      #sidebar ul li {
+          padding: 14px 22px;
+      }
+
+      #sidebar ul li a {
+          font-size: 17px;
+      }
+
+      #sidebar ul li a i {
+          font-size: 21px;
+      }
+  }
+
+
+  /* Close Button Styling */
+  .close-btn {
+      position: absolute;
+      top: 40px;
+      right: 20px;
+      font-size: 35px;
+      color: red;
+      cursor: pointer;
+      transition: 0.3s ease;
+  }
+
+  /* Cyberpunk Hover Effect */
+  .close-btn:hover {
+      color: #00FFFF;
+      text-shadow: 0 0 10px #00FFFF, 0 0 20px #00FFFF;
+      transform: scale(1.2);
+
+  }
+
+  /* Bottom Menu Bar */
+  .bottom-menu {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 60px;
+      background: rgba(10, 25, 47, 0.9); /* Cyberpunk glass effect */
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-around; /* Equal spacing for all items */
+      align-items: center;
+      padding: 0 15px;
+      box-shadow: 0 -4px 10px rgba(0, 255, 255, 0.3);
+      z-index: 1000;
+  }
+
+  /* Menu Icons */
+  .bottom-menu i {
+      font-size: 22px;
+      color: white;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+      flex: 1; /* Ensures equal spacing */
+      text-align: center;
+  }
+
+  /* Neon Hover Effect */
+  .bottom-menu i:hover {
+      color: #00FFFF;
+      text-shadow: 0 0 12px #00FFFF, 0 0 24px #00FFFF;
+      transform: scale(1.1);
+  }
+
+  /* Center CricOnBoard Logo Button */
+  .center-logo {
+      width: 80px;
+      height: 80px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #00FFFF, #8A2BE2); /* Futuristic gradient */
+      border-radius: 50%;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      flex-shrink: 0; /* Prevents logo from shrinking */
+        margin-bottom: 40px/* Added bottom margin */
+
+  }
+
+  /* Logo Image */
+  .center-logo .logo-img {
+      width: 45px;
+      height: 45px;
+      object-fit: contain;
+      border-radius: 50%;
+  }
+
+  /* Hover Effect */
+  .center-logo:hover {
+      transform: scale(1.15);
+      box-shadow: 0 0 25px rgba(0, 255, 255, 0.8);
+  }
+
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+      .bottom-menu {
+          height: 50px;
+          padding: 0 10px;
+      }
+      .bottom-menu i {
+          font-size: 20px;
+          flex: 1; /* Ensures spacing remains balanced */
+      }
+      .center-logo {
+          width: 70px;
+          height: 70px;
+      }
+      .center-logo .logo-img {
+          width: 70px;
+          height: 70px;
+      }
+  }
+
+  @media (max-width: 400px) {
+      .bottom-menu {
+          height: 55px;
+          padding: 0 10px;
+      }
+      .bottom-menu i {
+          font-size: 20px;
+      }
+      .center-logo {
+          width: 50px;
+          height: 50px;
+      }
+      .center-logo .logo-img {
+          width: 45px;
+          height: 45px;
+      }
+  }
 
