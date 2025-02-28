@@ -83,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
 
- setTimeout(() => {
+  setTimeout(() => {
             document.getElementById('loading-screen').style.display = 'none';
             document.getElementById('main-content').classList.remove('hidden');
-        }, 5000);
+        }, 2700);
